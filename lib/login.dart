@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/Home.dart';
+import 'package:motor_avenue/Home.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
 
