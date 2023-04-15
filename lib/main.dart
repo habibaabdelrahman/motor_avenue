@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 //import 'package:graduation_project/splash.dart';
 //import 'package:graduation_project/Home.dart';
-import 'package:graduation_project/car_details.dart';
-import 'package:graduation_project/login.dart';
+//import 'package:graduation_project/car_details.dart';
+//import 'package:graduation_project/login.dart';
+import 'package:motor_avenue/car_details.dart';
 
 void main() => runApp(const MyApp());
 
