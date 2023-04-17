@@ -19,8 +19,6 @@ class car_details extends StatelessWidget {
                 Color.fromRGBO(196, 187, 159, 1.0),
                 Color.fromRGBO(0, 0, 0, 0.96),
 
-               /* Color.fromRGBO(0, 0, 0, 1),
-                Color.fromRGBO(208, 196, 153, 0.7058823529411765),*/
               ],
             ),
           ),
@@ -85,7 +83,6 @@ class car_details extends StatelessWidget {
                                 children: <Widget>[
                                   Stack(
                               children: <Widget>[
-
                                   Center(
                                     child:Padding(padding: const EdgeInsets.only(top: 7),
                                   child: Icon(Icons.maximize_rounded,color: Colors.white,size: 60,),),),

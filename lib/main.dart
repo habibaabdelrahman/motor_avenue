@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motor_avenue/Home.dart';
+import 'package:motor_avenue/LiveAuction.dart';
 import 'package:motor_avenue/car_details.dart';
 import 'package:motor_avenue/login.dart';
 import 'package:motor_avenue/splash.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: _title,
-      home: splash(),
+      home: LiveAuction(),
     );
   }
 }
