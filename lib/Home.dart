@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motor_avenue/LiveAuction.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -193,7 +194,12 @@ class Home extends StatelessWidget {
                     Expanded(
                       child:Center(
                    child: TextButton(
-                     onPressed: () {},
+                     onPressed: () {
+                       Navigator.push(
+                         context,
+                         MaterialPageRoute(builder: (context) => LiveAuction()),
+                       );
+                     },
                      child:SizedBox(
                        height: 30,
                        width: 91,
