@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:motor_avenue/Home.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 class LiveAuction extends StatelessWidget {
-  const LiveAuction ({Key? key}) : super(key: key);
+
+  final _controllar=PageController();
 
 
   @override
@@ -35,8 +37,7 @@ class LiveAuction extends StatelessWidget {
                         color: Colors.white,
                         padding: const EdgeInsets.only(top: 50, left:20)
                     ),
-                    Expanded(
-                      child:
+                    Expanded(child:
                     Center(
                       child:  Container(
                         margin: const EdgeInsets.only(top: 60),
@@ -49,7 +50,12 @@ class LiveAuction extends StatelessWidget {
                     ),
                     IconButton(
                         icon: const Icon(Icons.share_outlined),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Home()),
+                          );
+                        },
                         iconSize: 35,
                         color: Colors.white,
                         padding: const EdgeInsets.only(top: 50,right: 20)
@@ -57,6 +63,11 @@ class LiveAuction extends StatelessWidget {
                   ],
                 ),
 
+                SizedBox(
+                  height: 680,
+                  child:PageView(
+                    controller: _controllar,
+                    children:[
                 Stack(
                   children:[
                 WidgetAnimator(
@@ -65,7 +76,8 @@ class LiveAuction extends StatelessWidget {
                   child: Container(
                     margin: EdgeInsets.only(left: 10,right: 10,top: 20),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(21),topRight: Radius.circular(21)),
+                      borderRadius: BorderRadius.only(topLeft: Radius.circular(21),
+                          topRight: Radius.circular(21),bottomLeft: Radius.circular(21)),
                       gradient: LinearGradient(
                         colors: [
                           const Color.fromRGBO(30, 30, 30, 1),
@@ -109,7 +121,15 @@ class LiveAuction extends StatelessWidget {
                                         color: Colors.white,
                                       ),),
                                   ),
-                                ],),
+                                  IconButton(
+                                      icon: const Icon(Icons.arrow_forward_ios),
+                                      onPressed: () {},
+                                      iconSize: 35,
+                                      color: Colors.white,
+                                      padding: const EdgeInsets.only(left:325,top: 6)
+                                  ),
+                                ],
+                              ),
                             ],
                           ),
                         ],
@@ -118,26 +138,31 @@ class LiveAuction extends StatelessWidget {
                   ),
                 ),
 
-
                 WidgetAnimator(
                     incomingEffect: WidgetTransitionEffects.incomingSlideInFromBottom(
                       duration: Duration(seconds: 3),),
                     child:  Container(
-                      //padding: EdgeInsets.only(bottom: 5),
                       margin: const EdgeInsets.only(top: 74 ,left: 10,right: 10),
                       decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(bottomRight: Radius.circular(21),bottomLeft: Radius.circular(21)
+                            ),
                         gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
                           colors: [
                             const Color.fromRGBO(0, 0, 0, 0.13).withOpacity(0.2),
                             const Color.fromRGBO(95, 81, 45, 0.42).withOpacity(0.2),
                           ],
-                          end: FractionalOffset.bottomCenter,
-                          begin: FractionalOffset.topCenter,
                         ),
                       ),
-                      
-                      child: Container(
-                        margin: EdgeInsets.all(10),
+
+                       child:ListView(
+                         padding: EdgeInsets.only(top: 5),
+                         children: [
+                        Column(
+                        children: <Widget>[
+                       Container(
+                        margin: EdgeInsets.only(left: 10,right: 10,top: 5,bottom: 5),
                       child: InkWell(
                         onTap: () {
                         },
@@ -149,8 +174,11 @@ class LiveAuction extends StatelessWidget {
                       ),
                       ),
 
-                       child:Container(
-                        margin: EdgeInsets.all(10),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        margin: EdgeInsets.only(left: 10,right: 10,top: 5,bottom: 5),
                         child: InkWell(
                           onTap: () {
                           },
@@ -162,25 +190,333 @@ class LiveAuction extends StatelessWidget {
                         ),
                       ),
 
-                      child: Container(
-                        margin: EdgeInsets.all(10),
-                        child: InkWell(
-                          onTap: () {
-                          },
-                          child: Image.asset(
+                       Container(
+                         decoration: BoxDecoration(
+                           borderRadius: BorderRadius.circular(21),
+                         ),
+                         margin: EdgeInsets.only(left: 10,right: 10,top: 5,bottom: 5),
+                         child: InkWell(
+                           onTap: () {
+                           },
+                         child:Stack(
+                           children: [
+                             Image.asset(
                             'assets/images/car 1.png',
                             height: 187,
                             width: 400,
                           ),
-                        ),
-                      ),
+                             
+                             Flexible(
+                               fit: FlexFit.tight,
+                               child:Align(
+                                 alignment: Alignment.centerRight,
+                               child: Container(
+                                 height: 33,
+                                   constraints: BoxConstraints(
+                                     maxWidth: 260,
+                                   ),
+                                 decoration: BoxDecoration(
+                                   borderRadius: BorderRadius.only(bottomRight: Radius.circular(20),
+                                       topLeft: Radius.circular(21)),
+                                   color: Color.fromRGBO(255, 255, 255, 0.4),
+                                   boxShadow: [
+                                     BoxShadow(
+                                       color: Colors.grey.withOpacity(0.3),
+                                       spreadRadius: 3,
+                                       blurRadius: 20,
+                                       offset: Offset(0, 3), // changes position of shadow
+                                     ),
+                                   ],
+                                 ),
+                                 margin: const EdgeInsets.only(top: 149,),
+                                 child: Container(
+                                   child: Row(
+                                     children: [
+                                       Padding(padding: EdgeInsets.only(left: 9)),
+                                       Text('7 Days',
+                                         style: TextStyle(
+                                             fontSize: 20,
+                                             fontWeight: FontWeight.bold,
+                                             fontFamily: 'Hind'
+                                         ),
+                                       ),
 
+                                       VerticalDivider(
+                                         width: 20,
+                                         indent: 5,
+                                         endIndent: 5,
+                                         thickness: 3,
+                                         color: Colors.black,
+                                       ),
+
+                                       Text('BID',
+                                         style: TextStyle(
+                                             fontSize: 20,
+                                             fontWeight: FontWeight.bold,
+                                             fontFamily: 'Hind'
+                                         ),
+                                       ),
+
+
+                                       Icon(Icons.attach_money_sharp,size: 30,),
+
+                                       Text('967,000',
+                                         style: TextStyle(
+                                             fontSize: 20,
+                                             fontWeight: FontWeight.bold,
+                                             fontFamily: 'Hind'
+                                         ),
+                                       ),
+                                     ],
+                                   ),
+                                 )
+                             ),
+                         ),
+                         ),
+                           ]
+                         ),
+                      ),
+                       ),
+
+                          Container(
+                            margin: EdgeInsets.only(left: 10,right: 10,top: 5,bottom: 5),
+                            child: InkWell(
+                              onTap: () {
+                              },
+                              child: Image.asset(
+                                'assets/images/car 1.png',
+                                height: 187,
+                                width: 400,
+                              ),
+                            ),
+                          ),
+
+                          Container(
+                            margin: EdgeInsets.only(left: 10,right: 10,top: 5,bottom: 5),
+                            child: InkWell(
+                              onTap: () {
+                              },
+                              child: Image.asset(
+                                'assets/images/car 1.png',
+                                height: 187,
+                                width: 400,
+                              ),
+                            ),
+                          ),
+
+                          Container(
+                            margin: EdgeInsets.only(left: 10,right: 10,top: 5,bottom: 5),
+                            child: InkWell(
+                              onTap: () {
+                              },
+                              child: Image.asset(
+                                'assets/images/car 1.png',
+                                height: 187,
+                                width: 400,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                         ]
+    ),
                     )
                   ),
                   ]
                 ),
-              ]
-            ),
+
+                    Stack(
+                        children:[
+                             Container(
+                              margin: EdgeInsets.only(left: 10,right: 10,top: 20),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(topLeft: Radius.circular(21),
+                                    topRight: Radius.circular(21),bottomRight: Radius.circular(21)),
+                                gradient: LinearGradient(
+                                  colors: [
+                                    const Color.fromRGBO(30, 30, 30, 1),
+                                    const Color.fromRGBO(0, 0, 0, 0),
+                                  ],
+                                  begin: FractionalOffset.centerRight,
+                                  end: FractionalOffset.centerLeft,
+                                ),
+                              ),
+                              child: Container(
+                                child: Row(
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.end,
+                                      children: <Widget>[
+                                        Stack(
+                                          children:[
+                                            const Padding(padding: const EdgeInsets.only(top: 7,left: 235),
+                                              child: const Align(
+                                                alignment: Alignment.topLeft,
+                                                child: Text(' PASSED',textAlign: TextAlign.left,
+                                                  style: TextStyle(
+                                                    fontSize: 17,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontFamily: 'Hind',
+                                                    color: Colors.white,
+                                                  ),),
+                                              ),
+                                            ),
+                                            Container(
+                                              margin: EdgeInsets.only(left: 185),
+                                              child:Icon(Icons.av_timer,size: 50,color: Colors.white,),
+                                            ),
+                                            Container(
+                                              margin: const EdgeInsets.only(top: 22,left: 235,bottom: 4),
+                                              child: const Text('AUCTIONS',
+                                                style: const TextStyle(
+                                                  fontSize: 25,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontFamily: 'Hind',
+                                                  color: Colors.white,
+                                                ),),
+                                            ),
+                                            IconButton(
+                                                icon: const Icon(Icons.arrow_back_ios_new_outlined),
+                                                onPressed: () {},
+                                                iconSize: 35,
+                                                color: Colors.white,
+                                                padding: const EdgeInsets.only(left:10,top: 6)
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+
+
+
+
+                               Container(
+                                margin: const EdgeInsets.only(top: 74 ,left: 10,right: 10),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(21),bottomLeft: Radius.circular(21)
+                                  ),
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      const Color.fromRGBO(0, 0, 0, 0.13).withOpacity(0.2),
+                                      const Color.fromRGBO(95, 81, 45, 0.42).withOpacity(0.2),
+                                    ],
+                                  ),
+                                ),
+
+                                child:ListView(
+                                    padding: EdgeInsets.only(top: 5),
+                                    children: [
+                                      Column(
+                                        children: <Widget>[
+                                          Container(
+                                            margin: EdgeInsets.only(left: 10,right: 10,top: 5,bottom: 5),
+                                            child: InkWell(
+                                              onTap: () {
+                                              },
+                                              child: Image.asset(
+                                                'assets/images/car 1.png',
+                                                height: 187,
+                                                width: 400,
+                                              ),
+                                            ),
+                                          ),
+
+                                          Container(
+                                            margin: EdgeInsets.only(left: 10,right: 10,top: 5,bottom: 5),
+                                            child: InkWell(
+                                              onTap: () {
+                                              },
+                                              child: Image.asset(
+                                                'assets/images/car 1.png',
+                                                height: 187,
+                                                width: 400,
+                                              ),
+                                            ),
+                                          ),
+
+                                          Container(
+                                            margin: EdgeInsets.only(left: 10,right: 10,top: 5,bottom: 5),
+                                            child: InkWell(
+                                              onTap: () {
+                                              },
+                                              child: Image.asset(
+                                                'assets/images/car 1.png',
+                                                height: 187,
+                                                width: 400,
+                                              ),
+                                            ),
+                                          ),
+
+                                          Container(
+                                            margin: EdgeInsets.only(left: 10,right: 10,top: 5,bottom: 5),
+                                            child: InkWell(
+                                              onTap: () {
+                                              },
+                                              child: Image.asset(
+                                                'assets/images/car 1.png',
+                                                height: 187,
+                                                width: 400,
+                                              ),
+                                            ),
+                                          ),
+
+                                          Container(
+                                            margin: EdgeInsets.only(left: 10,right: 10,top: 5,bottom: 5),
+                                            child: InkWell(
+                                              onTap: () {
+                                              },
+                                              child: Image.asset(
+                                                'assets/images/car 1.png',
+                                                height: 187,
+                                                width: 400,
+                                              ),
+                                            ),
+                                          ),
+
+                                          Container(
+                                            margin: EdgeInsets.only(left: 10,right: 10,top: 5,bottom: 5),
+                                            child: InkWell(
+                                              onTap: () {
+                                              },
+                                              child: Image.asset(
+                                                'assets/images/car 1.png',
+                                                height: 187,
+                                                width: 400,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ]
+                                ),
+                              )
+                        ]
+                    ),
+                                ]
+                                ),
+                ),
+
+                SizedBox(height: 10,),
+
+                SmoothPageIndicator(
+                    controller: _controllar,
+                    count: 2,
+                  effect: ExpandingDotsEffect(
+                    activeDotColor: Colors.white,
+                    dotColor: Colors.white.withOpacity(0.5),
+                    dotHeight: 7,
+                    dotWidth: 9
+                  ),
+                )
+              ],
+          ),
+
         )
     );
   }

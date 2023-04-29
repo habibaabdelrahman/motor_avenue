@@ -11,12 +11,15 @@ class login extends StatelessWidget {
   get passwordController => null;
 
 
-
   @override
   Widget build(BuildContext context) {
+    final _formKey = GlobalKey<FormState>();
+    String _email = '', _password = '';
     bool _rememberMe = false;
     return Scaffold(
-        body:
+        body:SingleChildScrollView(
+          child:Column(
+            children: [
         Container(
           padding: const EdgeInsets.all(20.0),
           decoration: const BoxDecoration(
@@ -57,7 +60,7 @@ class login extends StatelessWidget {
                child: Stack(
                   children: [
                     Container(
-                      margin: const EdgeInsets.only(top: 87,bottom:40),
+                      margin: const EdgeInsets.only(top: 87,bottom:60),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(36),
                         gradient: LinearGradient(
@@ -70,8 +73,9 @@ class login extends StatelessWidget {
                           end: FractionalOffset.topCenter,
                         ),
                       ),
-                      child: Container(
-                        padding: const EdgeInsets.only(bottom: 20,top: 100),
+                      child: Form(
+                        key: _formKey,
+                       child:Padding( padding: const EdgeInsets.only(bottom: 20,top: 100),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
@@ -80,7 +84,11 @@ class login extends StatelessWidget {
                               width: 320,
                               height: 60,
                               margin: const EdgeInsets.only(top: 0 ),
-                              child: TextField(
+                              child: TextFormField(
+                                onChanged: (value) {
+                                  _email = value;
+                                },
+                                validator: (value) => value!.isEmpty ?'You must enter a valid email' : null,
                                 controller: nameController,
                                 decoration: const InputDecoration(
                                   border: OutlineInputBorder(
@@ -97,7 +105,6 @@ class login extends StatelessWidget {
                                       fontSize: 20,fontWeight: FontWeight.bold ),
                                   filled: true,
                                   fillColor: Colors.grey,
-
                                 ),
                               ),
                             ),
@@ -106,7 +113,11 @@ class login extends StatelessWidget {
                               width: 320,
                               height: 60,
                               margin: const EdgeInsets.only(top: 15),
-                              child: TextField(
+                              child: TextFormField(
+                                onChanged: (value) {
+                                  _password = value;
+                                },
+                                validator: (value) => value!.length <= 6 ? 'Your password must be larger than 6 characters' : null,
                                 obscureText: true,
                                 controller: passwordController,
                                 decoration: const InputDecoration(
@@ -129,15 +140,6 @@ class login extends StatelessWidget {
                                 ),
                               ),
                             ),
-                          /*  TextButton(
-                              onPressed: () {
-                                //forgot password screen
-                              },
-                              child: const Text('Forgot Password',
-                                style: TextStyle(color: Colors.black,
-                                    fontSize: 15,
-                                fontFamily: 'MontserratSubrayada'),),
-                            ),*/
 
                             SizedBox(height: 10,),
 
@@ -223,7 +225,7 @@ class login extends StatelessWidget {
                                     ),
                                   ),
                                   onPressed: () {
-                                    Navigator.push(
+                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(builder: (context) => Home()),
                                     );
@@ -256,6 +258,7 @@ class login extends StatelessWidget {
                           ],
                         ),
                       ),
+                      ),
                     ),
                     const Positioned(
                         top: 25,
@@ -269,7 +272,6 @@ class login extends StatelessWidget {
                               child: Icon(Icons.person_outline,
                                 size: 75,),
                               radius: 58,
-
                             )
                         )
                     )
@@ -279,7 +281,10 @@ class login extends StatelessWidget {
               ],
             ),
           ),
-        )
+        ),
+            ]
+    ),
+    )
     );
   }
 }
