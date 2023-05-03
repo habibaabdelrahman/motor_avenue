@@ -621,8 +621,8 @@ class Settings extends StatelessWidget {
                       ),
                     ),),
 
-                  Padding(padding: EdgeInsets.only(left: 95,top: 14),
-                    child: Icon(Icons.support_agent_outlined,size: 18,color: Colors.white,),),
+                  Padding(padding: EdgeInsets.only(left: 100,top: 14),
+                    child: Icon(Icons.headset_mic_outlined,size: 18,color: Colors.white,),),
                 ],
               ),
             ),
