@@ -77,99 +77,102 @@ class store extends StatelessWidget {
             ],
           ),*/
 
-          Stack(
-              children:[
-                WidgetAnimator(
-                  incomingEffect: WidgetTransitionEffects.incomingSlideInFromBottom(
-                    duration: Duration(seconds: 3),),
-                  child: Container(
-                    margin: EdgeInsets.only(left: 15,right: 15,top: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(15),topRight: Radius.circular(15)),
-                      gradient: LinearGradient(
-                        colors: [
-                          const Color.fromRGBO(217, 217, 217, 1),
-                          const Color.fromRGBO(217, 217, 217, 1),
-                        ],
-                        end: FractionalOffset.centerRight,
-                        begin: FractionalOffset.centerLeft,
-                      ),
-                    ),
-                    child: Container(
-                      child: Row(
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Stack(
-                                children:[
-                                  const Padding(padding: const EdgeInsets.only(top: 5,left: 49),
-                                    child: const Align(
-                                      alignment: Alignment.topLeft,
-                                      child: Text(' AVENUE',textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'Hind',
-                                          color: Colors.white,
-                                        ),),
+          Stack(children: [
+            WidgetAnimator(
+              incomingEffect: WidgetTransitionEffects.incomingSlideInFromBottom(
+                duration: Duration(seconds: 3),
+              ),
+              child: Container(
+                margin: EdgeInsets.only(left: 15, right: 15, top: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15)),
+                  gradient: LinearGradient(
+                    colors: [
+                      const Color.fromRGBO(217, 217, 217, 1),
+                      const Color.fromRGBO(217, 217, 217, 1),
+                    ],
+                    end: FractionalOffset.centerRight,
+                    begin: FractionalOffset.centerLeft,
+                  ),
+                ),
+                child: Container(
+                  child: Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Stack(
+                            children: [
+                              const Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 5, left: 49),
+                                child: const Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Text(
+                                    ' AVENUE',
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Hind',
+                                      color: Colors.white,
                                     ),
                                   ),
-                                  Container(
-                                    margin: EdgeInsets.only(left: 3),
-                                    child: Image.asset('assets/images/logo white.png',width: 37,)
+                                ),
+                              ),
+                              Container(
+                                  margin: EdgeInsets.only(left: 3),
+                                  child: Image.asset(
+                                    'assets/images/logo white.png',
+                                    width: 37,
+                                  )),
+                              Container(
+                                margin: const EdgeInsets.only(
+                                    top: 22, left: 49, bottom: 4),
+                                child: const Text(
+                                  'STORE',
+                                  style: const TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Hind',
+                                    color: Colors.white,
                                   ),
-                                  Container(
-                                    margin: const EdgeInsets.only(top: 22,left: 49,bottom: 4),
-                                    child: const Text('STORE',
-                                      style: const TextStyle(
-                                        fontSize: 25,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: 'Hind',
-                                        color: Colors.white,
-                                      ),),
-                                  ),
-                                ],),
+                                ),
+                              ),
                             ],
                           ),
                         ],
                       ),
-                    ),
+                    ],
                   ),
                 ),
-
-
-                WidgetAnimator(
-                    incomingEffect: WidgetTransitionEffects.incomingSlideInFromBottom(
-                      duration: Duration(seconds: 3),),
-                    child:  Container(
-                      //padding: EdgeInsets.only(bottom: 5),
-                      margin: const EdgeInsets.only(top: 30 ,left: 10,right: 10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(topLeft: Radius.circular(9),topRight: Radius.circular(9)),
-                        gradient: LinearGradient(
-                          colors: [
-                            const Color.fromRGBO(217, 217, 217, 1),
-                            const Color.fromRGBO(217, 217, 217, 1),
-                          ],
-                          end: FractionalOffset.bottomCenter,
-                          begin: FractionalOffset.topCenter,
-                        ),
-                      ),
-
-
-
-                    ),
+              ),
+            ),
+            WidgetAnimator(
+              incomingEffect: WidgetTransitionEffects.incomingSlideInFromBottom(
+                duration: Duration(seconds: 3),
+              ),
+              child: Container(
+                //padding: EdgeInsets.only(bottom: 5),
+                margin: const EdgeInsets.only(top: 30, left: 10, right: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(9),
+                      topRight: Radius.circular(9)),
+                  gradient: LinearGradient(
+                    colors: [
+                      const Color.fromRGBO(217, 217, 217, 1),
+                      const Color.fromRGBO(217, 217, 217, 1),
+                    ],
+                    end: FractionalOffset.bottomCenter,
+                    begin: FractionalOffset.topCenter,
+                  ),
                 ),
-              ]
-          ),
-
-
-
-
-
-
-
+              ),
+            ),
+          ]),
         ]),
       ),
     );

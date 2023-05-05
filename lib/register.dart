@@ -75,7 +75,6 @@ class register extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-
                       ///////////////////////////////FIRST_NAME TEXT_FIELD/////////////////////////////////////
                       Container(
                         //padding: const EdgeInsets.only(top: 2),
@@ -202,7 +201,6 @@ class register extends StatelessWidget {
                           ),
                         ),
                       ),
-
 
                       Row(
                         children: [
