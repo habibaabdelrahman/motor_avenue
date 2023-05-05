@@ -14,7 +14,6 @@ class login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
-    String _email = '', _password = '';
     bool _rememberMe = false;
     return Scaffold(
         body:SingleChildScrollView(
@@ -79,15 +78,14 @@ class login extends StatelessWidget {
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
+                            ///////////////////////////////E-MAIL TEXT_FIELD/////////////////////////////////////
                             Container(
                               //padding: const EdgeInsets.only(top: 2),
                               width: 320,
                               height: 60,
                               margin: const EdgeInsets.only(top: 0 ),
                               child: TextFormField(
-                                onChanged: (value) {
-                                  _email = value;
-                                },
+                                onChanged: (value) {},
                                 validator: (value) => value!.isEmpty ?'You must enter a valid email' : null,
                                 controller: nameController,
                                 decoration: const InputDecoration(
@@ -109,14 +107,14 @@ class login extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 20.0),
+
+                            ///////////////////////////////PASSWORD TEXT_FIELD/////////////////////////////////////
                             Container(
                               width: 320,
                               height: 60,
                               margin: const EdgeInsets.only(top: 15),
                               child: TextFormField(
-                                onChanged: (value) {
-                                  _password = value;
-                                },
+                                onChanged: (value) {},
                                 validator: (value) => value!.length <= 6 ? 'Your password must be larger than 6 characters' : null,
                                 obscureText: true,
                                 controller: passwordController,
@@ -202,6 +200,8 @@ class login extends StatelessWidget {
                               ],
                             ),
 
+                            ///////////////////////////////LOGIN BUTTON/////////////////////////////////////
+
                             Container(
                                 height: 43,
                                 width: 148,
@@ -229,8 +229,6 @@ class login extends StatelessWidget {
                                       context,
                                       MaterialPageRoute(builder: (context) => Home()),
                                     );
-                                    print(nameController.text);
-                                    print(passwordController.text);
                                   },
                                 )
                             ),
