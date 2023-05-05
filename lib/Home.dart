@@ -35,6 +35,7 @@ class Home extends StatelessWidget {
                 color: Colors.white,
               padding: const EdgeInsets.only(top: 40, left: 15)
             ),
+
             Expanded(child:
          Center(
           child:  Container(
@@ -46,6 +47,7 @@ class Home extends StatelessWidget {
         ),
          ),
             ),
+
             IconButton(
                 icon: const Icon(Icons.search),
                 onPressed: () {},
