@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
-class register extends StatefulWidget {
-  const register({Key? key}) : super(key: key);
+class register extends StatelessWidget {
 
-  @override
-  State<register> createState() => _registerState();
-}
-
-class _registerState extends State<register> {
   get nameController => null;
   get passwordController => null;
   late String email;
@@ -16,6 +10,8 @@ class _registerState extends State<register> {
 
   @override
   Widget build(BuildContext context) {
+    late String email;
+    late String password;
     return Scaffold(
         body: Container(
       padding: const EdgeInsets.all(5.0),
