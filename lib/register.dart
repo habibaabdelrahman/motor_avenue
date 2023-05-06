@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
-class register extends StatelessWidget {
+class register extends StatefulWidget {
   const register({Key? key}) : super(key: key);
 
-  get nameController => null;
+  @override
+  State<register> createState() => _registerState();
+}
 
+class _registerState extends State<register> {
+  get nameController => null;
   get passwordController => null;
+  late String email;
+  late String password;
 
   @override
   Widget build(BuildContext context) {
@@ -338,10 +344,7 @@ class register extends StatelessWidget {
                                           borderRadius:
                                               BorderRadius.circular(21.5))),
                                 ),
-                                onPressed: () {
-                                  print(nameController.text);
-                                  print(passwordController.text);
-                                },
+                                onPressed: () {},
                               )),
                         ],
                       ),

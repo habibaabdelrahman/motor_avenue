@@ -36,14 +36,14 @@ class Settings extends StatelessWidget {
                       child: Stack(
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(right: 150, top: 6),
+                            padding: const EdgeInsets.only(right: 150, top: 6),
                             child: Image.asset(
                               'assets/images/logo white.png',
                               height: 37,
                               width: 37,
                             ),
                           ),
-                          Padding(
+                          const Padding(
                             padding: EdgeInsets.only(left: 40.5, top: 4),
                             child: Text(
                               'SETTINGS',
@@ -55,7 +55,7 @@ class Settings extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Padding(
+                          const Padding(
                             padding: EdgeInsets.only(left: 214, top: 26),
                             child: Icon(
                               Icons.settings_outlined,
@@ -73,7 +73,7 @@ class Settings extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Stack(
-                children: [
+                children: const [
                   Padding(
                     padding: EdgeInsets.only(left: 20, top: 25),
                     child: Text(
@@ -97,7 +97,7 @@ class Settings extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 7,
             ),
             Container(
@@ -105,11 +105,11 @@ class Settings extends StatelessWidget {
               height: 110,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Color.fromRGBO(0, 0, 0, 0.33).withOpacity(0.2),
+                color: const Color.fromRGBO(0, 0, 0, 0.33).withOpacity(0.2),
               ),
               child: Stack(
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: 23, top: 26),
                     child: Positioned(
                         child: Text(
@@ -123,9 +123,9 @@ class Settings extends StatelessWidget {
                     )),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 23, top: 43),
+                    padding: const EdgeInsets.only(left: 23, top: 43),
                     child: Container(
-                        child: Text(
+                        child: const Text(
                       'ACTION',
                       style: TextStyle(
                         fontSize: 18,
@@ -135,16 +135,12 @@ class Settings extends StatelessWidget {
                       ),
                     )),
                   ),
-                  /*Padding(padding: EdgeInsets.only(left: 87,top: 40),
-                    child: Container(
-                        child:  Icon(Icons.,size: 21,color: Colors.white,)
-                    ),
-                  ),*/
+
 
                   Padding(
-                    padding: EdgeInsets.only(left: 23, top: 59),
+                    padding: const EdgeInsets.only(left: 23, top: 59),
                     child: Container(
-                        child: Text(
+                        child: const Text(
                       'ON',
                       style: TextStyle(
                         fontSize: 18,
@@ -155,9 +151,9 @@ class Settings extends StatelessWidget {
                     )),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 23, top: 75),
+                    padding: const EdgeInsets.only(left: 23, top: 75),
                     child: Container(
-                        child: Text(
+                        child: const Text(
                       'ACCOUNT',
                       style: TextStyle(
                         fontSize: 18,
@@ -168,15 +164,15 @@ class Settings extends StatelessWidget {
                     )),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 105, top: 76),
+                    padding: const EdgeInsets.only(left: 105, top: 76),
                     child: Container(
-                        child: Icon(
+                        child: const Icon(
                       Icons.person_pin,
                       size: 20,
                       color: Colors.white,
                     )),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: 9),
                     child: VerticalDivider(
                       width: 20,
@@ -187,38 +183,33 @@ class Settings extends StatelessWidget {
                     ),
                   ),
                   Container(
-                      height: 44.81,
-                      width: 67.42,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.3),
-                            spreadRadius: 3,
-                            blurRadius: 20,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
+                      height: 80,
+                      width: 180,
                       margin: const EdgeInsets.only(
-                        top: 40,
-                        left: 280,
+                        top: 10,
+                        left: 170,
                       ),
                       child: TextButton(
-                        child: Icon(
-                          Icons.arrow_forward_ios_outlined,
-                          size: 30,
+                        child: const Center(
+                          child: Text(
+                            'CHANGE PASSWORD',
+                            style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w800,
+                              fontFamily: 'Hind',
+                              color: Colors.black,
+                            ),
+                          ),
                         ),
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
-                              Color.fromRGBO(255, 255, 255, 0.4)),
+                              const Color.fromRGBO(217, 217, 217, 1)),
                           foregroundColor:
-                              MaterialStateProperty.all<Color>(Colors.white),
+                          MaterialStateProperty.all<Color>(Colors.white),
                           shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                          MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                  bottomRight: Radius.circular(21),
-                                  topLeft: Radius.circular(21)),
+                              borderRadius: BorderRadius.circular(11),
                             ),
                           ),
                         ),
@@ -230,7 +221,7 @@ class Settings extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Stack(
-                children: [
+                children: const [
                   Padding(
                     padding: EdgeInsets.only(left: 20, top: 13),
                     child: Text(
@@ -254,7 +245,7 @@ class Settings extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 3,
             ),
             Container(
@@ -262,11 +253,11 @@ class Settings extends StatelessWidget {
               height: 110,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Color.fromRGBO(0, 0, 0, 0.33).withOpacity(0.2),
+                color: const Color.fromRGBO(0, 0, 0, 0.33).withOpacity(0.2),
               ),
               child: Stack(
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: 28, top: 21),
                     child: Positioned(
                         child: Text(
@@ -280,9 +271,9 @@ class Settings extends StatelessWidget {
                     )),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 28, top: 38),
+                    padding: const EdgeInsets.only(left: 28, top: 38),
                     child: Container(
-                        child: Text(
+                        child: const Text(
                       'ACTION',
                       style: TextStyle(
                         fontSize: 18,
@@ -292,16 +283,11 @@ class Settings extends StatelessWidget {
                       ),
                     )),
                   ),
-                  /*Padding(padding: EdgeInsets.only(left: 87,top: 40),
-                    child: Container(
-                        child:  Icon(Icons.,size: 21,color: Colors.white,)
-                    ),
-                  ),*/
 
                   Padding(
-                    padding: EdgeInsets.only(left: 28, top: 54),
+                    padding: const EdgeInsets.only(left: 28, top: 54),
                     child: Container(
-                        child: Text(
+                        child: const Text(
                       'ON',
                       style: TextStyle(
                         fontSize: 18,
@@ -312,9 +298,9 @@ class Settings extends StatelessWidget {
                     )),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 28, top: 69),
+                    padding: const EdgeInsets.only(left: 28, top: 69),
                     child: Container(
-                        child: Text(
+                        child: const Text(
                       'ACCOUNT',
                       style: TextStyle(
                         fontSize: 18,
@@ -325,15 +311,15 @@ class Settings extends StatelessWidget {
                     )),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 110, top: 70),
+                    padding: const EdgeInsets.only(left: 110, top: 70),
                     child: Container(
-                        child: Icon(
+                        child: const Icon(
                       Icons.person_pin,
                       size: 20,
                       color: Colors.white,
                     )),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: 15),
                     child: VerticalDivider(
                       width: 20,
@@ -354,7 +340,7 @@ class Settings extends StatelessWidget {
                         child: Center(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: const [
                               Text(
                                 'LOGOUT',
                                 style: TextStyle(
@@ -374,7 +360,7 @@ class Settings extends StatelessWidget {
                         ),
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
-                              Color.fromRGBO(217, 217, 217, 1)),
+                              const Color.fromRGBO(217, 217, 217, 1)),
                           foregroundColor:
                               MaterialStateProperty.all<Color>(Colors.white),
                           shape:
@@ -397,7 +383,7 @@ class Settings extends StatelessWidget {
                         child: Center(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: const [
                               Text(
                                 'DELETE ACCOUNT',
                                 style: TextStyle(
@@ -417,7 +403,7 @@ class Settings extends StatelessWidget {
                         ),
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
-                              Color.fromRGBO(217, 217, 217, 1)),
+                              const Color.fromRGBO(217, 217, 217, 1)),
                           foregroundColor:
                               MaterialStateProperty.all<Color>(Colors.white),
                           shape:
@@ -435,7 +421,7 @@ class Settings extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Stack(
-                children: [
+                children: const [
                   Padding(
                     padding: EdgeInsets.only(left: 20, top: 13),
                     child: Text(
@@ -459,7 +445,7 @@ class Settings extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 3,
             ),
             Container(
@@ -467,11 +453,11 @@ class Settings extends StatelessWidget {
               height: 100,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Color.fromRGBO(0, 0, 0, 0.33).withOpacity(0.2),
+                color: const Color.fromRGBO(0, 0, 0, 0.33).withOpacity(0.2),
               ),
               child: Stack(
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: 28, top: 16),
                     child: Positioned(
                         child: Text(
@@ -485,9 +471,9 @@ class Settings extends StatelessWidget {
                     )),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 28, top: 32),
+                    padding: const EdgeInsets.only(left: 28, top: 32),
                     child: Container(
-                        child: Text(
+                        child: const Text(
                       'CONTROL',
                       style: TextStyle(
                         fontSize: 18,
@@ -504,9 +490,9 @@ class Settings extends StatelessWidget {
                   ),*/
 
                   Padding(
-                    padding: EdgeInsets.only(left: 28, top: 48),
+                    padding: const EdgeInsets.only(left: 28, top: 48),
                     child: Container(
-                        child: Text(
+                        child: const Text(
                       'OF',
                       style: TextStyle(
                         fontSize: 18,
@@ -517,9 +503,9 @@ class Settings extends StatelessWidget {
                     )),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 28, top: 64),
+                    padding: const EdgeInsets.only(left: 28, top: 64),
                     child: Container(
-                        child: Text(
+                        child: const Text(
                       'SECURITY',
                       style: TextStyle(
                         fontSize: 18,
@@ -530,15 +516,15 @@ class Settings extends StatelessWidget {
                     )),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 110, top: 66),
+                    padding: const EdgeInsets.only(left: 110, top: 66),
                     child: Container(
-                        child: Icon(
+                        child: const Icon(
                       Icons.lock_outline_sharp,
                       size: 17,
                       color: Colors.white,
                     )),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: 15),
                     child: VerticalDivider(
                       width: 20,
@@ -556,7 +542,7 @@ class Settings extends StatelessWidget {
                         left: 170,
                       ),
                       child: TextButton(
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             'CHANGE PASSWORD',
                             style: TextStyle(
@@ -569,7 +555,7 @@ class Settings extends StatelessWidget {
                         ),
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
-                              Color.fromRGBO(217, 217, 217, 1)),
+                              const Color.fromRGBO(217, 217, 217, 1)),
                           foregroundColor:
                               MaterialStateProperty.all<Color>(Colors.white),
                           shape:
@@ -587,7 +573,7 @@ class Settings extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Stack(
-                children: [
+                children: const [
                   Padding(
                     padding: EdgeInsets.only(left: 20, top: 13),
                     child: Text(
@@ -611,7 +597,7 @@ class Settings extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 3,
             ),
             Container(
@@ -619,11 +605,11 @@ class Settings extends StatelessWidget {
               height: 80,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Color.fromRGBO(0, 0, 0, 0.33).withOpacity(0.2),
+                color: const Color.fromRGBO(0, 0, 0, 0.33).withOpacity(0.2),
               ),
               child: Stack(
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: 28, top: 13),
                     child: Positioned(
                         child: Text(
@@ -637,9 +623,9 @@ class Settings extends StatelessWidget {
                     )),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 28, top: 30),
+                    padding: const EdgeInsets.only(left: 28, top: 30),
                     child: Container(
-                        child: Text(
+                        child: const Text(
                       'YOUR',
                       style: TextStyle(
                         fontSize: 18,
@@ -650,9 +636,9 @@ class Settings extends StatelessWidget {
                     )),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 28, top: 46),
+                    padding: const EdgeInsets.only(left: 28, top: 46),
                     child: Container(
-                        child: Text(
+                        child: const Text(
                       'LANGUAGE',
                       style: TextStyle(
                         fontSize: 18,
@@ -662,7 +648,7 @@ class Settings extends StatelessWidget {
                       ),
                     )),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: 15),
                     child: VerticalDivider(
                       width: 20,
@@ -680,7 +666,7 @@ class Settings extends StatelessWidget {
                         left: 170,
                       ),
                       child: TextButton(
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             'CHANGE PASSWORD',
                             style: TextStyle(
@@ -693,7 +679,7 @@ class Settings extends StatelessWidget {
                         ),
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
-                              Color.fromRGBO(217, 217, 217, 1)),
+                              const Color.fromRGBO(217, 217, 217, 1)),
                           foregroundColor:
                               MaterialStateProperty.all<Color>(Colors.white),
                           shape:
@@ -711,7 +697,7 @@ class Settings extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Stack(
-                children: [
+                children: const [
                   Padding(
                     padding: EdgeInsets.only(left: 20, top: 13),
                     child: Text(
@@ -735,7 +721,7 @@ class Settings extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 3,
             ),
             Container(
@@ -743,11 +729,11 @@ class Settings extends StatelessWidget {
               height: 100,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Color.fromRGBO(0, 0, 0, 0.33).withOpacity(0.2),
+                color: const Color.fromRGBO(0, 0, 0, 0.33).withOpacity(0.2),
               ),
               child: Stack(
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: 28, top: 15),
                     child: Positioned(
                         child: Text(
@@ -761,9 +747,9 @@ class Settings extends StatelessWidget {
                     )),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 28, top: 31),
+                    padding: const EdgeInsets.only(left: 28, top: 31),
                     child: Container(
-                        child: Text(
+                        child: const Text(
                       'HRS',
                       style: TextStyle(
                         fontSize: 18,
@@ -780,9 +766,9 @@ class Settings extends StatelessWidget {
                   ),*/
 
                   Padding(
-                    padding: EdgeInsets.only(left: 28, top: 47),
+                    padding: const EdgeInsets.only(left: 28, top: 47),
                     child: Container(
-                        child: Text(
+                        child: const Text(
                       'CUSTOMER',
                       style: TextStyle(
                         fontSize: 18,
@@ -793,9 +779,9 @@ class Settings extends StatelessWidget {
                     )),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 28, top: 63),
+                    padding: const EdgeInsets.only(left: 28, top: 63),
                     child: Container(
-                        child: Text(
+                        child: const Text(
                       'SERVICE',
                       style: TextStyle(
                         fontSize: 18,
@@ -806,15 +792,15 @@ class Settings extends StatelessWidget {
                     )),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 100, top: 66),
+                    padding: const EdgeInsets.only(left: 100, top: 66),
                     child: Container(
-                        child: Icon(
+                        child: const Icon(
                       Icons.lock_outline_sharp,
                       size: 17,
                       color: Colors.white,
                     )),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: 15),
                     child: VerticalDivider(
                       width: 20,
@@ -832,7 +818,7 @@ class Settings extends StatelessWidget {
                         left: 170,
                       ),
                       child: TextButton(
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             'CONACT US',
                             style: TextStyle(
@@ -845,7 +831,7 @@ class Settings extends StatelessWidget {
                         ),
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
-                              Color.fromRGBO(217, 217, 217, 1)),
+                              const Color.fromRGBO(217, 217, 217, 1)),
                           foregroundColor:
                               MaterialStateProperty.all<Color>(Colors.white),
                           shape:
