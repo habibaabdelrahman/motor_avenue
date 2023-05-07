@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:motor_avenue/Home.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class register extends StatelessWidget {
+  final auth = FirebaseAuth.instance;
 
   get nameController => null;
+
   get passwordController => null;
   late String email;
   late String password;
@@ -144,6 +148,9 @@ class register extends StatelessWidget {
                         height: 60,
                         margin: const EdgeInsets.only(top: 0),
                         child: TextField(
+                          onChanged: (value) {
+                            email = value;
+                          },
                           controller: nameController,
                           decoration: const InputDecoration(
                             border: OutlineInputBorder(
@@ -177,6 +184,9 @@ class register extends StatelessWidget {
                         height: 60,
                         margin: const EdgeInsets.only(top: 15),
                         child: TextField(
+                          onChanged: (value) {
+                            password = value;
+                          },
                           obscureText: true,
                           controller: passwordController,
                           decoration: const InputDecoration(
@@ -340,7 +350,20 @@ class register extends StatelessWidget {
                                           borderRadius:
                                               BorderRadius.circular(21.5))),
                                 ),
-                                onPressed: () {},
+                                onPressed: () async {
+                                  try {
+                                    var user = await auth
+                                        .createUserWithEmailAndPassword(
+                                            email: email, password: password);
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Home(),
+                                        ));
+                                  } catch (e) {
+                                    print(e);
+                                  }
+                                },
                               )),
                         ],
                       ),
