@@ -252,7 +252,6 @@ class login extends StatelessWidget {
     child: ElevatedButton(
     child: const Text(
     'LOGIN',
-
     style: TextStyle(
     fontSize: 19,
     fontWeight: FontWeight.bold,
