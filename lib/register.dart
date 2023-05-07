@@ -27,7 +27,6 @@ class register extends StatelessWidget {
             Color.fromRGBO(0, 0, 0, 1),
             Color.fromRGBO(208, 196, 153, 0.7058823529411765),
           ],
-
         ),
 
 
