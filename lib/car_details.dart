@@ -468,7 +468,7 @@ class car_details extends StatelessWidget {
                           size: 17,
                         ),
                         Text(
-                          'CONDITION',
+                          'ENGINE CAPACITY',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 13,
@@ -476,7 +476,8 @@ class car_details extends StatelessWidget {
                               fontFamily: 'Hind'),
                         ),
                         Text(
-                          ' NEW',
+                          ' 8.0L'
+                              '',
                           style: TextStyle(
                               color: Colors.amber,
                               fontSize: 13,
