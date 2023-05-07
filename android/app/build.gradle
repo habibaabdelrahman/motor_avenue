@@ -57,5 +57,3 @@ android {
 flutter {
     source '../..'
 }
-
-    id 'com.google.gms.google-services'

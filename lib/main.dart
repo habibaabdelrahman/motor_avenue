@@ -5,6 +5,9 @@ import 'package:motor_avenue/Settings.dart';
 import 'package:motor_avenue/car_details.dart';
 import 'package:motor_avenue/login.dart';
 import 'package:motor_avenue/splash.dart';
+import 'package:motor_avenue/store.dart';
+
+import 'createads.dart';
 
 void main() => runApp(const MyApp());
 
@@ -18,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: _title,
-      home: Settings(),
+      home: createads(),
     );
   }
 }
