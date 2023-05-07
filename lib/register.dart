@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 class register extends StatelessWidget {
   final auth = FirebaseAuth.instance;
 
+
   get nameController => null;
 
   get passwordController => null;
