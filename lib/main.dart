@@ -8,8 +8,14 @@ import 'package:motor_avenue/cart.dart';
 import 'package:motor_avenue/login.dart';
 import 'package:motor_avenue/register.dart';
 import 'package:motor_avenue/splash.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-void main() => runApp(const MyApp());
+void main() async{
+  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

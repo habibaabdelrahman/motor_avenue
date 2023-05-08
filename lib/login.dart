@@ -4,17 +4,17 @@ import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class login extends StatelessWidget {
-  const login({Key? key}) : super(key: key);
 
   get nameController => null;
-
   get passwordController => null;
+
+  final auth = FirebaseAuth.instance;
+  late String email;
+  late String password;
 
   @override
   Widget build(BuildContext context) {
-    final auth = FirebaseAuth.instance;
-    late String email;
-    late String password;
+
     final _formKey = GlobalKey<FormState>();
     bool _rememberMe = false;
     return Scaffold(

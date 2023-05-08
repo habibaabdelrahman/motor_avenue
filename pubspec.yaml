@@ -36,8 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   widget_and_text_animator: ^1.0.9
   carousel_slider: ^4.0.0
-  firebase_auth: ^4.4.2
   smooth_page_indicator:
+  firebase_core: ^2.11.0
+  firebase_auth: ^4.5.0
 
 
 dev_dependencies:
