@@ -14,8 +14,6 @@ class register extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    late String email;
-    late String password;
     return Scaffold(
         body: Container(
       padding: const EdgeInsets.all(5.0),
