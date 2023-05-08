@@ -1,13 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:motor_avenue/Bookmarks.dart';
-import 'package:motor_avenue/Home.dart';
-import 'package:motor_avenue/LiveAuction.dart';
-import 'package:motor_avenue/Settings.dart';
-import 'package:motor_avenue/car_details.dart';
-import 'package:motor_avenue/cart.dart';
-import 'package:motor_avenue/login.dart';
 import 'package:motor_avenue/register.dart';
-import 'package:motor_avenue/splash.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
