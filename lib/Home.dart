@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:motor_avenue/Bookmarks.dart';
 import 'package:motor_avenue/LiveAuction.dart';
+import 'package:motor_avenue/cart.dart';
+import 'package:motor_avenue/createads.dart';
+import 'package:motor_avenue/store.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -139,7 +143,13 @@ class Home extends StatelessWidget {
                     //************************ The Shop Button *************************
 
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => store(),
+                            ));
+                      },
                       child:SizedBox(
                         height: 30,
                       width: 91,
@@ -255,7 +265,13 @@ class Home extends StatelessWidget {
                     //************************ Create ADS Button *************************
 
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => createads(),
+                            ));
+                      },
                       child:SizedBox(
                         height: 30,
                         width: 91,
@@ -429,6 +445,11 @@ class Home extends StatelessWidget {
                 ),
               ),
               onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Bookmarks(),
+                    ));
               },
             )
         ),
@@ -470,6 +491,11 @@ class Home extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => cart(),
+                            ));
                       },
                     )
                 ),
