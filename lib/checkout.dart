@@ -137,48 +137,8 @@ class checkout extends StatelessWidget {
                      ),
                    ),
                  ),
-              Padding(
-                padding: EdgeInsets.only(left: 45, top: 20),
-                child: SizedBox(
-                    width: 70,
-                    height: 70,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: Icon(
-                        Icons.facebook,
-                        color: Colors.black,
-                      ),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            Color.fromRGBO(255, 255, 255, 1)),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15))),
-                      ),
-                    )),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 45, top: 20),
-                child: SizedBox(
-                    width: 70,
-                    height: 70,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: Icon(
-                        Icons.facebook,
-                        color: Colors.black,
-                      ),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            Color.fromRGBO(255, 255, 255, 1)),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15))),
-                      ),
-                    )),
-              ),
+
+          
             ]),
     ),
             Padding(
