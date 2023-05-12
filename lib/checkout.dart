@@ -76,71 +76,62 @@ class checkout extends StatelessWidget {
                 ),
               ],
             ),
-            Align(
+            Center(
+           child: Align(
               alignment: Alignment.center,
            child: Row(
+             mainAxisAlignment: MainAxisAlignment.center,
                children: [
-              Padding(
-                padding: EdgeInsets.only(left: 25, top: 20),
-                child: Container(
-                  child: Row(
-                    children: [
-                      Icon(Icons.looks_one_sharp),
-                      Text(
-                        'SHIPPING',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Hind',
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                    ),
-              ),
-                 Padding(
-                   padding: EdgeInsets.only(left: 20, top: 20),
-                   child: Container(
-                     child: Row(
-                       children: [
-                         Icon(Icons.three_k),
-                         Text(
-                           'PAYMENT',
-                           style: TextStyle(
-                             fontSize: 16,
-                             fontWeight: FontWeight.bold,
-                             fontFamily: 'Hind',
-                             color: Colors.white,
-                           ),
-                         ),
-                       ],
-                     ),
+                 Icon(Icons.looks_one_sharp),
+                 Text(
+                   'SHIPPING',
+                   style: TextStyle(
+                     fontSize: 16,
+                     fontWeight: FontWeight.bold,
+                     fontFamily: 'Hind',
+                     color: Colors.white,
                    ),
                  ),
-                 Padding(
-                   padding: EdgeInsets.only(left: 20, top: 20),
-                   child: Container(
-                     child: Row(
-                       children: [
-                         Icon(Icons.looks_two),
-                         Text(
-                           'REVIEW',
-                           style: TextStyle(
-                             fontSize: 16,
-                             fontWeight: FontWeight.bold,
-                             fontFamily: 'Hind',
-                             color: Colors.white,
-                           ),
-                         ),
-                       ],
-                     ),
+                 Divider(
+                   height: 45,
+                   thickness: 2,
+                   indent: 15,
+                   endIndent: 15,
+                   color: Colors.white,
+                 ),
+                 Icon(Icons.three_k),
+                 Text(
+                   'PAYMENT',
+                   style: TextStyle(
+                     fontSize: 16,
+                     fontWeight: FontWeight.bold,
+                     fontFamily: 'Hind',
+                     color: Colors.white,
                    ),
                  ),
 
-          
+                 Divider(
+                   height: 45,
+                   thickness: 2,
+                   indent: 15,
+                   endIndent: 15,
+                   color: Colors.white,
+                 ),
+
+                 Icon(Icons.looks_two),
+                 Text(
+                   'REVIEW',
+                   style: TextStyle(
+                     fontSize: 16,
+                     fontWeight: FontWeight.bold,
+                     fontFamily: 'Hind',
+                     color: Colors.white,
+                   ),
+                 ),
+
             ]),
     ),
+      ),
             Padding(
               padding: EdgeInsets.only(top: 20, left: 30),
               child: Align(
@@ -364,18 +355,18 @@ class checkout extends StatelessWidget {
                     ),
                   ),
                 ),
-              Column(
+              Center(
+              child:Column(
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Padding(padding: EdgeInsets.only(left: 10) ,
-                       child: Checkbox(
+                        Checkbox(
                           value: false,
                           onChanged: (bool? value) {},
                           activeColor: Colors.blue,
                           checkColor: Colors.white,
                         ),
-        ),
                         Padding(padding:EdgeInsets.only(top: 15,),
                         child:Align(
                           alignment: Alignment.centerLeft,
@@ -406,6 +397,7 @@ class checkout extends StatelessWidget {
                     ),
               ]
             ),
+    ),
                 Container(
                     height: 50,
                     width: 200,

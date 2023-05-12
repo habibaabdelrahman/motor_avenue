@@ -2610,10 +2610,11 @@ class createads extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                
                                 Container(
                                   width: 320,
                                   height: 60,
-                                  margin: const EdgeInsets.only(top: 0),
+                                  margin: const EdgeInsets.only(top: 4,bottom:5),
                                   child: TextField(
                                     decoration: const InputDecoration(
                                       border: OutlineInputBorder(
@@ -2631,6 +2632,7 @@ class createads extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                
                               ],
                             ),
                           ],
