@@ -15,7 +15,8 @@ class register extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
+        body:SingleChildScrollView(
+       child: Container(
       padding: const EdgeInsets.all(5.0),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -32,6 +33,11 @@ class register extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            Align(
+              alignment: Alignment.centerLeft,
+             child: Padding(padding: EdgeInsets.only(top: 20,left: 25),
+           child:Column(
+             children: [
             Container(
               margin: EdgeInsets.only(top: 38),
               child: Image.asset(
@@ -47,6 +53,10 @@ class register extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   fontFamily: 'MontserratSubrayada'),
             ),
+             ]
+       ),
+             ),
+       ),
             const SizedBox(
               height: 20.0,
             ),
@@ -60,13 +70,14 @@ class register extends StatelessWidget {
                 margin: const EdgeInsets.only(
                   top: 5,
                   bottom: 5,
+                  left: 10,
+                  right: 10,
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
                   gradient: LinearGradient(
                     colors: [
-                      const Color.fromRGBO(234, 234, 234, 0.11)
-                          .withOpacity(0.2),
+                      const Color.fromRGBO(234, 234, 234, 0.11).withOpacity(0.2),
                       const Color.fromRGBO(0, 0, 0, 0.17).withOpacity(0.2),
                       const Color.fromRGBO(47, 47, 47, 0.17).withOpacity(0.2),
                     ],
@@ -75,16 +86,16 @@ class register extends StatelessWidget {
                   ),
                 ),
                 child: Container(
-                  padding: const EdgeInsets.only(bottom: 20, top: 50),
+                  padding: const EdgeInsets.only(bottom: 20, top: 30),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       ///////////////////////////////FIRST_NAME TEXT_FIELD/////////////////////////////////////
                       Container(
                         //padding: const EdgeInsets.only(top: 2),
-                        width: 320,
+                        width: 340,
                         height: 60,
-                        margin: const EdgeInsets.only(top: 10),
+                        margin: const EdgeInsets.only(top: 5),
                         child: TextField(
                           controller: nameController,
                           decoration: const InputDecoration(
@@ -101,7 +112,7 @@ class register extends StatelessWidget {
                             labelStyle: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.w400),
                             filled: true,
                             fillColor: Colors.grey,
                           ),
@@ -112,7 +123,7 @@ class register extends StatelessWidget {
                       ///////////////////////////////LAST_NAME TEXT_FIELD/////////////////////////////////////
                       Container(
                         //padding: const EdgeInsets.only(top: 2),
-                        width: 320,
+                        width: 340,
                         height: 60,
                         margin: const EdgeInsets.only(top: 0),
                         child: TextField(
@@ -131,7 +142,7 @@ class register extends StatelessWidget {
                             labelStyle: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.w400),
                             filled: true,
                             fillColor: Colors.grey,
                           ),
@@ -141,8 +152,7 @@ class register extends StatelessWidget {
 
                       ///////////////////////////////E-MAIL TEXT_FIELD/////////////////////////////////////
                       Container(
-                        //padding: const EdgeInsets.only(top: 2),
-                        width: 320,
+                        width: 340,
                         height: 60,
                         margin: const EdgeInsets.only(top: 0),
                         child: TextField(
@@ -168,7 +178,7 @@ class register extends StatelessWidget {
                             labelStyle: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.w400),
                             filled: true,
                             fillColor: Colors.grey,
                           ),
@@ -178,9 +188,9 @@ class register extends StatelessWidget {
 
                       ///////////////////////////////PASSWORD TEXT_FIELD/////////////////////////////////////
                       Container(
-                        width: 320,
+                        width: 340,
                         height: 60,
-                        margin: const EdgeInsets.only(top: 15),
+                        margin: const EdgeInsets.only(top: 0),
                         child: TextField(
                           onChanged: (value) {
                             password = value;
@@ -201,7 +211,7 @@ class register extends StatelessWidget {
                             labelStyle: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.w400),
                             prefixIcon: Icon(
                               Icons.key,
                               color: Colors.white,
@@ -217,7 +227,7 @@ class register extends StatelessWidget {
                           Container(
                               height: 43,
                               width: 148,
-                              margin: const EdgeInsets.only(top: 20, left: 20),
+                              margin: const EdgeInsets.only(top: 40, left: 15),
                               child: ElevatedButton(
                                 child: const Text(
                                   'MALE',
@@ -237,14 +247,14 @@ class register extends StatelessWidget {
                                           RoundedRectangleBorder>(
                                       RoundedRectangleBorder(
                                           borderRadius:
-                                              BorderRadius.circular(21.5))),
+                                              BorderRadius.circular(18))),
                                 ),
                                 onPressed: () {},
                               )),
                           Container(
                               height: 43,
                               width: 148,
-                              margin: const EdgeInsets.only(top: 20, left: 50),
+                              margin: const EdgeInsets.only(top: 40, left: 40),
                               child: ElevatedButton(
                                 child: const Text(
                                   'FEMALE',
@@ -273,7 +283,9 @@ class register extends StatelessWidget {
                               )),
                         ],
                       ),
-                      Column(
+                      SizedBox(height: 15,),
+                      Padding(padding: EdgeInsets.only(left: 3),
+                      child: Column(
                         children: [
                           Row(
                             children: [
@@ -284,16 +296,16 @@ class register extends StatelessWidget {
                                 checkColor: Colors.white,
                               ),
                               Text(
-                                'I HAVE READ AND ACCEPT THE',
+                                'I HAVE READ AND ACCEPT THE ',
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 13,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                               Text(
                                 'PRIVACY POLICY',
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 13,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.yellow,
                                 ),
@@ -301,10 +313,11 @@ class register extends StatelessWidget {
                             ],
                           ),
                         ],
-                      ),
+                      ),),
                       Column(
                         children: [
-                          Row(
+                          Padding(padding: EdgeInsets.only(left: 3),
+                          child:Row(
                             children: [
                               Checkbox(
                                 value: false,
@@ -315,18 +328,18 @@ class register extends StatelessWidget {
                               Text(
                                 'BY CLICKING YOUR EMAIL WILL BE UPDATED',
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 13,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ],
-                          ),
+                          ),),
 
                           ///////////////////////////////REGISTER BOTTON/////////////////////////////////////
                           Container(
-                              height: 43,
-                              width: 148,
-                              margin: const EdgeInsets.only(top: 20, left: 20),
+                              height: 50,
+                              width: 160,
+                              margin: const EdgeInsets.only(top: 25, left: 20),
                               child: ElevatedButton(
                                 child: const Text(
                                   'REGISTER',
@@ -363,6 +376,7 @@ class register extends StatelessWidget {
                                   }
                                 },
                               )),
+                          SizedBox(height: 10),
                         ],
                       ),
                     ],
@@ -370,9 +384,11 @@ class register extends StatelessWidget {
                 ),
               ),
             ),
+
           ],
         ),
       ),
-    ));
+    )
+    ),);
   }
 }
