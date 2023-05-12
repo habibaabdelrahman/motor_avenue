@@ -28,7 +28,11 @@ class LiveAuction extends StatelessWidget {
             children: [
               IconButton(
                   icon: const Icon(Icons.arrow_back_ios_new),
-                  onPressed: () {},
+                  onPressed: () { Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Home(),
+                      ));},
                   iconSize: 32,
                   color: Colors.white,
                   padding: const EdgeInsets.only(top: 50, left: 20)),
@@ -129,7 +133,11 @@ class LiveAuction extends StatelessWidget {
                                   ),
                                   IconButton(
                                       icon: const Icon(Icons.arrow_forward_ios),
-                                      onPressed: () {},
+                                      onPressed: () { Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Home(),
+                                          ));},
                                       iconSize: 35,
                                       color: Colors.white,
                                       padding: const EdgeInsets.only(
@@ -397,7 +405,11 @@ class LiveAuction extends StatelessWidget {
                                 IconButton(
                                     icon: const Icon(
                                         Icons.arrow_back_ios_new_outlined),
-                                    onPressed: () {},
+                                    onPressed: () { Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Home(),
+                                        ));},
                                     iconSize: 35,
                                     color: Colors.white,
                                     padding: const EdgeInsets.only(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:motor_avenue/Home.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
 class createads extends StatelessWidget {
@@ -187,8 +186,7 @@ class createads extends StatelessWidget {
                                 Padding(
                                   padding: EdgeInsets.only(left: 120, top: 90),
                                   child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
                                       Icon(
                                         Icons.add_circle_outline,
@@ -1172,7 +1170,7 @@ class createads extends StatelessWidget {
                                           padding: EdgeInsets.only(
                                               left: 30, top: 10),
                                           child: Text(
-                                            'Modle',
+                                            'Modle*',
                                             style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 16,
@@ -1258,7 +1256,7 @@ class createads extends StatelessWidget {
                                           padding: EdgeInsets.only(
                                               left: 30, top: 10),
                                           child: Text(
-                                            'Price',
+                                            'Price*',
                                             style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 16,
@@ -2614,7 +2612,7 @@ class createads extends StatelessWidget {
                                 Container(
                                   width: 320,
                                   height: 60,
-                                  margin: const EdgeInsets.only(top: 4,bottom:5),
+                                  margin: const EdgeInsets.only(top: 4,bottom:10),
                                   child: TextField(
                                     decoration: const InputDecoration(
                                       border: OutlineInputBorder(

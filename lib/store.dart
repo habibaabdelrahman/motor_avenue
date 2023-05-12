@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motor_avenue/car_details.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -224,7 +225,13 @@ class store extends StatelessWidget {
                                                     width: 50,
                                                     height: 50,
                                                     child: ElevatedButton(
-                                                      onPressed: () {},
+                                                      onPressed: () {
+                                                        Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                              builder: (context) => car_details(),
+                                                            ));
+                                                      },
                                                       child: Image.asset(
                                                         'assets/images/black logoo.png',
                                                         width: 21,
