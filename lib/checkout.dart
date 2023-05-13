@@ -103,7 +103,7 @@ class checkout extends StatelessWidget {
                     endIndent: 15,
                     color: Colors.white,
                   ),
-                  Icon(Icons.three_k),
+                  Icon(Icons.looks_two),
                   SizedBox(
                     width: 3,
                   ),
