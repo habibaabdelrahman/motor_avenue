@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motor_avenue/checkout.dart';
+import 'package:motor_avenue/login.dart';
 import 'package:motor_avenue/register.dart';
 import 'package:motor_avenue/createads.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: _title,
-      home: register(),
+      home: login(),
     );
   }
 }
