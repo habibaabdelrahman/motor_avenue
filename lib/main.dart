@@ -2,13 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:motor_avenue/checkout.dart';
 import 'package:motor_avenue/register.dart';
 import 'package:motor_avenue/createads.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
-void main() async{
+
+void main() {
   runApp(const MyApp());
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
 }
 
 class MyApp extends StatelessWidget {

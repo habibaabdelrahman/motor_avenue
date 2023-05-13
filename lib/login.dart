@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:motor_avenue/Home.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 
 class login extends StatelessWidget {
 
   get nameController => null;
   get passwordController => null;
 
-  final auth = FirebaseAuth.instance;
   late String email;
   late String password;
 
@@ -93,9 +92,6 @@ class login extends StatelessWidget {
                                   height: 60,
                                   margin: const EdgeInsets.only(top: 0),
                                   child: TextFormField(
-                                    onChanged: (value) {
-                                      email = value;
-                                    },
                                     validator: (value) => value!.isEmpty
                                         ? 'You must enter a valid email'
                                         : null,
@@ -135,9 +131,6 @@ class login extends StatelessWidget {
                                   height: 60,
                                   margin: const EdgeInsets.only(top: 15),
                                   child: TextFormField(
-                                    onChanged: (value) {
-                                      password = value;
-                                    },
                                     validator: (value) => value!.length <= 6
                                         ? 'Your password must be larger than 6 characters'
                                         : null,
@@ -271,22 +264,7 @@ class login extends StatelessWidget {
                                                     BorderRadius.circular(
                                                         21.5))),
                                       ),
-                                      onPressed: () async {
-                                        try {
-                                          var user = await auth
-                                              .createUserWithEmailAndPassword(
-                                                  email: email,
-                                                  password: password);
-                                          if (user != null) {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) => Home(),
-                                                ));
-                                          }
-                                        } catch (e) {
-                                          print(e);
-                                        }
+                                      onPressed: ()  {
                                       },
                                     )),
                                 Row(
