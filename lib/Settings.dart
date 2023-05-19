@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:motor_avenue/Home.dart';
 
 class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        //background color
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -25,7 +25,13 @@ class Settings extends StatelessWidget {
               children: [
                 IconButton(
                     icon: const Icon(Icons.arrow_back_ios_new),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Home(),
+                          ));
+                    },
                     iconSize: 32,
                     color: Colors.white,
                     padding: const EdgeInsets.only(top: 60, left: 15)),
@@ -483,11 +489,7 @@ class Settings extends StatelessWidget {
                       ),
                     )),
                   ),
-                  /*Padding(padding: EdgeInsets.only(left: 87,top: 40),
-                    child: Container(
-                        child:  Icon(Icons.,size: 21,color: Colors.white,)
-                    ),
-                  ),*/
+
 
                   Padding(
                     padding: const EdgeInsets.only(left: 28, top: 48),
@@ -759,11 +761,6 @@ class Settings extends StatelessWidget {
                       ),
                     )),
                   ),
-                  /*Padding(padding: EdgeInsets.only(left: 87,top: 40),
-                    child: Container(
-                        child:  Icon(Icons.,size: 21,color: Colors.white,)
-                    ),
-                  ),*/
 
                   Padding(
                     padding: const EdgeInsets.only(left: 28, top: 47),

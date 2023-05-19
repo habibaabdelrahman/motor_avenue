@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:motor_avenue/Home.dart';
+import 'package:swipeable_button_view/swipeable_button_view.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
-class register extends StatelessWidget {
-  final auth = FirebaseAuth.instance;
 
+class register extends StatefulWidget {
+  @override
+  State<register> createState() => _registerState();
+}
+
+class _registerState extends State<register> {
   get nameController => null;
 
   get passwordController => null;
+
   late String email;
+
   late String password;
+
+  bool isFinished = false;
 
   @override
   Widget build(BuildContext context) {
@@ -33,69 +41,74 @@ class register extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Align(
-              alignment: Alignment.centerLeft,
-             child: Padding(padding: EdgeInsets.only(top: 20,left: 25),
-           child:Column(
-             children: [
-            Container(
-              margin: EdgeInsets.only(top: 38),
-              child: Image.asset(
-                'assets/images/logo white.png',
-                width: 86.5,
-              ),
-            ),
-            Text(
-              'REGISTER',
-              style: TextStyle(
-                  fontSize: 27.0,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'MontserratSubrayada'),
-            ),
-             ]
-       ),
-             ),
-       ),
             const SizedBox(
-              height: 20.0,
+              height: 10.0,
             ),
 
             ///////////////////////////////Register widget/////////////////////////////////////
             WidgetAnimator(
-              incomingEffect: WidgetTransitionEffects.incomingSlideInFromBottom(
+              incomingEffect: WidgetTransitionEffects.incomingSlideInFromTop(
                 duration: Duration(seconds: 3),
               ),
               child: Container(
                 margin: const EdgeInsets.only(
-                  top: 5,
-                  bottom: 5,
-                  left: 10,
-                  right: 10,
+                  bottom: 33,
+                  left: 5,
+                  right: 5,
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
                   gradient: LinearGradient(
                     colors: [
-                      const Color.fromRGBO(234, 234, 234, 0.11).withOpacity(0.2),
-                      const Color.fromRGBO(0, 0, 0, 0.17).withOpacity(0.2),
-                      const Color.fromRGBO(47, 47, 47, 0.17).withOpacity(0.2),
+                      const Color.fromRGBO(11, 11, 11, 0.35).withOpacity(0.2),
+                      const Color.fromRGBO(11, 11, 11, 0.35).withOpacity(0.2),
+                      const Color.fromRGBO(11, 11, 11, 0).withOpacity(0.2),
                     ],
                     begin: FractionalOffset.bottomCenter,
                     end: FractionalOffset.topCenter,
                   ),
                 ),
                 child: Container(
-                  padding: const EdgeInsets.only(bottom: 20, top: 30),
+                  padding: const EdgeInsets.only(bottom: 20, ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(padding: EdgeInsets.only(top: 20,left: 20),
+                          child:Column(
+                              children: [
+                                Stack(
+                                  children:[
+                                Container(
+                                  margin: EdgeInsets.only(top: 40,left: 2),
+                                  child: Image.asset(
+                                    'assets/images/logo white.png',
+                                    width: 86.5,
+                                  ),
+                                ),
+                                Padding(padding: EdgeInsets.only(top: 105),
+                                child:Text(
+                                  'REGISTER',
+                                  style: TextStyle(
+                                      fontSize: 27.0,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'MontserratSubrayada'),
+                                ),
+                ),
+                        ]
+                      ),
+                              ]
+                          ),
+                        ),
+                      ),
                       ///////////////////////////////FIRST_NAME TEXT_FIELD/////////////////////////////////////
                       Container(
                         //padding: const EdgeInsets.only(top: 2),
                         width: 340,
                         height: 60,
-                        margin: const EdgeInsets.only(top: 5),
+                        margin: const EdgeInsets.only(top: 20),
                         child: TextField(
                           controller: nameController,
                           decoration: const InputDecoration(
@@ -156,9 +169,6 @@ class register extends StatelessWidget {
                         height: 60,
                         margin: const EdgeInsets.only(top: 0),
                         child: TextField(
-                          onChanged: (value) {
-                            email = value;
-                          },
                           controller: nameController,
                           decoration: const InputDecoration(
                             border: OutlineInputBorder(
@@ -192,9 +202,6 @@ class register extends StatelessWidget {
                         height: 60,
                         margin: const EdgeInsets.only(top: 0),
                         child: TextField(
-                          onChanged: (value) {
-                            password = value;
-                          },
                           obscureText: true,
                           controller: passwordController,
                           decoration: const InputDecoration(
@@ -221,18 +228,19 @@ class register extends StatelessWidget {
                           ),
                         ),
                       ),
-
-                      Row(
+                      Center(
+                      child:Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                              height: 43,
+                              height: 38,
                               width: 148,
-                              margin: const EdgeInsets.only(top: 40, left: 15),
+                              margin: const EdgeInsets.only(top: 30, ),
                               child: ElevatedButton(
                                 child: const Text(
                                   'MALE',
                                   style: TextStyle(
-                                      fontSize: 19,
+                                      fontSize: 17,
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'MontserratSubrayada'),
                                 ),
@@ -252,14 +260,14 @@ class register extends StatelessWidget {
                                 onPressed: () {},
                               )),
                           Container(
-                              height: 43,
+                              height: 38,
                               width: 148,
-                              margin: const EdgeInsets.only(top: 40, left: 40),
+                              margin: const EdgeInsets.only(top: 30,left: 15 ),
                               child: ElevatedButton(
                                 child: const Text(
                                   'FEMALE',
                                   style: TextStyle(
-                                      fontSize: 19,
+                                      fontSize: 17,
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'MontserratSubrayada'),
                                 ),
@@ -283,23 +291,39 @@ class register extends StatelessWidget {
                               )),
                         ],
                       ),
+                ),
                       SizedBox(height: 15,),
-                      Padding(padding: EdgeInsets.only(left: 3),
+                      Center(
+                      child:Stack(
+                        children:[
+                      Padding(padding: EdgeInsets.only(left: 8),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Row(
                             children: [
                               Checkbox(
                                 value: false,
+                                fillColor:
+                                MaterialStateProperty.all<Color>(Colors.white),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                  side: BorderSide(
+                                    color: Colors.white,
+                                    width: 25,
+                                  ),
+                                ),
                                 onChanged: (bool? value) {},
                                 activeColor: Colors.blue,
                                 checkColor: Colors.white,
+
                               ),
                               Text(
                                 'I HAVE READ AND ACCEPT THE ',
                                 style: TextStyle(
                                   fontSize: 13,
                                   fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
                               ),
                               Text(
@@ -307,7 +331,7 @@ class register extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 13,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.yellow,
+                                  color: Colors.amber,
                                 ),
                               ),
                             ],
@@ -315,12 +339,22 @@ class register extends StatelessWidget {
                         ],
                       ),),
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Padding(padding: EdgeInsets.only(left: 3),
+                          Padding(padding: EdgeInsets.only(left: 8,top: 30),
                           child:Row(
                             children: [
                               Checkbox(
                                 value: false,
+                                fillColor:
+                                MaterialStateProperty.all<Color>(Colors.white),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                  side: BorderSide(
+                                    color: Colors.white,
+                                    width: 25,
+                                  ),
+                                ),
                                 onChanged: (bool? value) {},
                                 activeColor: Colors.blue,
                                 checkColor: Colors.white,
@@ -330,61 +364,53 @@ class register extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 13,
                                   fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
                               ),
                             ],
                           ),),
-
+                          ]
+                      ),
+                          ]),
+                ),
                           ///////////////////////////////REGISTER BOTTON/////////////////////////////////////
-                          Container(
-                              height: 50,
-                              width: 160,
-                              margin: const EdgeInsets.only(top: 25, left: 20),
-                              child: ElevatedButton(
-                                child: const Text(
-                                  'REGISTER',
-                                  style: TextStyle(
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'MontserratSubrayada'),
-                                ),
-                                style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Colors.amber),
-                                  foregroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Colors.black),
-                                  shape: MaterialStateProperty.all<
-                                          RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(21.5))),
-                                ),
-                                onPressed: () async {
-                                  try {
-                                    var user = await auth
-                                        .createUserWithEmailAndPassword(
-                                            email: email, password: password);
+                          Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 5),
+                              child: SwipeableButtonView(
+                                  buttonText: "SLIDE TO REGISTER",
+                                  buttonWidget: Container(
+                                    child: Icon(
+                                      Icons.arrow_forward_ios_rounded,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  buttonColor: Colors.white70,
+                                  activeColor: Color.fromRGBO(185, 185, 185, 0.52),
+                                  isFinished: isFinished,
+                                  onWaitingProcess: () {
+                                    Future.delayed(Duration(seconds: 1), () {
+                                      setState(() {
+                                        isFinished = true;
+                                      });
+                                    });
+                                  },
+                                  onFinish: () async {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) => Home(),
                                         ));
-                                  } catch (e) {
-                                    print(e);
-                                  }
-                                },
-                              )),
-                          SizedBox(height: 10),
-                        ],
-                      ),
+                                    setState(() {
+                                      isFinished = false;
+                                    });
+                                  })),
+
                     ],
                   ),
                 ),
               ),
             ),
-
+            SizedBox(height: 45,)
           ],
         ),
       ),

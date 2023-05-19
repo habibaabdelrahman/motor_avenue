@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motor_avenue/Home.dart';
 
 class cart extends StatelessWidget {
   final _controllar = PageController();
@@ -27,7 +28,13 @@ class cart extends StatelessWidget {
               children: [
                 IconButton(
                     icon: const Icon(Icons.arrow_back_ios_new),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Home(),
+                          ));
+                    },
                     iconSize: 32,
                     color: Colors.black87,
                     padding: const EdgeInsets.only(top: 60, left: 15)),

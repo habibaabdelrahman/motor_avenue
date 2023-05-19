@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:motor_avenue/Home.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 
 class login extends StatelessWidget {
 
   get nameController => null;
   get passwordController => null;
 
-  final auth = FirebaseAuth.instance;
   late String email;
   late String password;
 
@@ -67,12 +66,9 @@ class login extends StatelessWidget {
                           borderRadius: BorderRadius.circular(36),
                           gradient: LinearGradient(
                             colors: [
-                              const Color.fromRGBO(234, 234, 234, 0.11)
-                                  .withOpacity(0.2),
-                              const Color.fromRGBO(0, 0, 0, 0.17)
-                                  .withOpacity(0.2),
-                              const Color.fromRGBO(47, 47, 47, 0.17)
-                                  .withOpacity(0.2),
+                              const Color.fromRGBO(11, 11, 11, 0.35).withOpacity(0.2),
+                              const Color.fromRGBO(11, 11, 11, 0.35).withOpacity(0.2),
+                              const Color.fromRGBO(11, 11, 11, 0).withOpacity(0.2),
                             ],
                             begin: FractionalOffset.bottomCenter,
                             end: FractionalOffset.topCenter,
@@ -93,9 +89,6 @@ class login extends StatelessWidget {
                                   height: 60,
                                   margin: const EdgeInsets.only(top: 0),
                                   child: TextFormField(
-                                    onChanged: (value) {
-                                      email = value;
-                                    },
                                     validator: (value) => value!.isEmpty
                                         ? 'You must enter a valid email'
                                         : null,
@@ -121,7 +114,7 @@ class login extends StatelessWidget {
                                       labelStyle: TextStyle(
                                           color: Colors.white,
                                           fontSize: 20,
-                                          fontWeight: FontWeight.bold),
+                                          ),
                                       filled: true,
                                       fillColor: Colors.grey,
                                     ),
@@ -135,9 +128,6 @@ class login extends StatelessWidget {
                                   height: 60,
                                   margin: const EdgeInsets.only(top: 15),
                                   child: TextFormField(
-                                    onChanged: (value) {
-                                      password = value;
-                                    },
                                     validator: (value) => value!.length <= 6
                                         ? 'Your password must be larger than 6 characters'
                                         : null,
@@ -160,7 +150,7 @@ class login extends StatelessWidget {
                                       labelStyle: TextStyle(
                                           color: Colors.white,
                                           fontSize: 20,
-                                          fontWeight: FontWeight.bold),
+                                        ),
                                       prefixIcon: Icon(
                                         Icons.key,
                                         color: Colors.white,
@@ -209,54 +199,29 @@ class login extends StatelessWidget {
                                   ],
                                 ),
 
-                                Row(
-                                  children: [
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                      left: 30,
-                                    )),
-                                    Checkbox(
-                                      value: _rememberMe,
-                                      fillColor:
-                                          MaterialStateProperty.all<Color>(
-                                              Colors.white),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        side: BorderSide(
-                                          color: Colors.white,
-                                          width: 25,
-                                        ),
-                                      ),
-                                      onChanged: (value) {
-                                        // update the state of _rememberMe
-                                        _rememberMe = value!;
-                                      },
-                                    ),
-                                    Text(
-                                      'I’m not a robot',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 17,
-                                          fontFamily: 'MontserratSubrayada'),
-                                    ),
-                                    // your other child widgets in the row
-                                  ],
-                                ),
 
                                 ///////////////////////////////LOGIN BUTTON/////////////////////////////////////
 
                                 Container(
                                     height: 43,
                                     width: 148,
-                                    margin: const EdgeInsets.only(top: 20),
+                                    margin: const EdgeInsets.only(top: 56),
                                     child: ElevatedButton(
-                                      child: const Text(
+                                      child:Center(
+                                      child:Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children:[
+                                       const Text(
                                         'LOGIN',
                                         style: TextStyle(
-                                            fontSize: 19,
+                                            fontSize: 18,
                                             fontWeight: FontWeight.bold,
                                             fontFamily: 'MontserratSubrayada'),
                                       ),
+                                         SizedBox(width: 5,),
+                                          Icon(Icons.play_arrow_rounded,size: 25,)
+                                      ]
+                                    ),),
                                       style: ButtonStyle(
                                         backgroundColor:
                                             MaterialStateProperty.all<Color>(
@@ -271,22 +236,7 @@ class login extends StatelessWidget {
                                                     BorderRadius.circular(
                                                         21.5))),
                                       ),
-                                      onPressed: () async {
-                                        try {
-                                          var user = await auth
-                                              .createUserWithEmailAndPassword(
-                                                  email: email,
-                                                  password: password);
-                                          if (user != null) {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) => Home(),
-                                                ));
-                                          }
-                                        } catch (e) {
-                                          print(e);
-                                        }
+                                      onPressed: ()  {
                                       },
                                     )),
                                 Row(

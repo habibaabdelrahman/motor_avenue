@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motor_avenue/Home.dart';
 
 class Bookmarks extends StatelessWidget {
   final _controllar = PageController();
@@ -8,7 +9,6 @@ class Bookmarks extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          //background color
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               end: Alignment.topCenter,
@@ -27,7 +27,13 @@ class Bookmarks extends StatelessWidget {
               children: [
                 IconButton(
                     icon: const Icon(Icons.arrow_back_ios_new),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Home(),
+                          ));
+                    },
                     iconSize: 32,
                     color: Colors.black87,
                     padding: const EdgeInsets.only(top: 60, left: 15)),

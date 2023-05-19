@@ -8,20 +8,17 @@ class checkout extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          //background color
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               end: Alignment.topCenter,
               begin: Alignment.bottomCenter,
               colors: [
-                Color.fromRGBO(0, 0, 0, 0.96),
                 Color.fromRGBO(196, 187, 159, 1.0),
+                Color.fromRGBO(0, 0, 0, 1.0),
               ],
             ),
           ),
-
-          child: Column(
-              children: [
+          child: Column(children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,7 +27,7 @@ class checkout extends StatelessWidget {
                     icon: const Icon(Icons.arrow_back_ios_new),
                     onPressed: () {},
                     iconSize: 32,
-                    color: Colors.black87,
+                    color: Colors.white,
                     padding: const EdgeInsets.only(top: 60, left: 15)),
                 Expanded(
                   child: Center(
@@ -40,33 +37,33 @@ class checkout extends StatelessWidget {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(
-                              right: 250,
+                              right: 230,
                               top: 6,
                             ),
                             child: Image.asset(
-                              'assets/images/black logoo.png',
+                              'assets/images/logo white.png',
                               height: 37,
-                              width: 37,
+                              width: 33,
                             ),
                           ),
                           const Padding(
-                            padding: EdgeInsets.only(left: 35, top: 4),
+                            padding: EdgeInsets.only(left: 28, top: 4),
                             child: Text(
                               ' CHECKOUT',
                               style: TextStyle(
                                 fontSize: 33,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'Hind',
-                                color: Colors.black87,
+                                color: Colors.white,
                               ),
                             ),
                           ),
                           const Padding(
-                            padding: EdgeInsets.only(left: 215, top: 23),
+                            padding: EdgeInsets.only(left: 203, top: 23),
                             child: Icon(
                               Icons.add_shopping_cart_outlined,
                               size: 16,
-                              color: Colors.black87,
+                              color: Colors.white,
                             ),
                           ),
                         ],
@@ -76,70 +73,82 @@ class checkout extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(
+              height: 10,
+            ),
             Center(
-           child: Align(
-              alignment: Alignment.center,
-           child: Row(
-             mainAxisAlignment: MainAxisAlignment.center,
-               children: [
-                 Icon(Icons.looks_one_sharp),
-                 Text(
-                   'SHIPPING',
-                   style: TextStyle(
-                     fontSize: 16,
-                     fontWeight: FontWeight.bold,
-                     fontFamily: 'Hind',
-                     color: Colors.white,
-                   ),
-                 ),
-                 Divider(
-                   height: 45,
-                   thickness: 2,
-                   indent: 15,
-                   endIndent: 15,
-                   color: Colors.white,
-                 ),
-                 Icon(Icons.three_k),
-                 Text(
-                   'PAYMENT',
-                   style: TextStyle(
-                     fontSize: 16,
-                     fontWeight: FontWeight.bold,
-                     fontFamily: 'Hind',
-                     color: Colors.white,
-                   ),
-                 ),
-
-                 Divider(
-                   height: 45,
-                   thickness: 2,
-                   indent: 15,
-                   endIndent: 15,
-                   color: Colors.white,
-                 ),
-
-                 Icon(Icons.looks_two),
-                 Text(
-                   'REVIEW',
-                   style: TextStyle(
-                     fontSize: 16,
-                     fontWeight: FontWeight.bold,
-                     fontFamily: 'Hind',
-                     color: Colors.white,
-                   ),
-                 ),
-
-            ]),
-    ),
-      ),
-            Padding(
-              padding: EdgeInsets.only(top: 20, left: 30),
               child: Align(
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
+                child:
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                  Icon(Icons.looks_one_sharp),
+                  SizedBox(
+                    width: 3,
+                  ),
+                  Text(
+                    'SHIPPING',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Hind',
+                      color: Colors.white,
+                    ),
+                  ),
+                  Divider(
+                    height: 45,
+                    thickness: 2,
+                    indent: 15,
+                    endIndent: 15,
+                    color: Colors.white,
+                  ),
+                  Icon(Icons.looks_two),
+                  SizedBox(
+                    width: 3,
+                  ),
+                  Text(
+                    'PAYMENT',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Hind',
+                      color: Colors.white,
+                    ),
+                  ),
+                  Divider(
+                    height: 45,
+                    thickness: 2,
+                    indent: 15,
+                    endIndent: 15,
+                    color: Colors.white,
+                  ),
+                  Icon(Icons.looks_two),
+                  SizedBox(
+                    width: 3,
+                  ),
+                  Text(
+                    'REVIEW',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Hind',
+                      color: Colors.white,
+                    ),
+                  ),
+                ]),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: 7,
+              ),
+              child: Align(
+                alignment: Alignment.center,
                 child: Text(
                   'PLEASE APPLY YOUR ADDRESS',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 19,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Hind',
                     color: Colors.white,
@@ -148,22 +157,24 @@ class checkout extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 5, left: 30),
+              padding: EdgeInsets.only(
+                top: 5,
+              ),
               child: Align(
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
                 child: Text(
                   'use the info provided to help you use the',
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Hind',
-                    color: Colors.white,
+                    color: Color.fromRGBO(207, 207, 207, 1),
                   ),
                 ),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 5, left: 30),
+              padding: EdgeInsets.only(left: 60),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -172,53 +183,47 @@ class checkout extends StatelessWidget {
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Hind',
-                    color: Colors.white,
+                    color: Color.fromRGBO(207, 207, 207, 1),
                   ),
                 ),
               ),
             ),
             Container(
               child: Column(children: [
-                        Container(
-                          // padding: const EdgeInsets.only(top: 15),
-                          width: 345,
-                          height: 60,
-                          margin: const EdgeInsets.only(top: 15),
-                          child: TextFormField(
-                            validator: (value) => value!.isEmpty
-                                ? 'You must enter a valid street'
-                                : null,
-                            decoration: const InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey),
-                              ),
-                              labelText: 'Street',
-                              labelStyle: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-
-
                 Container(
-                  // padding: const EdgeInsets.only(top: 15),
-                  width: 345,
+                  width: 355,
                   height: 60,
                   margin: const EdgeInsets.only(top: 15),
                   child: TextFormField(
-                    validator: (value) => value!.isEmpty
-                        ? 'You must enter a valid street'
-                        : null,
+                    validator: (value) =>
+                        value!.isEmpty ? 'You must enter a valid street' : null,
+                    decoration: const InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
+                      labelText: 'Street',
+                      labelStyle: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 355,
+                  height: 60,
+                  margin: const EdgeInsets.only(top: 15),
+                  child: TextFormField(
+                    validator: (value) =>
+                        value!.isEmpty ? 'You must enter a valid street' : null,
                     decoration: const InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
@@ -241,13 +246,12 @@ class checkout extends StatelessWidget {
                 ),
                 Container(
                   // padding: const EdgeInsets.only(top: 15),
-                  width: 345,
+                  width: 355,
                   height: 60,
                   margin: const EdgeInsets.only(top: 15),
                   child: TextFormField(
-                    validator: (value) => value!.isEmpty
-                        ? 'You must enter a valid street'
-                        : null,
+                    validator: (value) =>
+                        value!.isEmpty ? 'You must enter a valid street' : null,
                     decoration: const InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
@@ -269,14 +273,12 @@ class checkout extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  // padding: const EdgeInsets.only(top: 15),
-                  width: 345,
+                  width: 355,
                   height: 60,
                   margin: const EdgeInsets.only(top: 15),
                   child: TextFormField(
-                    validator: (value) => value!.isEmpty
-                        ? 'You must enter a valid street'
-                        : null,
+                    validator: (value) =>
+                        value!.isEmpty ? 'You must enter a valid street' : null,
                     decoration: const InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
@@ -298,14 +300,12 @@ class checkout extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  // padding: const EdgeInsets.only(top: 15),
-                  width: 345,
+                  width: 355,
                   height: 60,
                   margin: const EdgeInsets.only(top: 15),
                   child: TextFormField(
-                    validator: (value) => value!.isEmpty
-                        ? 'You must enter a valid street'
-                        : null,
+                    validator: (value) =>
+                        value!.isEmpty ? 'You must enter a valid street' : null,
                     decoration: const InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
@@ -327,14 +327,12 @@ class checkout extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  // padding: const EdgeInsets.only(top: 15),
-                  width: 345,
+                  width: 355,
                   height: 60,
                   margin: const EdgeInsets.only(top: 15),
                   child: TextFormField(
-                    validator: (value) => value!.isEmpty
-                        ? 'You must enter a valid street'
-                        : null,
+                    validator: (value) =>
+                        value!.isEmpty ? 'You must enter a valid street' : null,
                     decoration: const InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
@@ -355,53 +353,66 @@ class checkout extends StatelessWidget {
                     ),
                   ),
                 ),
-              Center(
-              child:Column(
-                  children: [
+                Center(
+                  child: Column(children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Checkbox(
-                          value: false,
-                          onChanged: (bool? value) {},
-                          activeColor: Colors.blue,
-                          checkColor: Colors.white,
-                        ),
-                        Padding(padding:EdgeInsets.only(top: 15,),
-                        child:Align(
-                          alignment: Alignment.centerLeft,
-                        child:Column(
-                          children:[
-                        Text(
-                          'My Billing Address Is The same As My',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
+                        Padding(
+                          padding: EdgeInsets.only(top: 12),
+                          child: Checkbox(
+                            value: false,
+                            fillColor:
+                                MaterialStateProperty.all<Color>(Colors.white),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5),
+                              side: BorderSide(
+                                color: Colors.white,
+                                width: 25,
+                              ),
+                            ),
+                            onChanged: (bool? value) {},
+                            activeColor: Colors.white,
+                            checkColor: Colors.white,
                           ),
                         ),
-                        SizedBox(height: 5,),
-                        Text(
-                          'Shipping Address',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                        Padding(
+                          padding: EdgeInsets.only(
+                            top: 30,
                           ),
-                        ),
-                          ]
-                        ),
-        ),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Column(children: [
+                              Text(
+                                'My Billing Address Is The same As My',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                'Shipping Address',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ]),
+                          ),
                         ),
                       ],
                     ),
-              ]
-            ),
-    ),
+                  ]),
+                ),
                 Container(
-                    height: 50,
-                    width: 200,
-                    margin: const EdgeInsets.only(top: 20, bottom: 20),
+                    height: 45,
+                    width: 350,
+                    margin: const EdgeInsets.only(top: 25, bottom: 20),
                     child: ElevatedButton(
                       child: const Text(
                         'Next',
@@ -418,7 +429,7 @@ class checkout extends StatelessWidget {
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15))),
+                                    borderRadius: BorderRadius.circular(13))),
                       ),
                       onPressed: () {},
                     )),
