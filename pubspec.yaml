@@ -38,6 +38,7 @@ dependencies:
   carousel_slider: ^4.0.0
   smooth_page_indicator: ^1.1.0
   swipeable_button_view: ^0.0.2
+  video_player: ^2.6.1
 
 
 dev_dependencies:
@@ -78,6 +79,7 @@ flutter:
     - assets/images/car1_5.png
     - assets/images/car1_6.png
     - assets/images/car1_7.png
+    - assets/Video/splash.mp4
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class checkout extends StatelessWidget {
   final _controllar = PageController();
-
+  int currentStep = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,69 +76,23 @@ class checkout extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            Center(
-              child: Align(
-                alignment: Alignment.center,
-                child:
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                  Icon(Icons.looks_one_sharp),
-                  SizedBox(
-                    width: 3,
-                  ),
-                  Text(
-                    'SHIPPING',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Hind',
-                      color: Colors.white,
-                    ),
-                  ),
-                  Divider(
-                    height: 45,
-                    thickness: 2,
-                    indent: 15,
-                    endIndent: 15,
-                    color: Colors.white,
-                  ),
-                  Icon(Icons.looks_two),
-                  SizedBox(
-                    width: 3,
-                  ),
-                  Text(
-                    'PAYMENT',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Hind',
-                      color: Colors.white,
-                    ),
-                  ),
-                  Divider(
-                    height: 45,
-                    thickness: 2,
-                    indent: 15,
-                    endIndent: 15,
-                    color: Colors.white,
-                  ),
-                  Icon(Icons.looks_two),
-                  SizedBox(
-                    width: 3,
-                  ),
-                  Text(
-                    'REVIEW',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Hind',
-                      color: Colors.white,
-                    ),
-                  ),
-                ]),
-              ),
-            ),
+            Stepper(
+              currentStep: currentStep,
+              type: StepperType.horizontal,
+              steps: const[
+                Step(
+                    title: Text('step1'),
+                    content: Text('step1')
+                ),
+                Step(
+                    title: Text('step1'),
+                    content: Text('step1')
+                ),
+                Step(
+                    title: Text('step1'),
+                    content: Text('step1')
+                ),
+              ],),
             Padding(
               padding: EdgeInsets.only(
                 top: 7,
