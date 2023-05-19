@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:motor_avenue/checkout.dart';
+import 'package:motor_avenue/checkout3.dart';
 import 'package:motor_avenue/register.dart';
 import 'package:motor_avenue/createads.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:motor_avenue/setting2.dart';
+
+import 'checkout2.dart';
 
 void main() async{
   runApp(const MyApp());
@@ -21,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: _title,
-      home: checkout(),
+      home: checkout2(),
     );
   }
 }
