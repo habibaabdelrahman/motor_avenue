@@ -17,7 +17,9 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
     setState(() {
       containerWidth = containerWidth == 155.0 ? 360.0 : 155.0;
       showText = !showText;
-      _buttonIcon = containerWidth == 155.0 ? Icons.arrow_back_ios : Icons.arrow_forward_ios;
+      _buttonIcon = containerWidth == 155.0
+          ? Icons.arrow_back_ios
+          : Icons.arrow_forward_ios;
     });
   }
 
@@ -267,110 +269,119 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
                   padding: EdgeInsets.only(right: 15, top: 3),
                   child: Column(
                     children: [
-                      Stack(
-                        children:[
-                      GestureDetector(
-                        onTap: _toggleWidth,
-                        child: AnimatedContainer(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16.0),
-                          ),
-                          duration: Duration(milliseconds: 500),
-                          width: containerWidth,
-                          height: 250.0,
-                          child: Center(
-                            child: CarouselSlider(
-                              options: CarouselOptions(
-                                height: 250,
-                                autoPlay: false,
-                                viewportFraction: 1.0,
-                              ),
-                              items: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(16.0),
-                                  child: Image.asset('assets/images/car 1.png',
-                                      fit: BoxFit.cover),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(16.0),
-                                  child: Image.asset('assets/images/car1_1.png',
-                                      fit: BoxFit.cover),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(16.0),
-                                  child: Image.asset('assets/images/car1_2.png',
-                                      fit: BoxFit.cover),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(16.0),
-                                  child: Image.asset('assets/images/car1_3.png',
-                                      fit: BoxFit.cover),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(16.0),
-                                  child: Image.asset('assets/images/car1_4.png',
-                                      fit: BoxFit.cover),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(16.0),
-                                  child: Image.asset('assets/images/car1_5.png',
-                                      fit: BoxFit.cover),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(16.0),
-                                  child: Image.asset('assets/images/car1_6.png',
-                                      fit: BoxFit.cover),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(16.0),
-                                  child: Image.asset('assets/images/car1_7.png',
-                                      fit: BoxFit.cover),
-                                ),
-                              ],
+                      Stack(children: [
+                        GestureDetector(
+                          onTap: _toggleWidth,
+                          child: AnimatedContainer(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(16.0),
                             ),
-                          ),
-                        ),
-                      ),
-                          Container(
-                              height: 30,
-                              width: 40,
-                              decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey.withOpacity(0.3),
-                                    spreadRadius: 3,
-                                    blurRadius: 20,
-                                    offset: Offset(0, 3), // changes position of shadow
+                            duration: Duration(milliseconds: 500),
+                            width: containerWidth,
+                            height: 250.0,
+                            child: Center(
+                              child: CarouselSlider(
+                                options: CarouselOptions(
+                                  height: 250,
+                                  autoPlay: false,
+                                  viewportFraction: 1.0,
+                                ),
+                                items: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                    child: Image.asset(
+                                        'assets/images/car 1.png',
+                                        fit: BoxFit.cover),
+                                  ),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                    child: Image.asset(
+                                        'assets/images/car1_1.png',
+                                        fit: BoxFit.cover),
+                                  ),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                    child: Image.asset(
+                                        'assets/images/car1_2.png',
+                                        fit: BoxFit.cover),
+                                  ),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                    child: Image.asset(
+                                        'assets/images/car1_3.png',
+                                        fit: BoxFit.cover),
+                                  ),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                    child: Image.asset(
+                                        'assets/images/car1_4.png',
+                                        fit: BoxFit.cover),
+                                  ),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                    child: Image.asset(
+                                        'assets/images/car1_5.png',
+                                        fit: BoxFit.cover),
+                                  ),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                    child: Image.asset(
+                                        'assets/images/car1_6.png',
+                                        fit: BoxFit.cover),
+                                  ),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                    child: Image.asset(
+                                        'assets/images/car1_7.png',
+                                        fit: BoxFit.cover),
                                   ),
                                 ],
                               ),
-                              margin: const EdgeInsets.only(
-                                top: 220,
-                              ),
-                              child: ElevatedButton(
-                                child: Icon(
-                                  _buttonIcon,
-                                  size: 15,
-                                  color: Colors.black,
-                                ),
-                                style: ButtonStyle(
-                                  backgroundColor: MaterialStateProperty.all<Color>(
-                                      Color.fromRGBO(
-                                          255, 255, 255, 0.6588235294117647)),
-                                  foregroundColor:
-                                  MaterialStateProperty.all<Color>(Colors.white),
-                                  shape:
-                                  MaterialStateProperty.all<RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(16),
-                                            topRight: Radius.circular(16)),
-                                      )),
-                                ),
-                                onPressed: _toggleWidth,
-                              )),
-                      ]
                             ),
+                          ),
+                        ),
+                        Container(
+                            height: 30,
+                            width: 40,
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.3),
+                                  spreadRadius: 3,
+                                  blurRadius: 20,
+                                  offset: Offset(
+                                      0, 3), // changes position of shadow
+                                ),
+                              ],
+                            ),
+                            margin: const EdgeInsets.only(
+                              top: 220,
+                            ),
+                            child: ElevatedButton(
+                              child: Icon(
+                                _buttonIcon,
+                                size: 15,
+                                color: Colors.black,
+                              ),
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Color.fromRGBO(
+                                            255, 255, 255, 0.6588235294117647)),
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.white),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(16),
+                                      topRight: Radius.circular(16)),
+                                )),
+                              ),
+                              onPressed: _toggleWidth,
+                            )),
+                      ]),
                     ],
                   ),
                 ),
@@ -606,7 +617,9 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
                 ],
               ),
             ),
-            SizedBox(height: 50,),
+            SizedBox(
+              height: 50,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -700,7 +713,9 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
                                           fontWeight: FontWeight.w700,
                                           fontFamily: 'Hind'),
                                     ),
-                                    SizedBox(width: 10,),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
                                     Icon(
                                       Icons.add,
                                       size: 30,
@@ -716,10 +731,11 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
                                       Text(
                                         ' BIDS',
                                         style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 22,
-                                            fontWeight: FontWeight.w700,
-                                            fontFamily: 'Hind', ),
+                                          color: Colors.white,
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.w700,
+                                          fontFamily: 'Hind',
+                                        ),
                                       ),
                                       Padding(
                                           padding:
@@ -776,7 +792,9 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
                             children: [
                               Row(
                                 children: [
-                                  SizedBox(width: 10,),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
                                   Text(
                                     'BID',
                                     style: TextStyle(
@@ -785,27 +803,28 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
                                         fontWeight: FontWeight.w700,
                                         fontFamily: 'Hind'),
                                   ),
-
-                                  Stack(
-                                    children:[
-                                  Icon(
-                                    Icons.attach_money_outlined,
-                                    size: 33,
-                                    color: Colors.black,
+                                  Stack(children: [
+                                    Icon(
+                                      Icons.attach_money_outlined,
+                                      size: 33,
+                                      color: Colors.black,
+                                    ),
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.only(left: 23, top: 1),
+                                      child: Text(
+                                        '1K',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 27,
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: 'Hind'),
+                                      ),
+                                    ),
+                                  ]),
+                                  SizedBox(
+                                    width: 5,
                                   ),
-                                  Padding(padding: EdgeInsets.only(left: 23,top: 1),
-                                 child: Text(
-                                    '1K',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 27,
-                                        fontWeight: FontWeight.w700,
-                                        fontFamily: 'Hind'),
-                                  ),
-                ),
-                  ]
-                ),
-                                  SizedBox(width: 5,),
                                   Icon(
                                     Icons.add,
                                     size: 33,
@@ -813,7 +832,6 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
                                   )
                                 ],
                               ),
-
                             ],
                           )
                         ],
@@ -822,15 +840,17 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
                         backgroundColor: MaterialStateProperty.all<Color>(
                             Color.fromRGBO(255, 203, 20, 1)),
                         foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.white),
+                            MaterialStateProperty.all<Color>(Colors.white),
                         shape:
-                        MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15))),
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15))),
                       ),
                       onPressed: () {},
                     )),
-                SizedBox(width: 15,),
+                SizedBox(
+                  width: 15,
+                ),
                 Container(
                     height: 75,
                     width: 170,
@@ -855,7 +875,9 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
                             children: [
                               Row(
                                 children: [
-                                  SizedBox(width: 5,),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
                                   Text(
                                     'BID',
                                     style: TextStyle(
@@ -864,27 +886,25 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
                                         fontWeight: FontWeight.w700,
                                         fontFamily: 'Hind'),
                                   ),
-
-                                  Stack(
-                                      children:[
-                                        Icon(
-                                          Icons.attach_money_outlined,
-                                          size: 33,
-                                          color: Colors.black,
-                                        ),
-                                        Padding(padding: EdgeInsets.only(left: 23,top: 1),
-                                          child: Text(
-                                            '10K',
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 27,
-                                                fontWeight: FontWeight.w700,
-                                                fontFamily: 'Hind'),
-                                          ),
-                                        ),
-                                      ]
-                                  ),
-
+                                  Stack(children: [
+                                    Icon(
+                                      Icons.attach_money_outlined,
+                                      size: 33,
+                                      color: Colors.black,
+                                    ),
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.only(left: 23, top: 1),
+                                      child: Text(
+                                        '10K',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 27,
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: 'Hind'),
+                                      ),
+                                    ),
+                                  ]),
                                   Icon(
                                     Icons.add,
                                     size: 33,
@@ -892,7 +912,6 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
                                   )
                                 ],
                               ),
-
                             ],
                           )
                         ],
@@ -901,11 +920,11 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
                         backgroundColor: MaterialStateProperty.all<Color>(
                             Color.fromRGBO(255, 203, 20, 1)),
                         foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.white),
+                            MaterialStateProperty.all<Color>(Colors.white),
                         shape:
-                        MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15))),
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15))),
                       ),
                       onPressed: () {},
                     )),

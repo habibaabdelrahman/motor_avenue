@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:motor_avenue/CheckOut_2.dart';
+import 'package:motor_avenue/CheckOut_3.dart';
+import 'package:motor_avenue/Home.dart';
 
-class checkout extends StatelessWidget {
-  final _controllar = PageController();
+class CheckOut_1 extends StatefulWidget {
+  @override
+  State<CheckOut_1> createState() => _CheckOut_1State();
+}
+
+class _CheckOut_1State extends State<CheckOut_1> {
   int currentStep = 0;
+
+  void goToNextStep() {
+    setState(() {
+      currentStep = currentStep += 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,26 +90,63 @@ class checkout extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            Stepper(
-              currentStep: currentStep,
-              type: StepperType.horizontal,
-              steps: const[
-                Step(
-                    title: Text('step1'),
-                    content: Text('step1')
+            Container(
+              height: 75,
+              width: 350,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(21),
+                border: Border.all(color: Colors.black
+                )
+              ),
+              child: Theme(
+                data: ThemeData(
+                    canvasColor:Color.fromRGBO(
+                        255, 255, 255, 0.7294117647058823),
+                    highlightColor: Colors.cyan),
+                child: Stepper(
+                  onStepContinue: goToNextStep,
+                  currentStep: currentStep,
+                  type: StepperType.horizontal,
+                  steps: [
+                    Step(
+                      isActive: currentStep >= 0,
+                      state: currentStep > 0
+                          ? StepState.complete
+                          : StepState.indexed,
+                      title: Text(
+                        'SHIPPING',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      content: CheckOut_1(),
+                    ),
+                    Step(
+                      isActive: currentStep >= 1,
+                      state: currentStep > 1
+                          ? StepState.complete
+                          : StepState.indexed,
+                      title: Text(
+                        'PAYMENT',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      content: CheckOut_2(),
+                    ),
+                    Step(
+                        isActive: currentStep >= 2,
+                        state: currentStep > 2
+                            ? StepState.complete
+                            : StepState.indexed,
+                        title: Text(
+                          'REVIEW',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        content: CheckOut_3()),
+                  ],
                 ),
-                Step(
-                    title: Text('step1'),
-                    content: Text('step1')
-                ),
-                Step(
-                    title: Text('step1'),
-                    content: Text('step1')
-                ),
-              ],),
+              ),
+            ),
             Padding(
               padding: EdgeInsets.only(
-                top: 7,
+                top: 10,
               ),
               child: Align(
                 alignment: Alignment.center,
@@ -313,7 +364,7 @@ class checkout extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(top: 12),
+                          padding: EdgeInsets.only(top: 0),
                           child: Checkbox(
                             value: false,
                             fillColor:
@@ -332,7 +383,7 @@ class checkout extends StatelessWidget {
                         ),
                         Padding(
                           padding: EdgeInsets.only(
-                            top: 30,
+                            top: 16,
                           ),
                           child: Align(
                             alignment: Alignment.centerLeft,
@@ -366,7 +417,7 @@ class checkout extends StatelessWidget {
                 Container(
                     height: 45,
                     width: 350,
-                    margin: const EdgeInsets.only(top: 25, bottom: 20),
+                    margin: const EdgeInsets.only(top: 15, bottom: 20),
                     child: ElevatedButton(
                       child: const Text(
                         'Next',
@@ -385,7 +436,7 @@ class checkout extends StatelessWidget {
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(13))),
                       ),
-                      onPressed: () {},
+                      onPressed: goToNextStep,
                     )),
               ]),
             ),

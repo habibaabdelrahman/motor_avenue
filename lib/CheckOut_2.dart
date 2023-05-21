@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:motor_avenue/CheckOut_1.dart';
+import 'package:motor_avenue/CheckOut_3.dart';
 
-class checkout3 extends StatelessWidget {
-  final _controllar = PageController();
+class CheckOut_2 extends StatefulWidget {
+  @override
+  State<CheckOut_2> createState() => _CheckOut_2State();
+}
+
+class _CheckOut_2State extends State<CheckOut_2> {
+  int currentStep = 0;
+
+  void goToNextStep() {
+    setState(() {
+      currentStep = currentStep += 1;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +27,9 @@ class checkout3 extends StatelessWidget {
               end: Alignment.topCenter,
               begin: Alignment.bottomCenter,
               colors: [
-                Color.fromRGBO(0, 0, 0, 0.96),
                 Color.fromRGBO(196, 187, 159, 1.0),
+                Color.fromRGBO(0, 0, 0, 0.96),
+
               ],
             ),
           ),
@@ -29,7 +43,7 @@ class checkout3 extends StatelessWidget {
                     icon: const Icon(Icons.arrow_back_ios_new),
                     onPressed: () {},
                     iconSize: 32,
-                    color: Colors.black87,
+                    color: Colors.white,
                     padding: const EdgeInsets.only(top: 60, left: 15)),
                 Expanded(
                   child: Center(
@@ -43,7 +57,7 @@ class checkout3 extends StatelessWidget {
                               top: 6,
                             ),
                             child: Image.asset(
-                              'assets/images/black logoo.png',
+                              'assets/images/logo white.png',
                               height: 37,
                               width: 37,
                             ),
@@ -56,7 +70,7 @@ class checkout3 extends StatelessWidget {
                                 fontSize: 33,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'Hind',
-                                color: Colors.black87,
+                                color: Colors.white,
                               ),
                             ),
                           ),
@@ -65,7 +79,7 @@ class checkout3 extends StatelessWidget {
                             child: Icon(
                               Icons.add_shopping_cart_outlined,
                               size: 16,
-                              color: Colors.black87,
+                              color: Colors.white,
                             ),
                           ),
                         ],
@@ -75,56 +89,50 @@ class checkout3 extends StatelessWidget {
                 ),
               ],
             ),
-            Center(
-              child: Align(
-                alignment: Alignment.center,
-                child:
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Icon(Icons.looks_one_sharp),
-                  Text(
-                    'SHIPPING',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Hind',
-                      color: Colors.white,
+            Container(
+              height: 75,
+              width: 500,
+              child: Theme(
+                data: ThemeData(canvasColor: Colors.transparent),
+                child: Stepper(
+                  onStepContinue: goToNextStep,
+                  currentStep: currentStep,
+                  type: StepperType.horizontal,
+                  steps: [
+                    Step(
+                      isActive: currentStep >= 0,
+                      state: currentStep > 0
+                          ? StepState.complete
+                          : StepState.indexed,
+                      title: Text(
+                        'SHIPPING',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      content: CheckOut_1(),
                     ),
-                  ),
-                  Divider(
-                    height: 45,
-                    thickness: 2,
-                    indent: 15,
-                    endIndent: 15,
-                    color: Colors.white,
-                  ),
-                  Icon(Icons.three_k),
-                  Text(
-                    'PAYMENT',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Hind',
-                      color: Colors.white,
+                    Step(
+                      isActive: currentStep >= 1,
+                      state: currentStep > 1
+                          ? StepState.complete
+                          : StepState.indexed,
+                      title: Text(
+                        'PAYMENT',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      content: CheckOut_2(),
                     ),
-                  ),
-                  Divider(
-                    height: 45,
-                    thickness: 2,
-                    indent: 15,
-                    endIndent: 15,
-                    color: Colors.white,
-                  ),
-                  Icon(Icons.looks_two),
-                  Text(
-                    'REVIEW',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Hind',
-                      color: Colors.white,
-                    ),
-                  ),
-                ]),
+                    Step(
+                        isActive: currentStep >= 2,
+                        state: currentStep > 2
+                            ? StepState.complete
+                            : StepState.indexed,
+                        title: Text(
+                          'REVIEW',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        content: Text('step1')),
+                  ],
+                ),
               ),
             ),
             Padding(
@@ -174,33 +182,27 @@ class checkout3 extends StatelessWidget {
             ),
             Container(
               child: Column(children: [
-
                 Container(
-
                   margin: EdgeInsets.only(left: 10, right: 10, top: 20),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)
-                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
                     color: const Color.fromRGBO(255, 255, 255, 0.7),
                   ),
-
                   child: Column(
                     children: [
                       Stack(
                         children: [
-
-                          Padding(padding:EdgeInsets.only(left: 0),
-
-                            child:Icon(
+                          Padding(
+                            padding: EdgeInsets.only(left: 0),
+                            child: Icon(
                               Icons.attach_money,
                               size: 30,
                               color: Colors.black,
                             ),
-
                           ),
-                          Padding(padding:EdgeInsets.only(left: 30),
-
-                            child:Text(
+                          Padding(
+                            padding: EdgeInsets.only(left: 30),
+                            child: Text(
                               'PAYMENT',
                               style: TextStyle(
                                 fontSize: 20,
@@ -209,11 +211,10 @@ class checkout3 extends StatelessWidget {
                                 color: Colors.black,
                               ),
                             ),
-
                           ),
-                          Padding(padding:EdgeInsets.only(left: 30,top: 20),
-
-                            child:Text(
+                          Padding(
+                            padding: EdgeInsets.only(left: 30, top: 20),
+                            child: Text(
                               'METHOD',
                               style: TextStyle(
                                 fontSize: 20,
@@ -222,17 +223,13 @@ class checkout3 extends StatelessWidget {
                                 color: Colors.black,
                               ),
                             ),
-
                           ),
-
-
-
-
                         ],
                       ),
                       Stack(children: [
                         Container(
-                          margin: EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
+                          margin: EdgeInsets.only(
+                              left: 20, right: 20, top: 5, bottom: 5),
                           child: InkWell(
                             onTap: () {},
                             child: Image.asset(
@@ -251,7 +248,8 @@ class checkout3 extends StatelessWidget {
                                   color: Colors.grey.withOpacity(0.3),
                                   spreadRadius: 3,
                                   blurRadius: 20,
-                                  offset: Offset(0, 3), // changes position of shadow
+                                  offset: Offset(
+                                      0, 3), // changes position of shadow
                                 ),
                               ],
                             ),
@@ -266,16 +264,19 @@ class checkout3 extends StatelessWidget {
                                 color: Colors.black,
                               ),
                               style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all<Color>(
-                                    Color.fromRGBO(255, 255, 255, 0.4)),
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Color.fromRGBO(255, 255, 255, 0.4)),
                                 foregroundColor:
-                                MaterialStateProperty.all<Color>(Colors.white),
-                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.white),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.only(
-                                          bottomRight: Radius.circular(15),
-                                          topLeft: Radius.circular(15)),
-                                    )),
+                                  borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(15),
+                                      topLeft: Radius.circular(15)),
+                                )),
                               ),
                               onPressed: () {},
                             )),
@@ -290,7 +291,6 @@ class checkout3 extends StatelessWidget {
                               fontFamily: 'HIND'),
                         ),
                       ),
-
                       Center(
                         child: Container(
                             alignment: Alignment.center,
@@ -303,42 +303,51 @@ class checkout3 extends StatelessWidget {
                                   size: 45,
                                   color: Colors.black,
                                 ),
-                                Stack(
-                                    children:[
-                                      Padding(padding:EdgeInsets.only(left:15),
-                                        child: Text(
-                                          'ADD',
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: 'HIND'),
-                                        ),
-                                      ),
-                                      Padding(padding:EdgeInsets.only(top:12,left: 10),
-                                        child: Text(
-                                          'CARD',
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: 'HIND'),
-                                        ),
-                                      ),
-                                    ]
-                                ),
+                                Stack(children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 15),
+                                    child: Text(
+                                      'ADD',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'HIND'),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(top: 12, left: 10),
+                                    child: Text(
+                                      'CARD',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'HIND'),
+                                    ),
+                                  ),
+                                ]),
                               ]),
                               style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all<Color>(
-                                    Color.fromRGBO(209, 209, 209, 1)),
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Color.fromRGBO(209, 209, 209, 1)),
                                 foregroundColor:
-                                MaterialStateProperty.all<Color>(Colors.white),
-                                shape:
-                                MaterialStateProperty.all<RoundedRectangleBorder>(
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.white),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(5))),
+                                        borderRadius:
+                                            BorderRadius.circular(5))),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CheckOut_2()),
+                                );
+                              },
                             )),
                       ),
                       Center(
@@ -353,53 +362,50 @@ class checkout3 extends StatelessWidget {
                                   size: 45,
                                   color: Colors.black,
                                 ),
-                                Stack(
-                                    children:[
-                                      Padding(padding:EdgeInsets.only(left:5),
-                                        child: Text(
-                                          'SAVE PAYMENT',
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: 'HIND'),
-                                        ),
-                                      ),
-                                      Padding(padding:EdgeInsets.only(top:12,left: 5),
-                                        child: Text(
-                                          'METHOD',
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: 'HIND'),
-                                        ),
-                                      ),
-                                    ]
-                                ),
+                                Stack(children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5),
+                                    child: Text(
+                                      'SAVE PAYMENT',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'HIND'),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(top: 12, left: 5),
+                                    child: Text(
+                                      'METHOD',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'HIND'),
+                                    ),
+                                  ),
+                                ]),
                               ]),
                               style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all<Color>(
-                                    Color.fromRGBO(209, 209, 209, 1)),
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Color.fromRGBO(209, 209, 209, 1)),
                                 foregroundColor:
-                                MaterialStateProperty.all<Color>(Colors.white),
-                                shape:
-                                MaterialStateProperty.all<RoundedRectangleBorder>(
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.white),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(5))),
+                                        borderRadius:
+                                            BorderRadius.circular(5))),
                               ),
                               onPressed: () {},
                             )),
                       ),
-
                     ],
                   ),
-
-
-
-
                 ),
-
                 Container(
                     height: 50,
                     width: 200,
@@ -414,15 +420,15 @@ class checkout3 extends StatelessWidget {
                       ),
                       style: ButtonStyle(
                         backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.amber),
+                            MaterialStateProperty.all<Color>(Colors.amber),
                         foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.black),
+                            MaterialStateProperty.all<Color>(Colors.black),
                         shape:
-                        MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15))),
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15))),
                       ),
-                      onPressed: () {},
+                      onPressed: goToNextStep,
                     )),
               ]),
             ),
