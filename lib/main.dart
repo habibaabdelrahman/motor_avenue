@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:motor_avenue/CheckOut_2.dart';
 import 'package:motor_avenue/Live_Car_Details.dart';
-import 'package:motor_avenue/CheckOut_1.dart';
-import 'package:motor_avenue/CheckOut_3.dart';
-import 'package:motor_avenue/dartcheck.dart';
+
 import 'package:motor_avenue/login.dart';
+import 'package:motor_avenue/order.dart';
 import 'package:motor_avenue/register.dart';
 import 'package:motor_avenue/createads.dart';
+
+import 'checkout_4.dart';
 
 
 void main() {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: _title,
-      home:CheckOut_2(),
+      home: order(),
     );
   }
 }
