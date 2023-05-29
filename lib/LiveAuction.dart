@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motor_avenue/Home.dart';
+import 'package:motor_avenue/createads.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
@@ -106,7 +107,7 @@ class LiveAuction extends StatelessWidget {
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'Hind',
                                           color: Colors.white,
-                                        ),
+                                         ),
                                       ),
                                     ),
                                   ),
@@ -136,7 +137,7 @@ class LiveAuction extends StatelessWidget {
                                       onPressed: () { Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => Home(),
+                                            builder: (context) => createads(),
                                           ));},
                                       iconSize: 35,
                                       color: Colors.white,
@@ -175,7 +176,8 @@ class LiveAuction extends StatelessWidget {
                         ),
                       ),
                       child:
-                          ListView(padding: EdgeInsets.only(top: 5), children: [
+                          ListView(padding: EdgeInsets.only(top: 5),
+                              children: [
                         Column(
                           children: <Widget>[
                             Container(
@@ -408,7 +410,7 @@ class LiveAuction extends StatelessWidget {
                                     onPressed: () { Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => Home(),
+                                          builder: (context) => LiveAuction(),
                                         ));},
                                     iconSize: 35,
                                     color: Colors.white,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'CheckOut_1.dart';
 import 'CheckOut_2.dart';
 import 'CheckOut_3.dart';
+
 class order extends StatefulWidget {
   const order({Key? key}) : super(key: key);
 
@@ -23,12 +24,8 @@ class _orderState extends State<order> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-
-
         child: Container(
 
-
-          height: 803,
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               end: Alignment.topCenter,
@@ -42,7 +39,6 @@ class _orderState extends State<order> {
           child: Column(
             children: [
               Row(
-
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -62,7 +58,7 @@ class _orderState extends State<order> {
                               padding: const EdgeInsets.only(
                                 right: 250,
                                 top: 6,
-                                left: 15,
+                                left: 45,
                               ),
                               child: Image.asset(
                                 'assets/images/logo white.png',
@@ -71,7 +67,7 @@ class _orderState extends State<order> {
                               ),
                             ),
                             const Padding(
-                              padding: EdgeInsets.only(left: 55, top: 2),
+                              padding: EdgeInsets.only(left: 85, top: 5),
                               child: Text(
                                 'ORDERS',
                                 style: TextStyle(
@@ -83,9 +79,9 @@ class _orderState extends State<order> {
                               ),
                             ),
                             const Padding(
-                              padding: EdgeInsets.only(left: 180, top: 19),
+                              padding: EdgeInsets.only(left: 210, top: 22),
                               child: Icon(
-                                Icons.event_note,
+                                Icons.sticky_note_2_outlined,
                                 size: 16,
                                 color: Colors.white,
                               ),
@@ -97,19 +93,19 @@ class _orderState extends State<order> {
                   ),
                 ],
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Container(
                 height: 75,
                 width: 350,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(21),
-                    border: Border.all(color: Colors.black
-                    )
-                ),
+                    border: Border.all(color: Colors.black)),
                 child: Theme(
                   data: ThemeData(
-                      canvasColor:Color.fromRGBO(
-                          255, 255, 255, 0.7294117647058823),
+                      canvasColor:
+                          Color.fromRGBO(255, 255, 255, 0.7294117647058823),
                       highlightColor: Colors.cyan),
                   child: Stepper(
                     onStepContinue: goToNextStep,
@@ -152,7 +148,9 @@ class _orderState extends State<order> {
                   ),
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Stack(
                 children: [
                   Container(
@@ -164,17 +162,15 @@ class _orderState extends State<order> {
                     ),
                     child: Container(
                       alignment: Alignment.centerRight,
-                      child:
-                      Padding(padding: EdgeInsets.only(right: 5),
-
-                        child:Icon(
+                      child: Padding(
+                        padding: EdgeInsets.only(right: 5),
+                        child: Icon(
                           Icons.add_card,
                           size: 30,
                           color: Colors.black,
                         ),
                       ),
                     ),
-
                   ),
                   Container(
                     width: 172.5,
@@ -183,9 +179,190 @@ class _orderState extends State<order> {
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                       color: Colors.white,
                     ),
-                    child:Row( children: [
+                    child: Row(children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 5,),
+                        padding: EdgeInsets.only(
+                          left: 5,
+                        ),
+                        child: Icon(
+                          Icons.location_on_outlined,
+                          size: 30,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Stack(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(top: 1),
+                            child: Text(
+                              'YOUR',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Hind',
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 14),
+                            child: Text(
+                              'LOCATON',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Hind',
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 105, top: 5),
+                            child: Icon(
+                              Icons.arrow_forward_ios,
+                              size: 20,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ]),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Stack(
+                children: [
+                  Container(
+                    width: 345,
+                    height: 200,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      color: Colors.grey,
+                    ),
+                    child: Container(
+                      alignment: Alignment.centerRight,
+                      child: Padding(
+                        padding: EdgeInsets.only(right: 5),
+                        child: Icon(
+                          Icons.add_card,
+                          size: 30,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 172.5,
+                    height: 200,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      color: Colors.white,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 5,
+                        ),
+                        child: Icon(
+                          Icons.sticky_note_2_outlined,
+                          size: 35,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Stack(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(top: 1),
+                            child: Text(
+                              'YOUR',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Hind',
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 13),
+                            child: Text(
+                              'ORDER',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Hind',
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top:25),
+                            child: Text(
+                              'DETAILS',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Hind',
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 105, top: 2),
+                            child: Icon(
+                              Icons.arrow_forward_ios,
+                              size: 25,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ]),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Stack(
+                children: [
+                  Container(
+                    width: 345,
+                    height: 60,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      color: Colors.grey,
+                    ),
+                    child: Container(
+                      alignment: Alignment.centerRight,
+
+                      child: Padding(
+                        padding: EdgeInsets.only(right: 5),
+                        child: Icon(
+                          Icons.credit_card,
+                          size: 30,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 172.5,
+                    height: 60,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      color: Colors.white,
+                    ),
+                    child: Row(children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 5,
+                        ),
                         child: Icon(
                           Icons.attach_money,
                           size: 30,
@@ -195,7 +372,7 @@ class _orderState extends State<order> {
                       Stack(
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(top:1),
+                            padding: EdgeInsets.only(top: 1),
                             child: Text(
                               'PAYMENT',
                               style: TextStyle(
@@ -218,198 +395,55 @@ class _orderState extends State<order> {
                               ),
                             ),
                           ),
-                          Padding(padding:EdgeInsets.only(left: 105,top: 2),
-
-                            child:Icon(
+                          Padding(
+                            padding: EdgeInsets.only(left: 105, top: 2),
+                            child: Icon(
                               Icons.arrow_forward_ios,
                               size: 25,
                               color: Colors.black,
                             ),
                           ),
-
                         ],
                       ),
                     ]),
                   ),
                 ],
               ),
-              SizedBox(height: 10,),
               Stack(
+                alignment: Alignment.center,
                 children: [
-                  Container(
-                    width: 345,
-                    height: 60,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                      color: Colors.grey,
-                    ),
-                    child: Container(
-                      alignment: Alignment.centerRight,
-                      child:
-                      Padding(padding: EdgeInsets.only(right: 5),
-
-                        child:Icon(
-                          Icons.add_card,
-                          size: 30,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-
-                  ),
-                  Container(
-                    width: 172.5,
-                    height: 60,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                      color: Colors.white,
-                    ),
-                    child:Row( children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 5,),
-                        child: Icon(
-                          Icons.attach_money,
-                          size: 30,
-                          color: Colors.black,
-                        ),
-                      ),
-                      Stack(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(top:1),
-                            child: Text(
-                              'PAYMENT',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Hind',
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(top: 14),
-                            child: Text(
-                              'METHOD',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Hind',
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                          Padding(padding:EdgeInsets.only(left: 105,top: 2),
-
-                            child:Icon(
-                              Icons.arrow_forward_ios,
-                              size: 25,
+                  Padding(padding: EdgeInsets.only(top: 180),
+                  child: Text(
+                    'FOR ANY FURTHER HELP',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Hind'),
+                  ),),
+                  Padding(padding: EdgeInsets.only(top: 250,bottom: 30),
+                      child: TextButton(
+                        child: const Text(
+                          'Contact Us',
+                          style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w900,
                               color: Colors.black,
-                            ),
-                          ),
-
-                        ],
-                      ),
-                    ]),
-                  ),
-                ],
-              ),
-              SizedBox(height: 10,),
-              Stack(
-                children: [
-                  Container(
-                    width: 345,
-                    height: 60,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                      color: Colors.grey,
-                    ),
-                    child: Container(
-                      alignment: Alignment.centerRight,
-                      child:
-                      Padding(padding: EdgeInsets.only(right: 5),
-
-                        child:Icon(
-                          Icons.add_card,
-                          size: 30,
-                          color: Colors.black,
+                              fontFamily: 'Hind'),
                         ),
-                      ),
-                    ),
-
-                  ),
-                  Container(
-                    width: 172.5,
-                    height: 60,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                      color: Colors.white,
-                    ),
-                    child:Row( children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 5,),
-                        child: Icon(
-                          Icons.attach_money,
-                          size: 30,
-                          color: Colors.black,
-                        ),
-                      ),
-                      Stack(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(top:1),
-                            child: Text(
-                              'PAYMENT',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Hind',
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(top: 14),
-                            child: Text(
-                              'METHOD',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Hind',
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                          Padding(padding:EdgeInsets.only(left: 105,top: 2),
-
-                            child:Icon(
-                              Icons.arrow_forward_ios,
-                              size: 25,
-                              color: Colors.black,
-                            ),
-                          ),
-
-                        ],
-                      ),
-                    ]),
-                  ),
-                ],
+                        onPressed: () {
+                          //signup screen
+                        },
+                      ))],
               ),
-
-
-
 
 
 
             ],
           ),
-
-
         ),
       ),
-
-
-
     );
   }
 }

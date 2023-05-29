@@ -118,7 +118,9 @@ class _CheckOut_3State extends State<CheckOut_3> {
                 ),
               ),
             ),
-            Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
               Align(
                 alignment: Alignment.center,
                 child: Text(
@@ -162,19 +164,19 @@ class _CheckOut_3State extends State<CheckOut_3> {
                 ),
               ),
             ]),
-            Stack(children: [
+            Stack(
+                children: [
               Container(
-                margin: EdgeInsets.only(left: 20, right: 20, top: 425),
+                margin: EdgeInsets.only(left: 20, right: 20, top: 100),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(10),
                       bottomLeft: Radius.circular(10)),
-                  color:
-                      const Color.fromRGBO(255, 255, 255, 0.6196078431372549),
+                  color: const Color.fromRGBO(255, 255, 255, 0.6196078431372549),
                 ),
                 child: Center(
                   child: Container(
-                      margin: EdgeInsets.only(top: 15),
+                      margin: EdgeInsets.only(top: 5),
                       alignment: Alignment.center,
                       height: 70,
                       width: 150,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motor_avenue/Home.dart';
+import 'package:motor_avenue/LiveAuction.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
 class createads extends StatelessWidget {
@@ -128,7 +129,13 @@ class createads extends StatelessWidget {
                                   ),
                                   IconButton(
                                       icon: const Icon(Icons.arrow_back_ios),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => LiveAuction(),
+                                            ));
+                                      },
                                       iconSize: 35,
                                       color: Colors.white,
                                       padding: const EdgeInsets.only(

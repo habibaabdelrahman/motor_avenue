@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:slide_countdown/slide_countdown.dart';
 
 class Live_Car_Details extends StatefulWidget {
   const Live_Car_Details({Key? key}) : super(key: key);
@@ -604,8 +605,7 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
                             fontFamily: 'Hind'),
                       ),
                       Text(
-                        ' 8.0L'
-                        '',
+                        ' 8.0L',
                         style: TextStyle(
                             color: Colors.amber,
                             fontSize: 13,
@@ -624,8 +624,8 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                    height: 80,
-                    width: 155,
+                    height: 81,
+                    width: 170,
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -649,13 +649,23 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
                                 fontWeight: FontWeight.w700,
                                 fontFamily: 'Hind'),
                           ),
-                          Text(
-                            '23:20:00',
-                            style: TextStyle(
-                                color: Colors.amber,
-                                fontSize: 24,
-                                fontWeight: FontWeight.w700,
-                                fontFamily: 'Hind'),
+                          SlideCountdown(
+                            duration: const Duration(hours: 72),
+                            separatorStyle: TextStyle(
+                              color: Color.fromRGBO(255, 199, 0, 1),
+                                fontSize: 20,
+                                fontWeight: FontWeight.w800
+                            ),
+                            separatorPadding: EdgeInsets.only(left: 0.5,right: 0.5),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(Radius.circular(5)),
+                              color: Colors.grey.withOpacity(0.1),
+                            ),
+                            textStyle: TextStyle(
+                              color: Color.fromRGBO(255, 199, 0, 1),
+                              fontSize: 23,
+                              fontWeight: FontWeight.w900
+                            ),
                           ),
                         ],
                       ),
@@ -672,8 +682,8 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
                       onPressed: () {},
                     )),
                 Container(
-                    height: 80,
-                    width: 155,
+                    height: 81,
+                    width: 167,
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -714,7 +724,7 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
                                           fontFamily: 'Hind'),
                                     ),
                                     SizedBox(
-                                      width: 10,
+                                      width: 25,
                                     ),
                                     Icon(
                                       Icons.add,

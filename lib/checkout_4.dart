@@ -13,6 +13,19 @@ class checkout_4 extends StatefulWidget {
 class _checkout_4State extends State<checkout_4> {
 
   int currentStep = 0;
+  double containerHeight = 60;
+  double containerWidth = 172.5;
+  bool showText = false;
+  bool _showFristConatiner = true;
+
+  void _toggleWidth() {
+    setState(() {
+      containerHeight = containerHeight == 60.0 ? 440.0 : 60.0;
+      containerWidth = containerWidth == 172.5 ? 345.0 : 172.5;
+      showText = !showText;
+      _showFristConatiner = !_showFristConatiner;
+    });
+  }
 
   void goToNextStep() {
     setState(() {
@@ -26,7 +39,6 @@ class _checkout_4State extends State<checkout_4> {
 body: SingleChildScrollView(
 
   child: Container(
-    height: 803,
     decoration: const BoxDecoration(
       gradient: LinearGradient(
         end: Alignment.topCenter,
@@ -151,7 +163,7 @@ body: SingleChildScrollView(
         ),
         Padding(
           padding: EdgeInsets.only(
-            top: 10,
+            top: 15,
           ),
           child: Align(
             alignment: Alignment.center,
@@ -168,7 +180,7 @@ body: SingleChildScrollView(
         ),
         Padding(
           padding: EdgeInsets.only(
-            top: 5,
+            top: 10,
           ),
           child: Align(
             alignment: Alignment.center,
@@ -241,87 +253,49 @@ body: SingleChildScrollView(
      ),
 
         SizedBox(height: 30,),
-        Stack(
+        Column(
           children: [
-            Container(
-              width: 345,
-              height: 60,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                color: Colors.grey,
-              ),
-              child: Container(
-                alignment: Alignment.centerRight,
-                child:
-                Padding(padding: EdgeInsets.only(right: 5),
+            GestureDetector(
+              onTap: _toggleWidth,
+              child: Stack(
+                  children: [
+                    if (!showText)
+                      Container(
+                        width: 345,
+                        height: 60,
+                        decoration:  BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          color: Colors.grey,
+                        ),
 
-                child:Icon(
-                  Icons.add_card,
-                  size: 30,
-                  color: Colors.black,
-                ),
-                ),
-              ),
+                        child: Container(
+                          alignment: Alignment.centerRight,
+                          child:
+                          Padding(padding: EdgeInsets.only(right: 5),
 
+                            child:Icon(
+                              Icons.add_card,
+                              size: 30,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+                    AnimatedContainer(
+                      width: containerWidth,
+                      height:  containerHeight,
+                      decoration: const BoxDecoration(
+                        borderRadius:BorderRadius.all(Radius.circular(15),),
+                        color: Colors.white,
+                      ),
+                      duration: Duration(milliseconds: 500),
+                      child:_showFristConatiner ? fristConatiner() : secondContainer(),
+                    ),
+                  ]),
             ),
-Container(
-  width: 172.5,
-  height: 60,
-  decoration: const BoxDecoration(
-    borderRadius: BorderRadius.all(Radius.circular(15)),
-    color: Colors.white,
-  ),
-  child:Row( children: [
-    Padding(
-      padding: EdgeInsets.only(left: 5,),
-      child: Icon(
-        Icons.attach_money,
-        size: 30,
-        color: Colors.black,
-      ),
-    ),
-    Stack(
-      children: [
-        Padding(
-          padding: EdgeInsets.only(top:1),
-          child: Text(
-            'PAYMENT',
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Hind',
-              color: Colors.black,
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(top: 14),
-          child: Text(
-            'METHOD',
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Hind',
-              color: Colors.black,
-            ),
-          ),
-        ),
- Padding(padding:EdgeInsets.only(left: 105,top: 2),
-
-   child:Icon(
-     Icons.arrow_forward_ios,
-     size: 25,
-     color: Colors.black,
-   ),
- ),
-
-      ],
-    ),
-  ]),
-),
           ],
         ),
-        SizedBox(height: 10,),
+        SizedBox(height: 15,),
         Stack(
           children: [
             Container(
@@ -441,7 +415,7 @@ Container(
             ),
           ],
         ),
-        SizedBox(height: 10,),
+        SizedBox(height: 15,),
         Stack(
           children: [
             Container(
@@ -498,7 +472,7 @@ Container(
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(left: 60,),
+                            padding: EdgeInsets.only(left: 55,),
                             child: Text(
                               '300,000,00',
                               style: TextStyle(
@@ -527,7 +501,7 @@ Container(
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(left: 60,),
+                            padding: EdgeInsets.only(left: 80,),
                             child: Text(
                               '3,300,000,00',
                               style: TextStyle(
@@ -611,6 +585,329 @@ Container(
 
 
 
+    );
+  }
+}
+
+class fristConatiner extends StatelessWidget {
+  const fristConatiner({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body:
+      Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:[
+            Row(
+              mainAxisAlignment:MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 5,),
+                  child: Icon(
+                    Icons.attach_money,
+                    size: 30,
+                    color: Colors.black,
+                  ),
+                ),
+                Stack(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top:0),
+                        child: Text(
+                          'PAYMENT',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Hind',
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 14),
+                        child: Text(
+                          'METHOD',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Hind',
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      Padding(padding:EdgeInsets.only(left: 105,top: 2),
+
+                        child:Icon(
+                          Icons.arrow_forward_ios,
+                          size: 25,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ]
+                ),
+
+              ],
+            ),
+          ]
+      ),
+    );
+  }
+}
+class secondContainer extends StatelessWidget {
+  const secondContainer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Stack(
+              children: [
+                Container(
+                  margin: EdgeInsets.only( top: 350),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(10),
+                        bottomLeft: Radius.circular(10)),
+                    color:
+                    const Color.fromRGBO(255, 255, 255, 0.6196078431372549),
+                  ),
+                  child: Center(
+                    child: Container(
+                        margin: EdgeInsets.only(top: 15),
+                        alignment: Alignment.center,
+                        height: 70,
+                        width: 150,
+                        child: TextButton(
+                          child: Row(children: [
+                            Stack(children: [
+                              Padding(
+                                padding: EdgeInsets.only(top: 3),
+                                child: Icon(
+                                  Icons.bookmark_add_outlined,
+                                  size: 30,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              Stack(children: [
+                                Padding(
+                                  padding: EdgeInsets.only(left: 28, top: 3),
+                                  child: Text(
+                                    'SAVE PAYMENT',
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'HIND'),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                      top: 16, left: 28, bottom: 3),
+                                  child: Text(
+                                    'METHOD',
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'HIND'),
+                                  ),
+                                ),
+                              ]),
+                            ]),
+                          ]),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                Color.fromRGBO(
+                                    236, 235, 235, 0.9803921568627451)),
+                            foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white),
+                            shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10))),
+                          ),
+                          onPressed: () {},
+                        )),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    color:
+                    const Color.fromRGBO(236, 235, 235, 0.9803921568627451),
+                  ),
+                  child: Column(
+                    children: [
+                      Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                        Padding(
+                          padding: EdgeInsets.only(top: 10),
+                          child: Icon(
+                            Icons.attach_money,
+                            size: 30,
+                            color: Colors.black,
+                          ),
+                        ),
+                        Stack(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(top: 15),
+                              child: Text(
+                                'PAYMENT',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Hind',
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(top: 28),
+                              child: Text(
+                                'METHOD',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Hind',
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ]),
+
+
+                      Stack(children: [
+                        Container(
+                          margin: EdgeInsets.only(
+                              left: 20, right: 20, top: 5, bottom: 5),
+                          child: InkWell(
+                            onTap: () {},
+                            child: Image.asset(
+                              'assets/images/car 1.png',
+                              height: 187,
+                              width: 400,
+                            ),
+                          ),
+                        ),
+                        Container(
+                            height: 37,
+                            width: 63,
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.3),
+                                  spreadRadius: 3,
+                                  blurRadius: 20,
+                                  offset: Offset(
+                                      0, 3), // changes position of shadow
+                                ),
+                              ],
+                            ),
+                            margin: const EdgeInsets.only(
+                              top: 138,
+                              left: 260,
+                            ),
+                            child: TextButton(
+                              child: Icon(
+                                Icons.slideshow_rounded,
+                                size: 25,
+                                color: Colors.black,
+                              ),
+                              style: ButtonStyle(
+                                backgroundColor:
+                                MaterialStateProperty.all<Color>(
+                                    Color.fromRGBO(255, 255, 255, 0.4)),
+                                foregroundColor:
+                                MaterialStateProperty.all<Color>(
+                                    Colors.white),
+                                shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                          bottomRight: Radius.circular(10),
+                                          topLeft: Radius.circular(15)),
+                                    )),
+                              ),
+                              onPressed: () {},
+                            )),
+                      ]),
+                      Center(
+                        child: Text(
+                          'OR',
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'HIND'),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Center(
+                        child: Container(
+                            alignment: Alignment.center,
+                            height: 90,
+                            width: 110,
+                            child: TextButton(
+                              child: Row(children: [
+                                Icon(
+                                  Icons.add_card,
+                                  size: 40,
+                                  color: Colors.black,
+                                ),
+                                Stack(children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 15),
+                                    child: Text(
+                                      'ADD',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'HIND'),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(top: 12, left: 10),
+                                    child: Text(
+                                      'CARD',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'HIND'),
+                                    ),
+                                  ),
+                                ]),
+                              ]),
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all<Color>(
+                                    Color.fromRGBO(209, 209, 209, 1)),
+                                foregroundColor: MaterialStateProperty.all<Color>(
+                                    Colors.white),
+                                shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10))),
+                              ),
+                              onPressed: () {},
+                            )),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      )
+                    ],
+                  ),
+                ),
+              ]),
+        ],
+      ),
     );
   }
 }

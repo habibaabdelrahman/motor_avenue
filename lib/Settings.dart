@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:motor_avenue/Home.dart';
+import 'package:motor_avenue/setting2.dart';
 
-class Settings extends StatelessWidget {
+class Settings extends StatefulWidget {
+  @override
+  State<Settings> createState() => _SettingsState();
+}
+
+class _SettingsState extends State<Settings> {
+  String selectedLanguage = 'ENGLISH';
+
+  List<String> languages = ['ENGLISH', 'ARABIC'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,10 +126,10 @@ class Settings extends StatelessWidget {
               child: Stack(
                 children: [
                   const Padding(
-                    padding: EdgeInsets.only(left: 23, top: 26),
+                    padding: EdgeInsets.only(left: 23, top: 20),
                     child: Positioned(
                         child: Text(
-                      'TAKE',
+                      'CUSTOMIZE',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -129,25 +139,10 @@ class Settings extends StatelessWidget {
                     )),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 23, top: 43),
+                    padding: const EdgeInsets.only(left: 23, top: 36),
                     child: Container(
                         child: const Text(
-                      'ACTION',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Hind',
-                        color: Colors.white,
-                      ),
-                    )),
-                  ),
-
-
-                  Padding(
-                    padding: const EdgeInsets.only(left: 23, top: 59),
-                    child: Container(
-                        child: const Text(
-                      'ON',
+                      'THE LOOK',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -157,23 +152,47 @@ class Settings extends StatelessWidget {
                     )),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 23, top: 75),
-                    child: Container(
-                        child: const Text(
-                      'ACCOUNT',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Hind',
-                        color: Colors.white,
-                      ),
-                    )),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 105, top: 76),
+                    padding: const EdgeInsets.only(left: 107, top: 36),
                     child: Container(
                         child: const Icon(
-                      Icons.person_pin,
+                          Icons.remove_red_eye_outlined,
+                          size: 20,
+                          color: Colors.white,
+                        )),
+                  ),
+
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 23, top: 52),
+                    child: Container(
+                        child: const Text(
+                      'AND',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Hind',
+                        color: Colors.white,
+                      ),
+                    )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 23, top: 68),
+                    child: Container(
+                        child: const Text(
+                      'FEEL',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Hind',
+                        color: Colors.white,
+                      ),
+                    )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 62, top: 68),
+                    child: Container(
+                        child: const Icon(
+                      Icons.person_sharp,
                       size: 20,
                       color: Colors.white,
                     )),
@@ -182,30 +201,107 @@ class Settings extends StatelessWidget {
                     padding: EdgeInsets.only(left: 9),
                     child: VerticalDivider(
                       width: 20,
-                      indent: 30,
-                      endIndent: 29,
+                      indent: 23,
+                      endIndent: 23,
                       thickness: 2,
                       color: Colors.white,
                     ),
                   ),
                   Container(
-                      height: 80,
+                      height: 90,
                       width: 180,
                       margin: const EdgeInsets.only(
                         top: 10,
                         left: 170,
                       ),
                       child: TextButton(
-                        child: const Center(
-                          child: Text(
-                            'CHANGE PASSWORD',
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w800,
-                              fontFamily: 'Hind',
-                              color: Colors.black,
+                        child: Stack(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only( top: 0),
+                              child: Container(
+                                alignment: Alignment.topLeft,
+                                  child: ShaderMask(
+                                    blendMode: BlendMode.srcATop,
+                                    shaderCallback: (Rect bounds) {
+                                      return LinearGradient(
+                                        colors: [Color.fromRGBO(0, 0, 0, 1),
+                                          Color.fromRGBO(187, 182, 166, 1)],
+                                      ).createShader(bounds);
+                                    },
+                                    child: Text(
+                                      'LIVE',
+                                      style: TextStyle(
+                                        fontSize: 27,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Hind',
+                                      ),
+                                    ),
+                                  )
+                              ),
                             ),
-                          ),
+                            Padding(
+                              padding: const EdgeInsets.only( top: 21),
+                              child: Container(
+                                  child: ShaderMask(
+                                    blendMode: BlendMode.srcATop,
+                                    shaderCallback: (Rect bounds) {
+                                      return LinearGradient(
+                                        colors: [Color.fromRGBO(0, 0, 0, 1),
+                                          Color.fromRGBO(187, 182, 166, 1)],
+                                      ).createShader(bounds);
+                                    },
+                                    child: Text(
+                                      'LIGHT',
+                                      style: TextStyle(
+                                        fontSize: 28,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Hind',
+                                      ),
+                                    ),
+                                  )),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only( top: 42),
+                              child: Container(
+                                  child: ShaderMask(
+                                    blendMode: BlendMode.srcATop,
+                                    shaderCallback: (Rect bounds) {
+                                      return LinearGradient(
+                                        colors: [Color.fromRGBO(255, 199, 0, 1),
+                                          Color.fromRGBO(255, 61, 0, 0.84)],
+                                      ).createShader(bounds);
+                                    },
+                                    child: Text(
+                                      'MOOD',
+                                      style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Hind',
+                                      ),
+                                    ),
+                                  )),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only( top: 16,left: 105),
+                              child: Container(
+                                  child:ShaderMask(
+                                    shaderCallback: (Rect bounds) {
+                                      return LinearGradient(
+                                        colors: [Color.fromRGBO(255, 61, 0, 0.84),
+                                          Color.fromRGBO(255, 199, 0, 1),
+                                          ],
+                                      ).createShader(bounds);
+                                    },
+                                    child: Icon(
+                                      Icons.wb_sunny_outlined,
+                                      color: Colors.white,
+                                      size: 47,
+                                    ),
+                                  )
+                              ),
+                            ),
+                          ],
                         ),
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
@@ -400,8 +496,8 @@ class Settings extends StatelessWidget {
                                 ),
                               ),
                               Icon(
-                                Icons.person_off_outlined,
-                                size: 17,
+                                Icons.person_remove_alt_1_outlined,
+                                size: 18,
                                 color: Colors.black,
                               )
                             ],
@@ -567,7 +663,13 @@ class Settings extends StatelessWidget {
                             ),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => setting2(),
+                              ));
+                        },
                       )),
                 ],
               ),
@@ -661,38 +763,46 @@ class Settings extends StatelessWidget {
                     ),
                   ),
                   Container(
-                      height: 60,
-                      width: 180,
+                      height: 45,
+                      width: 145,
                       margin: const EdgeInsets.only(
-                        top: 10,
-                        left: 170,
+                        top: 17,
+                        left:205,
                       ),
-                      child: TextButton(
-                        child: const Center(
-                          child: Text(
-                            'CHANGE PASSWORD',
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w800,
-                              fontFamily: 'Hind',
-                              color: Colors.black,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        color:  Color.fromRGBO(217, 217, 217, 1),
+                      ),
+
+                      child: Padding(padding: EdgeInsets.only(left: 13.5,right: 13.5,),
+                          child:DropdownButton<String>(
+                        alignment: Alignment.center,
+                            icon: Padding(padding:EdgeInsets.only(left: 6) ,
+                            child: Icon(Icons.arrow_forward_ios,color: Colors.black,),),
+                            iconSize: 17,
+                            underline: Container(
+                              height: 1.5,
+                              color: Colors.black,  // Set your desired color here
                             ),
-                          ),
+                        dropdownColor: Color.fromRGBO(217, 217, 217, 1),
+                        style: TextStyle(color: Colors.black,
+                          fontWeight: FontWeight.w900,
+                          fontSize: 23,
                         ),
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              const Color.fromRGBO(217, 217, 217, 1)),
-                          foregroundColor:
-                              MaterialStateProperty.all<Color>(Colors.white),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(11),
-                            ),
-                          ),
-                        ),
-                        onPressed: () {},
-                      )),
+                        value: selectedLanguage,
+                        onChanged: (newValue) async {
+                          setState(() {
+                            selectedLanguage = newValue!;
+                          });
+                          // You can add code here to handle language change
+                        },
+                        items: languages.map((String language) {
+                          return DropdownMenuItem<String>(
+                            value: language,
+                            child: Text(language),
+                          );
+                        }).toList(),
+                      ))),
                 ],
               ),
             ),
@@ -815,17 +925,30 @@ class Settings extends StatelessWidget {
                         left: 170,
                       ),
                       child: TextButton(
-                        child: const Center(
-                          child: Text(
-                            'CONACT US',
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w800,
-                              fontFamily: 'Hind',
-                              color: Colors.black,
+                        child: Stack(
+                          children: [
+                            Center(
+                              child:
+                              Text(
+                                'CONACT US',
+                                style: TextStyle(
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.w800,
+                                  fontFamily: 'Hind',
+                                  color: Colors.black,
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 125, top: 9),
+                              child: Icon(
+                                Icons.headset_mic,
+                                size: 18,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ) ,
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
                               const Color.fromRGBO(217, 217, 217, 1)),

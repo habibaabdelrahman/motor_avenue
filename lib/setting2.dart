@@ -21,9 +21,7 @@ body:Container(
   ),
   child:
   Column(
-
     children: [
-
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -81,12 +79,73 @@ body:Container(
           ),
         ],
       ),
+      Container(
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20, top: 20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Stack(
+                children: <Widget>[
+                  const Positioned(
+                    top: 0,
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        'EDIT YOUR',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.w700,
+                            fontFamily: 'Hind'),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(
+                      top: 25,
+                    ),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Stack(
+                        children: const [
+                          Padding(
+                            padding: EdgeInsets.only(left: 0, ),
+                            child: Text(
+                              'PROFILE',
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Hind',
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 120, top: 5),
+                            child: Icon(
+                              Icons.person_outline,
+                              size: 25,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
       Align(
-        alignment: Alignment.centerLeft,
+        alignment: Alignment.topLeft,
         child: Stack(
           children: const [
             Padding(
-              padding: EdgeInsets.only(left: 20, top: 13),
+              padding: EdgeInsets.only(left: 20, top: 5),
               child: Text(
                 'CHANGE PASSWORD',
                 style: TextStyle(
@@ -98,7 +157,7 @@ body:Container(
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 195, top: 13),
+              padding: EdgeInsets.only(left: 195, top: 5),
               child: Icon(
                 Icons.privacy_tip_outlined,
                 size: 18,
@@ -109,22 +168,24 @@ body:Container(
         ),
       ),
       const SizedBox(
-        height: 3,
+        height: 5,
       ),
       Container(
         width: 360,
-        height: 630,
+        height: 580,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(10),
           color: const Color.fromRGBO(0, 0, 0, 0.33).withOpacity(0.2),
         ),
         child:
     Column(
     children:[
-        Stack(
+      Align(
+        alignment: Alignment.topLeft,
+        child:Stack(
           children: [
             const Padding(
-              padding: EdgeInsets.only(left: 28, top: 21),
+              padding: EdgeInsets.only( left:30,top: 15),
               child: Positioned(
                   child: Text(
                     'TAKE',
@@ -137,7 +198,7 @@ body:Container(
                   )),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 28, top: 38),
+              padding: const EdgeInsets.only( left:30,top: 35),
               child: Container(
                   child: const Text(
                     'CONTROL',
@@ -152,7 +213,7 @@ body:Container(
 
 
             Padding(
-              padding: const EdgeInsets.only(left: 28, top: 54),
+              padding: const EdgeInsets.only( left:30,top: 55),
               child: Container(
                   child: const Text(
                     'OF',
@@ -165,7 +226,7 @@ body:Container(
                   )),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 28, top: 69),
+              padding: const EdgeInsets.only( left:30,top: 75),
               child: Container(
                   child: const Text(
                     'SECURITY',
@@ -178,7 +239,7 @@ body:Container(
                   )),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 110, top: 70),
+              padding: const EdgeInsets.only(left: 135, top: 78),
               child: Container(
                   child: const Icon(
                     Icons.lock_outline_rounded,
@@ -186,27 +247,26 @@ body:Container(
                     color: Colors.white,
                   )),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 15),
-              child:
-
-
+            Padding(
+              padding: EdgeInsets.only(left: 15,top: 12),
+              child:Container(
+                alignment: Alignment.topLeft,
+                width: 360,
+                height: 90,
+                child:
               VerticalDivider(
                 width: 20,
-                indent: 25,
-                endIndent: 25,
+                indent: 7,
+                endIndent: 7,
                 thickness: 2,
                 color: Colors.white,
-              ),
+              ),),
             ),
 
-
-
-
-
-
           ],
-        ),
+        ) ,
+      ),
+
 
        Stack(
           children: [
@@ -258,6 +318,8 @@ body:Container(
           margin: const EdgeInsets.only(top: 15),
           child: TextField(
             decoration: const InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
               border: OutlineInputBorder(
                 borderSide:
                 BorderSide(color: Colors.white),
@@ -274,7 +336,7 @@ body:Container(
           ),
 
         ),
-      SizedBox(height: 5,),
+
       Stack(
         children: [
           Divider(
@@ -326,6 +388,8 @@ body:Container(
         margin: const EdgeInsets.only(top: 15),
         child: TextField(
           decoration: const InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
             border: OutlineInputBorder(
               borderSide:
               BorderSide(color: Colors.white),
@@ -342,7 +406,7 @@ body:Container(
         ),
 
       ),
-      SizedBox(height: 5,),
+
       Stack(
         children: [
           Divider(
@@ -394,6 +458,8 @@ body:Container(
         margin: const EdgeInsets.only(top: 15),
         child: TextField(
           decoration: const InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
             border: OutlineInputBorder(
               borderSide:
               BorderSide(color: Colors.white),
@@ -408,13 +474,21 @@ body:Container(
             ),
           ),
         ),
-
+      ),
+SizedBox(height: 10,),
+      Text(
+        'it’s optional to change any value',
+        style: TextStyle(
+          color: Colors.white,
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'MontserratSubrayada'),
       ),
 
       Container(
           height: 50,
           width: 340,
-          margin: const EdgeInsets.only(top: 75, bottom: 20),
+          margin: const EdgeInsets.only(top: 10, bottom: 10),
           child: ElevatedButton(
             child: const Text(
               'SUBMIT',
@@ -431,7 +505,7 @@ body:Container(
               shape:
               MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15))),
+                      borderRadius: BorderRadius.circular(10))),
             ),
             onPressed: () {},
           )),
