@@ -1,21 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:motor_avenue/Home.dart';
 
-class Requests extends StatelessWidget {
+class Requests extends StatefulWidget {
   const Requests({Key? key}) : super(key: key);
+
+  @override
+  State<Requests> createState() => _RequestsState();
+}
+
+class _RequestsState extends State<Requests> {
+  bool _isPopupVisible = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-          child: Container(
+        child:
+          Container(
+            height: 830,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             end: Alignment.topCenter,
             begin: Alignment.bottomCenter,
             colors: [
-              Color.fromRGBO(0, 0, 0, 0.96),
               Color.fromRGBO(196, 187, 159, 1.0),
+              Color.fromRGBO(0, 0, 0, 0.96),
             ],
           ),
         ),
@@ -45,35 +54,28 @@ class Requests extends StatelessWidget {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(
-                              right: 250,
+                              right: 210,
                               top: 6,
                             ),
                             child: Image.asset(
                               'assets/images/logo white.png',
-                              height: 37,
-                              width: 37,
+                              height: 35,
+                              width: 35,
                             ),
                           ),
                           const Padding(
                             padding: EdgeInsets.only(left: 40, top: 4),
                             child: Text(
-                              'Requests',
+                              'REQUESTS',
                               style: TextStyle(
-                                fontSize: 33,
+                                fontSize: 35,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'Hind',
                                 color: Colors.white,
                               ),
                             ),
                           ),
-                          const Padding(
-                            padding: EdgeInsets.only(left: 240, top: 26),
-                            child: Icon(
-                              Icons.bookmark_outline_sharp,
-                              size: 14,
-                              color: Colors.black87,
-                            ),
-                          ),
+
                         ],
                       ),
                     ),
@@ -81,9 +83,261 @@ class Requests extends StatelessWidget {
                 ),
               ],
             ),
+
             Stack(children: [
               Container(
-                margin: EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
+                height: 95,
+                margin: EdgeInsets.only(left: 20, right: 20, top: 225),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(8),
+                      bottomLeft: Radius.circular(8)),
+                  color:
+                  const Color.fromRGBO(66, 66, 66, 1),
+                ),
+                child: Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(7)),
+                      color: Color.fromRGBO(113, 113, 113, 0.55),
+                    ),
+                    margin: EdgeInsets.only(top: 29),
+                    alignment: Alignment.centerLeft,
+                    height: 45,
+                    width: 335,
+                    child: Center(
+                      child: Row(
+                        children: [
+                          SizedBox(width: 10,),
+                          Stack(
+                            children: [
+                              Text(
+                                'CURRENT PRICE',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 12,
+                                    fontFamily: 'Hind'),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  top: 18,
+                                ),
+                                child: Text(
+                                  'CURRENT TIME',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: 'Hind'),
+                                ),
+                              ),
+
+                            ],
+                          ),
+
+                          SizedBox(width: 10,),
+
+                          Stack(
+                            children: [
+                              Container(
+                                height: 3,
+                              width: 95,
+                              child:Divider(
+                                indent: 3,
+                                endIndent: 3,
+                                thickness: 3,
+                                color: Colors.white,
+                              ),
+                  ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  top: 18,
+                                ),
+                                child: Container(
+                                  height: 3,
+                                  width: 95,
+                                  child:Divider(
+                                    indent: 3,
+                                    endIndent: 3,
+                                    thickness: 3,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+
+                            ],
+                          ),
+
+                          SizedBox(width: 10,),
+                          Stack(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.attach_money,
+                                    size: 15,
+                                    color: Colors.white,
+                                  ),
+                                  Text(
+                                    '432,300',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                        fontFamily: 'Hind'),
+                                  ),
+                                ],
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  top: 18,left: 3
+                                ),
+                                child: Text(
+                                  '1 MONTH',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: 'Hind'),
+                                ),
+                              ),
+                            ],
+                          ),
+
+                          SizedBox(width: 20,),
+                          Stack(
+                            children: [
+                              Icon(
+                                Icons.done_all,
+                                size: 20,
+                                color: Colors.white,
+                              ),
+
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    top: 20,
+                                ),
+                                child:Icon(
+                                  Icons.clear,
+                                  size: 22,
+                                  color: Colors.amber,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+
+
+              Container(
+                height: 67,
+                margin: EdgeInsets.only(left: 20, right: 20, top: 190),
+                decoration: BoxDecoration(
+                  color: const Color.fromRGBO(96, 96, 96, 1),
+                ),
+                child: Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(7)),
+                      color: Color.fromRGBO(151, 151, 151, 1),
+                    ),
+                    margin: EdgeInsets.only(top: 10),
+                    alignment: Alignment.centerLeft,
+                    height: 45,
+                    width: 335,
+                    child: Center(
+                      child: Row(
+                        children: [
+                          SizedBox(width: 10),
+                          Stack(
+                            children: [
+                              Text(
+                                'HTUNDAI',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 14,
+                                    fontFamily: 'Hind'),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  top: 18,
+                                ),
+                                child: Text(
+                                  '120 N LINE',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: 'Hind'),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(width: 10),
+                          VerticalDivider(
+                            width: 20,
+                            indent: 10,
+                            endIndent: 10,
+                            thickness: 4,
+                            color: Colors.white,
+                          ),
+                          SizedBox(width: 10),
+                          Stack(
+                            children: [
+                              Text(
+                                'ADD PRICE',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 14,
+                                    fontFamily: 'Hind'),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  top: 18,
+                                ),
+                                child: Text(
+                                  'ADD TIME',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: 'Hind'),
+                                ),
+                              ),
+                            ],
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.add),
+                            onPressed: () {
+                              setState(() {
+                                _isPopupVisible = true;
+                              });
+                            },
+                            iconSize: 32,
+                            color: Colors.white,
+                            padding: const EdgeInsets.only(left: 100),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+
+
+
+
+              Container(
+                margin: EdgeInsets.only(left: 21, right: 21, top: 15, bottom: 5),
                 child: InkWell(
                   onTap: () {},
                   child: Image.asset(
@@ -130,10 +384,120 @@ class Requests extends StatelessWidget {
                     ),
                     onPressed: () {},
                   )),
+
+
+
+              SizedBox(height: 20),
+              Visibility(
+                visible: _isPopupVisible,
+                child: Container(
+                  margin: EdgeInsets.only(left: 100,top: 150),
+                  width: 200,
+                  padding: EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 60.0,
+                        spreadRadius: 60.0,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(10),
+                    color:  Color.fromRGBO(96, 96, 96, 0.7),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: 'ADD PRICE',
+                          labelStyle: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
+                          border: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: 'ADD TIME',
+                          labelStyle: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
+                          border: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              setState(() {
+                                _isPopupVisible = false;
+                              });
+                            },
+                            child: Text('Cancel',
+                              style: TextStyle(color: Colors.white),),
+
+                          ),
+                          SizedBox(width: 10),
+                          ElevatedButton(
+                            onPressed: () {
+                              // Perform your desired action here
+                              setState(() {
+                                _isPopupVisible = false;
+                              });
+                            },
+                            child: Text('Submit',
+                              style: TextStyle(color: Colors.white),),
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.amber),
+                              foregroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.white),
+                              shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10))),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ]),
           ],
         ),
-      )),
+      )
+
+      ),
     );
   }
 }
+
+
+
+
+

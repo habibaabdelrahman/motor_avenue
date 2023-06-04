@@ -21,11 +21,7 @@ class _HomeState extends State<Home> {
   TextEditingController textController = TextEditingController();
   bool isPopupVisible = false;
 
-  void _togglePopupVisibility() {
-    setState(() {
-      isPopupVisible = !isPopupVisible;
-    });
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,430 +39,11 @@ class _HomeState extends State<Home> {
       fontFamily: 'Hind',
     );
     return Scaffold(
-      floatingActionButton: Visibility(
-      visible: isPopupVisible,
-      child: Padding(
-        padding: EdgeInsets.only(top: 150),
-        child: IconButton(
-          onPressed: () {
-            _togglePopupVisibility();
-          },
-          icon: Icon(
-            Icons.close,
-            color: Colors.white,
-            size: 35,
-          ),
-        ),
-      ),
-    ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
-      bottomSheet: Visibility(
-        visible: isPopupVisible,
-        child: Column(children: [
-          Container(
-              width: 395,
-              height: 710,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius:
-                BorderRadius.only(bottomRight: Radius.circular(50)),
-                color: Color.fromRGBO(0, 0, 0, 0.7),
-              ),
-              child:
-              Column(
-                  children: [
-                  Stack(
-                    children: [
-                      Container(
-                        height: 220,
-                        decoration: const BoxDecoration(
-                          borderRadius:
-                          BorderRadius.only(bottomRight: Radius.circular(25)),
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Color.fromRGBO(0, 0, 0, 0),
-                              Color.fromRGBO(255, 255, 255, 0.64),
-                            ],
-                          ),
-                        ),
-                        child:Padding(padding: EdgeInsets.only(left: 50,top:70),
-                          child:Row(
-                            children: [
-                              CircleAvatar(
-                                  radius: 40,
-                                  backgroundColor: Colors.black,
-                                  child: const CircleAvatar(
-                                    backgroundColor: Color.fromRGBO(217, 217, 217, 1),
-                                    foregroundColor: Colors.black,
-                                    child: Icon(
-                                      Icons.person_outline,
-                                      size: 35,
-                                    ),
-                                    radius: 48,
-                                  )),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Padding(padding:EdgeInsets.only(top: 50),
-                                  child:
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Text(
-                                            'HI,',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Icon(
-                                            Icons.waving_hand,
-                                            color: Colors.white,
-                                            size: 17,
-                                          ),
-                                        ],
-                                      ),
-                                      Text('KAREEM YOUNIS',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 22))
-                                    ],
-                                  )
-                              ),
-                            ],
-                          ),),
-                      ),
-                      Container(
-                          height: 45,
-                          width: 80,
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.3),
-                                spreadRadius: 3,
-                                blurRadius: 20,
-                                offset:
-                                Offset(0, 3), // changes position of shadow
-                              ),
-                            ],
-                          ),
-                          margin: const EdgeInsets.only(
-                            top: 175,
-                            left: 315,
-                          ),
-                          child: TextButton(
-                            child: Icon(
-                              Icons.edit_calendar_outlined,
-                              size: 30,
-                            ),
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Color.fromRGBO(255, 255, 255, 0.4)),
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.white),
-                              shape: MaterialStateProperty.all<
-                                  RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.only(
-                                        bottomRight: Radius.circular(25),
-                                        topLeft: Radius.circular(25)),
-                                  )),
-                            ),
-                            onPressed: () {
-
-                            },
-                          )),
-                    ],
-                  ),
-
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  margin: EdgeInsets.only(right: 230),
-                  width: 172,
-                  height: 57,
-                  decoration: BoxDecoration(
-                      borderRadius:
-                      BorderRadius.only(bottomRight: Radius.circular(20)),
-                      color: Color.fromRGBO(217, 217, 217, 0.75)),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 5),
-                        child: Icon(
-                          Icons.event_note_outlined,
-                          size: 30,
-                          color: Colors.black,
-                        ),
-                      ),
-                      TextButton(onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => order(),
-                            ));
-                      }, child:
-                      Text(
-                        'ORDERS',
-                        style: TextStyle(
-                            fontSize: 30,
-                            fontFamily: 'Hind',
-                            fontWeight: FontWeight.w700,
-                            color: Colors.black),
-                      ),),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 7,
-                ),
-                Container(
-                  margin: EdgeInsets.only(right: 170),
-                  width: 230,
-                  height: 70,
-                  decoration: BoxDecoration(
-                      borderRadius:
-                      BorderRadius.only(bottomRight: Radius.circular(20)),
-                      color: Color.fromRGBO(217, 217, 217, 0.75)),
-                  child: Stack(
-                    children: [
-                      const Padding(
-                        padding: const EdgeInsets.only(top: 5, left: 40),
-                        child: const Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            'AUCTIONS',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Hind',
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(left: 3, top: 17),
-                        child: Icon(
-                          Icons.check_circle,
-                          size: 35,
-                          color: Colors.black,
-                        ),
-                      ),
-                      Container(
-                        margin:
-                        const EdgeInsets.only(top: 30, bottom: 4, left: 40),
-                        child: const Text(
-                          'RESULTS',
-                          style: const TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Hind',
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 7,
-                ),
-                Container(
-                  margin: EdgeInsets.only(right: 190),
-                  width: 200,
-                  height: 57,
-                  decoration: BoxDecoration(
-                      borderRadius:
-                      BorderRadius.only(bottomRight: Radius.circular(20)),
-                      color: Color.fromRGBO(217, 217, 217, 0.75)),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 5),
-                        child: Icon(
-                          Icons.photo_size_select_actual_outlined,
-                          size: 30,
-                          color: Colors.black,
-                        ),
-                      ),
-                      TextButton(onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Home(),
-                            ));
-                      }, child:
-                      Text(
-                        ' YOUR ADS',
-                        style: TextStyle(
-                            fontSize: 30,
-                            fontFamily: 'Hind',
-                            fontWeight: FontWeight.w700,
-                            color: Colors.black),
-                      ),),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 7,
-                ),
-                Container(
-                  margin: EdgeInsets.only(right: 150),
-                  width: 250,
-                  height: 57,
-                  decoration: BoxDecoration(
-                      borderRadius:
-                      BorderRadius.only(bottomRight: Radius.circular(20)),
-                      color: Color.fromRGBO(217, 217, 217, 0.75)),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 5),
-                        child: Icon(
-                          Icons.headset_mic,
-                          size: 30,
-                          color: Colors.black,
-                        ),
-                      ),
-                      TextButton(onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => contactus(),
-                            ));
-                      }, child:
-                      Text(
-                        ' CONTACT US',
-                        style: TextStyle(
-                            fontSize: 30,
-                            fontFamily: 'Hind',
-                            fontWeight: FontWeight.w700,
-                            color: Colors.black),
-                      ),),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 7,
-                ),
-                Container(
-                  margin: EdgeInsets.only(right: 190),
-                  width: 200,
-                  height: 57,
-                  decoration: BoxDecoration(
-                      borderRadius:
-                      BorderRadius.only(bottomRight: Radius.circular(20)),
-                      color: Color.fromRGBO(217, 217, 217, 0.75)),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 5),
-                        child: Icon(
-                          Icons.photo_size_select_actual_outlined,
-                          size: 30,
-                          color: Colors.black,
-                        ),
-                      ),
-                      TextButton(onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Requests(),
-                            ));
-                      }, child:
-                      Text(
-                        ' REQUESTS',
-                        style: TextStyle(
-                            fontSize: 30,
-                            fontFamily: 'Hind',
-                            fontWeight: FontWeight.w700,
-                            color: Colors.black),
-                      ),),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 7,
-                ),
-                Container(
-                  margin: EdgeInsets.only(right: 210),
-                  width: 180,
-                  height: 57,
-                  decoration: BoxDecoration(
-                      borderRadius:
-                      BorderRadius.only(bottomRight: Radius.circular(20)),
-                      color: Color.fromRGBO(217, 217, 217, 0.75)),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 5),
-                        child: Icon(
-                          Icons.settings_outlined,
-                          size: 30,
-                          color: Colors.black,
-                        ),
-                      ),
-                      TextButton(
-                       onPressed: () {
-                         Navigator.push(
-                             context,
-                             MaterialPageRoute(
-                               builder: (context) => Settings(),
-                             ));
-                       },
-                       child:Text( ' SETINGS',
-                        style: TextStyle(
-                            fontSize: 30,
-                            fontFamily: 'Hind',
-                            fontWeight: FontWeight.w700,
-                            color: Colors.black),
-                       ),)
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                    width: 130,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        'LOG OUT',
-                        style: TextStyle(
-                            fontFamily: 'Montserrat',fontSize: 15,
-                            fontWeight: FontWeight.w500
-                        ),
-                      ),
-                      style:  ButtonStyle(
-                        backgroundColor:
-                        MaterialStateProperty.all<Color>(
-                            Color.fromRGBO(217, 217, 217, 1)),
-                        foregroundColor:
-                        MaterialStateProperty.all<Color>(
-                            Colors.black),
-                        shape: MaterialStateProperty.all<
-                            RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                                borderRadius:
-                                BorderRadius.circular(
-                                    21.5))),
-                      ),)
-                )
-
-              ])),
-        ]),
-      ),
       body:
           SingleChildScrollView(
-            child: Container(
+            child: Stack(
+              children:[
+            Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
@@ -484,15 +61,15 @@ class _HomeState extends State<Home> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       IconButton(
-                        padding: EdgeInsets.only(top: 40, left: 15),
+                        icon: Icon(isPopupVisible ? Icons.clear : Icons.notes_sharp),
+                        padding: EdgeInsets.only(top: 35, left: 15),
                         onPressed: () {
-                          _togglePopupVisibility();
+                          setState(() {
+                            isPopupVisible = !isPopupVisible;
+                          });
                         },
-                        icon: Icon(
-                          Icons.notes_sharp,
-                          size: 40,
-                          color: Colors.white,
-                        ),
+                        iconSize: 40,
+                        color: Colors.white,
                       ),
 
                       Expanded(
@@ -1106,7 +683,7 @@ class _HomeState extends State<Home> {
                           },
                           icon: Icon(
                             Icons.grid_view_rounded,
-                            size: 30,
+                            size: 35,
                             color: Colors.black87,
                           ),
                           padding: EdgeInsets.only(top: 30, bottom: 15),
@@ -1158,6 +735,449 @@ class _HomeState extends State<Home> {
                 ),
               ]),
             ),
+
+
+                Visibility(
+                  visible: isPopupVisible,
+                  child: Column(children: [
+                    Container(
+                        width: 395,
+                        height: 725,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius:
+                          BorderRadius.only(bottomRight: Radius.circular(50)),
+                          color: Color.fromRGBO(0, 0, 0, 0.7),
+                        ),
+                        child:
+                        Column(
+                            children: [
+                              Stack(
+                                children: [
+                                  Container(
+                                    height: 230,
+                                    decoration: const BoxDecoration(
+                                      borderRadius:
+                                      BorderRadius.only(bottomRight: Radius.circular(25)),
+                                      gradient: LinearGradient(
+                                        begin: Alignment.topCenter,
+                                        end: Alignment.bottomCenter,
+                                        colors: [
+                                          Color.fromRGBO(0, 0, 0, 0),
+                                          Color.fromRGBO(
+                                              86, 86, 86, 0.7098039215686275),
+                                        ],
+                                      ),
+                                    ),
+                                   child:Column(
+                                     crossAxisAlignment: CrossAxisAlignment.start,
+                                     children:[
+                                       Row(
+                                           mainAxisAlignment: MainAxisAlignment.center,
+                                           crossAxisAlignment: CrossAxisAlignment.center,
+                                           children: [
+                                             IconButton(
+                                               icon: Icon(isPopupVisible ? Icons.clear : Icons.notes_sharp),
+                                               padding: EdgeInsets.only(top: 35, left: 15),
+                                               onPressed: () {
+                                                 setState(() {
+                                                   isPopupVisible = !isPopupVisible;
+                                                 });
+                                               },
+                                               iconSize: 40,
+                                               color: Colors.white,
+                                             ),
+
+                                             Expanded(
+                                               child: Center(
+                                                 child: Container(
+                                                   margin: const EdgeInsets.only(top: 55),
+                                                   child: Image.asset(
+                                                     'assets/images/logo white.png',
+                                                     width: 66,
+                                                   ),
+                                                 ),
+                                               ),
+                                             ),
+                                             IconButton(
+                                                 icon: const Icon(Icons.share_outlined),
+                                                 onPressed: () {},
+                                                 iconSize: 32,
+                                                 color: Colors.white,
+                                                 padding: const EdgeInsets.only(top: 43, right: 15)),
+                                           ]),
+
+                                    Padding(padding: EdgeInsets.only(left: 40,top:10),
+                                      child:Row(
+                                        children: [
+                                          CircleAvatar(
+                                              radius: 40,
+                                              backgroundColor: Colors.black,
+                                              child: const CircleAvatar(
+                                                backgroundColor: Color.fromRGBO(217, 217, 217, 1),
+                                                foregroundColor: Colors.black,
+                                                child: Icon(
+                                                  Icons.person_outline,
+                                                  size: 35,
+                                                ),
+                                                radius: 48,
+                                              )),
+                                          SizedBox(
+                                            width: 15,
+                                          ),
+                                          Padding(padding:EdgeInsets.only(top: 0),
+                                              child:
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        'HI,',
+                                                        style: TextStyle(
+                                                          fontSize: 18,
+                                                            color: Colors.amber,
+                                                            fontWeight: FontWeight.bold),
+                                                      ),
+                                                      Icon(
+                                                        Icons.waving_hand,
+                                                        color: Colors.white,
+                                                        size: 20,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Text('KAREEM YOUNIS',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight: FontWeight.bold,
+                                                          fontSize: 24))
+                                                ],
+                                              )
+                                          ),
+                                        ],
+                                      ),),
+                                    ]
+                                    ),
+                                  ),
+                                  Container(
+                                      height: 45,
+                                      width: 80,
+
+                                      margin: const EdgeInsets.only(
+                                        top: 185,
+                                        left: 315,
+                                      ),
+                                      child: TextButton(
+                                        child: Icon(
+                                          Icons.drive_file_rename_outline,
+                                          size: 30,
+                                        ),
+                                        style: ButtonStyle(
+                                          backgroundColor: MaterialStateProperty.all<Color>(
+                                              Color.fromRGBO(255, 255, 255, 0.09)),
+                                          foregroundColor: MaterialStateProperty.all<Color>(
+                                              Colors.white),
+                                          shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                              RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.only(
+                                                    bottomRight: Radius.circular(25),
+                                                    topLeft: Radius.circular(25)),
+                                              )),
+                                        ),
+                                        onPressed: () {
+
+                                        },
+                                      )),
+                                ],
+                              ),
+
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(right: 220),
+                                width: 180,
+                                height: 57,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                    BorderRadius.only(bottomRight: Radius.circular(20)),
+                                    color: Color.fromRGBO(217, 217, 217, 0.75)),
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 8),
+                                      child: Icon(
+                                        Icons.event_note_outlined,
+                                        size: 30,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    TextButton(onPressed: (){
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => order(),
+                                          ));
+                                    }, child:
+                                    Text(
+                                      'ORDERS',
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          fontFamily: 'Hind',
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.black),
+                                    ),),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 7,
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(right: 170),
+                                width: 230,
+                                height: 70,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                    BorderRadius.only(bottomRight: Radius.circular(20)),
+                                    color: Color.fromRGBO(217, 217, 217, 0.75)),
+                                child: Stack(
+                                  children: [
+                                    const Padding(
+                                      padding: const EdgeInsets.only(top: 5, left: 43),
+                                      child: const Align(
+                                        alignment: Alignment.topLeft,
+                                        child: Text(
+                                          'AUCTIONS',
+                                          textAlign: TextAlign.left,
+                                          style: TextStyle(
+                                            fontSize: 30,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'Hind',
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(left: 5, top: 17),
+                                      child: Icon(
+                                        Icons.check_circle,
+                                        size: 35,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    Container(
+                                      margin:
+                                      const EdgeInsets.only(top: 30, bottom: 4, left: 45),
+                                      child: const Text(
+                                        'RESULTS',
+                                        style: const TextStyle(
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Hind',
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 7,
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(right: 190),
+                                width: 210,
+                                height: 57,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                    BorderRadius.only(bottomRight: Radius.circular(20)),
+                                    color: Color.fromRGBO(217, 217, 217, 0.75)),
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 8),
+                                      child: Icon(
+                                        Icons.photo_size_select_actual_outlined,
+                                        size: 30,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    TextButton(onPressed: (){
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Home(),
+                                          ));
+                                    }, child:
+                                    Text(
+                                      'YOUR ADS',
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          fontFamily: 'Hind',
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.black),
+                                    ),),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 7,
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(right: 150),
+                                width: 250,
+                                height: 57,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                    BorderRadius.only(bottomRight: Radius.circular(20)),
+                                    color: Color.fromRGBO(217, 217, 217, 0.75)),
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 8),
+                                      child: Icon(
+                                        Icons.headset_mic,
+                                        size: 30,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    TextButton(onPressed: (){
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => contactus(),
+                                          ));
+                                    }, child:
+                                    Text(
+                                      'CONTACT US',
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          fontFamily: 'Hind',
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.black),
+                                    ),),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 7,
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(right: 185),
+                                width: 215,
+                                height: 57,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                    BorderRadius.only(bottomRight: Radius.circular(20)),
+                                    color: Color.fromRGBO(217, 217, 217, 0.75)),
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 8),
+                                      child: Icon(
+                                        Icons.photo_size_select_actual_outlined,
+                                        size: 30,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    TextButton(onPressed: (){
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Requests(),
+                                          ));
+                                    }, child:
+                                    Text(
+                                      'REQUESTS',
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          fontFamily: 'Hind',
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.black),
+                                    ),),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 7,
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(right: 210),
+                                width: 200,
+                                height: 57,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                    BorderRadius.only(bottomRight: Radius.circular(20)),
+                                    color: Color.fromRGBO(217, 217, 217, 0.75)),
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 8),
+                                      child: Icon(
+                                        Icons.settings_outlined,
+                                        size: 30,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => Settings(),
+                                            ));
+                                      },
+                                      child:Text( 'SETINGS',
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            fontFamily: 'Hind',
+                                            fontWeight: FontWeight.w700,
+                                            color: Colors.black),
+                                      ),)
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Container(
+                                  width: 130,
+                                  child: ElevatedButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      'LOG OUT',
+                                      style: TextStyle(
+                                          fontFamily: 'Montserrat',fontSize: 15,
+                                          fontWeight: FontWeight.w500
+                                      ),
+                                    ),
+                                    style:  ButtonStyle(
+                                      backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Color.fromRGBO(217, 217, 217, 1)),
+                                      foregroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.black),
+                                      shape: MaterialStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  21.5))),
+                                    ),)
+                              ),
+                              SizedBox(
+                                height: 15  ,
+                              ),
+
+                            ])),
+                  ]),
+                ),
+            ]
+          ),
           ),
 
     );

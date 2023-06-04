@@ -1,7 +1,9 @@
+import 'dart:convert';
+import 'config.dart';
 import 'package:flutter/material.dart';
 import 'package:motor_avenue/Home.dart';
-import 'package:swipeable_button_view/swipeable_button_view.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
+import 'package:http/http.dart' as http;
 
 
 class register extends StatefulWidget {
@@ -10,13 +12,28 @@ class register extends StatefulWidget {
 }
 
 class _registerState extends State<register> {
-  get nameController => null;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  bool _isNotValidate = false;
 
-  get passwordController => null;
+  void rigestration() async{
+    if(emailController.text.isNotEmpty && passwordController.text.isNotEmpty){
+      var  regBody = {
+        "email": emailController.text,
+        "password": passwordController.text
+      };
 
-  late String email;
-
-  late String password;
+      var response = await http.post(Uri.parse(registeration),
+        headers: {"Content-Type":"application/json"},
+        body: jsonEncode(regBody)
+      );
+      print(response);
+    }else{
+      setState(() {
+        _isNotValidate = true;
+      });
+    }
+  }
 
   bool isFinished = false;
 
@@ -110,8 +127,9 @@ class _registerState extends State<register> {
                         height: 60,
                         margin: const EdgeInsets.only(top: 20),
                         child: TextField(
-                          controller: nameController,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
+                            errorText: _isNotValidate ? 'You must enter a valid email'
+                                : null,
                             border: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.grey),
                             ),
@@ -140,7 +158,7 @@ class _registerState extends State<register> {
                         height: 60,
                         margin: const EdgeInsets.only(top: 0),
                         child: TextField(
-                          controller: nameController,
+
                           decoration: const InputDecoration(
                             border: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.grey),
@@ -169,8 +187,10 @@ class _registerState extends State<register> {
                         height: 60,
                         margin: const EdgeInsets.only(top: 0),
                         child: TextField(
-                          controller: nameController,
-                          decoration: const InputDecoration(
+                          controller: emailController,
+                          decoration:  InputDecoration(
+                            errorText: _isNotValidate ? 'You must enter a valid email'
+                                : null,
                             border: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.grey),
                             ),
@@ -204,7 +224,9 @@ class _registerState extends State<register> {
                         child: TextField(
                           obscureText: true,
                           controller: passwordController,
-                          decoration: const InputDecoration(
+                          decoration:  InputDecoration(
+                            errorText: _isNotValidate ? 'You must enter a valid email'
+                                : null,
                             border: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.grey),
                             ),
@@ -285,7 +307,7 @@ class _registerState extends State<register> {
                                               BorderRadius.circular(21.5))),
                                 ),
                                 onPressed: () {
-                                  print(nameController.text);
+                                  print(emailController.text);
                                   print(passwordController.text);
                                 },
                               )),
@@ -374,7 +396,43 @@ class _registerState extends State<register> {
                           ]),
                 ),
                           ///////////////////////////////REGISTER BOTTON/////////////////////////////////////
-                          Padding(
+                      Container(
+                          height: 38,
+                          width: 248,
+                          margin: const EdgeInsets.only(top: 30,left: 15 ),
+                          child: ElevatedButton(
+                            child: const Text(
+                              'FEMALE',
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'MontserratSubrayada'),
+                            ),
+                            style: ButtonStyle(
+                              backgroundColor:
+                              MaterialStateProperty.all<Color>(
+                                  Colors.amber),
+                              foregroundColor:
+                              MaterialStateProperty.all<Color>(
+                                  Colors.black),
+                              shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                      BorderRadius.circular(21.5))),
+                            ),
+                            onPressed: () {
+                              rigestration();
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Home(),
+                                  ));
+                              print(emailController.text);
+                              print(passwordController.text);
+                            },
+                          )),
+                      /*Padding(
                               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 5),
                               child: SwipeableButtonView(
                                   buttonText: "SLIDE TO REGISTER",
@@ -388,22 +446,23 @@ class _registerState extends State<register> {
                                   activeColor: Color.fromRGBO(185, 185, 185, 0.52),
                                   isFinished: isFinished,
                                   onWaitingProcess: () {
-                                    Future.delayed(Duration(seconds: 1), () {
+                                    rigestration();
+                                    Future.delayed(Duration(milliseconds: 1000), () {
                                       setState(() {
                                         isFinished = true;
                                       });
                                     });
                                   },
-                                  onFinish: () async {
+                                  onFinish: () {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) => Home(),
                                         ));
                                     setState(() {
-                                      isFinished = false;
+                                      isFinished = true;
                                     });
-                                  })),
+                                  })),*/
 
                     ],
                   ),

@@ -181,30 +181,108 @@ class LiveAuction extends StatelessWidget {
                         Column(
                           children: <Widget>[
                             Container(
-                              margin: EdgeInsets.only(
-                                  left: 10, right: 10, top: 5, bottom: 5),
-                              child: InkWell(
-                                onTap: () {},
-                                child: Image.asset(
-                                  'assets/images/car 1.png',
-                                  height: 187,
-                                  width: 400,
-                                ),
-                              ),
-                            ),
-                            Container(
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.circular(21),
                               ),
                               margin: EdgeInsets.only(
                                   left: 10, right: 10, top: 5, bottom: 5),
                               child: InkWell(
                                 onTap: () {},
-                                child: Image.asset(
-                                  'assets/images/car 1.png',
-                                  height: 187,
-                                  width: 400,
-                                ),
+                                child: Stack(children: [
+                                  Image.asset(
+                                    'assets/images/car 1.png',
+                                    height: 187,
+                                    width: 400,
+                                  ),
+                                  Flexible(
+                                    fit: FlexFit.tight,
+                                    child: Align(
+                                      alignment: Alignment.centerRight,
+                                      child: Container(
+                                          height: 33,
+                                          constraints: BoxConstraints(
+                                            maxWidth: 215,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.only(
+                                                bottomRight:
+                                                Radius.circular(20),
+                                                topLeft: Radius.circular(21)),
+                                            color: Color.fromRGBO(
+                                                255, 255, 255, 0.4),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.3),
+                                                spreadRadius: 3,
+                                                blurRadius: 20,
+                                                offset: Offset(0,
+                                                    3), // changes position of shadow
+                                              ),
+                                            ],
+                                          ),
+                                          margin: const EdgeInsets.only(
+                                            top: 149,
+                                          ),
+                                          child: Container(
+                                            child: Row(
+                                              children: [
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 9)),
+                                                Icon(
+                                                  Icons.report_gmailerrorred_outlined,
+                                                  size: 22,
+                                                ),
+                                                SizedBox(width: 3,),
+                                                Text(
+                                                  '7 Days',
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                      fontFamily: 'Hind'),
+                                                ),
+                                                VerticalDivider(
+                                                  width: 20,
+                                                  indent: 7,
+                                                  endIndent: 7,
+                                                  thickness: 2,
+                                                  color: Colors.black,
+                                                ),
+                                                Text(
+                                                  'BID',
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                      fontFamily: 'Hind'),
+                                                ),
+                                                Stack(
+                                                  children: [
+                                                    Icon(
+                                                      Icons.attach_money_sharp,
+                                                      size: 22,
+                                                    ),
+                                                    Padding(padding: EdgeInsets.only(left: 16,top: 2),
+                                                      child:
+                                                      Text(
+                                                        '967,000',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight:
+                                                            FontWeight.bold,
+                                                            fontFamily: 'Hind'),
+                                                      ),),
+                                                  ],
+                                                )
+
+                                              ],
+                                            ),
+                                          )),
+                                    ),
+                                  ),
+                                ]),
                               ),
                             ),
                             Container(
@@ -228,7 +306,112 @@ class LiveAuction extends StatelessWidget {
                                       child: Container(
                                           height: 33,
                                           constraints: BoxConstraints(
-                                            maxWidth: 260,
+                                            maxWidth: 215,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.only(
+                                                bottomRight:
+                                                Radius.circular(20),
+                                                topLeft: Radius.circular(21)),
+                                            color: Color.fromRGBO(
+                                                255, 255, 255, 0.4),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.3),
+                                                spreadRadius: 3,
+                                                blurRadius: 20,
+                                                offset: Offset(0,
+                                                    3), // changes position of shadow
+                                              ),
+                                            ],
+                                          ),
+                                          margin: const EdgeInsets.only(
+                                            top: 149,
+                                          ),
+                                          child: Container(
+                                            child: Row(
+                                              children: [
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 9)),
+                                                Icon(
+                                                  Icons.report_gmailerrorred_outlined,
+                                                  size: 22,
+                                                ),
+                                                SizedBox(width: 3,),
+                                                Text(
+                                                  '7 Days',
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                      fontFamily: 'Hind'),
+                                                ),
+                                                VerticalDivider(
+                                                  width: 20,
+                                                  indent: 7,
+                                                  endIndent: 7,
+                                                  thickness: 2,
+                                                  color: Colors.black,
+                                                ),
+                                                Text(
+                                                  'BID',
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                      fontFamily: 'Hind'),
+                                                ),
+                                                Stack(
+                                                  children: [
+                                                    Icon(
+                                                      Icons.attach_money_sharp,
+                                                      size: 22,
+                                                    ),
+                                                    Padding(padding: EdgeInsets.only(left: 16,top: 2),
+                                                      child:
+                                                      Text(
+                                                        '967,000',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight:
+                                                            FontWeight.bold,
+                                                            fontFamily: 'Hind'),
+                                                      ),),
+                                                  ],
+                                                )
+
+                                              ],
+                                            ),
+                                          )),
+                                    ),
+                                  ),
+                                ]),
+                              ),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(21),
+                              ),
+                              margin: EdgeInsets.only(
+                                  left: 10, right: 10, top: 5, bottom: 5),
+                              child: InkWell(
+                                onTap: () {},
+                                child: Stack(children: [
+                                  Image.asset(
+                                    'assets/images/car 1.png',
+                                    height: 187,
+                                    width: 400,
+                                  ),
+                                  Flexible(
+                                    fit: FlexFit.tight,
+                                    child: Align(
+                                      alignment: Alignment.centerRight,
+                                      child: Container(
+                                          height: 33,
+                                          constraints: BoxConstraints(
+                                            maxWidth: 215,
                                           ),
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.only(
@@ -257,41 +440,53 @@ class LiveAuction extends StatelessWidget {
                                                 Padding(
                                                     padding: EdgeInsets.only(
                                                         left: 9)),
+                                                Icon(
+                                                  Icons.report_gmailerrorred_outlined,
+                                                  size: 22,
+                                                ),
+                                                SizedBox(width: 3,),
                                                 Text(
                                                   '7 Days',
                                                   style: TextStyle(
-                                                      fontSize: 20,
+                                                      fontSize: 16,
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       fontFamily: 'Hind'),
                                                 ),
                                                 VerticalDivider(
                                                   width: 20,
-                                                  indent: 5,
-                                                  endIndent: 5,
-                                                  thickness: 3,
+                                                  indent: 7,
+                                                  endIndent: 7,
+                                                  thickness: 2,
                                                   color: Colors.black,
                                                 ),
                                                 Text(
                                                   'BID',
                                                   style: TextStyle(
-                                                      fontSize: 20,
+                                                      fontSize: 16,
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       fontFamily: 'Hind'),
                                                 ),
-                                                Icon(
-                                                  Icons.attach_money_sharp,
-                                                  size: 30,
-                                                ),
-                                                Text(
-                                                  '967,000',
-                                                  style: TextStyle(
-                                                      fontSize: 20,
-                                                      fontWeight:
+                                                Stack(
+                                                  children: [
+                                                    Icon(
+                                                      Icons.attach_money_sharp,
+                                                      size: 22,
+                                                    ),
+                                                    Padding(padding: EdgeInsets.only(left: 16,top: 2),
+                                                    child:
+                                                    Text(
+                                                      '967,000',
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
                                                           FontWeight.bold,
-                                                      fontFamily: 'Hind'),
-                                                ),
+                                                          fontFamily: 'Hind'),
+                                                    ),),
+                                                  ],
+                                                )
+
                                               ],
                                             ),
                                           )),
@@ -301,41 +496,111 @@ class LiveAuction extends StatelessWidget {
                               ),
                             ),
                             Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(21),
+                              ),
                               margin: EdgeInsets.only(
                                   left: 10, right: 10, top: 5, bottom: 5),
                               child: InkWell(
                                 onTap: () {},
-                                child: Image.asset(
-                                  'assets/images/car 1.png',
-                                  height: 187,
-                                  width: 400,
-                                ),
+                                child: Stack(children: [
+                                  Image.asset(
+                                    'assets/images/car 1.png',
+                                    height: 187,
+                                    width: 400,
+                                  ),
+                                  Flexible(
+                                    fit: FlexFit.tight,
+                                    child: Align(
+                                      alignment: Alignment.centerRight,
+                                      child: Container(
+                                          height: 33,
+                                          constraints: BoxConstraints(
+                                            maxWidth: 215,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.only(
+                                                bottomRight:
+                                                Radius.circular(20),
+                                                topLeft: Radius.circular(21)),
+                                            color: Color.fromRGBO(
+                                                255, 255, 255, 0.4),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.3),
+                                                spreadRadius: 3,
+                                                blurRadius: 20,
+                                                offset: Offset(0,
+                                                    3), // changes position of shadow
+                                              ),
+                                            ],
+                                          ),
+                                          margin: const EdgeInsets.only(
+                                            top: 149,
+                                          ),
+                                          child: Container(
+                                            child: Row(
+                                              children: [
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 9)),
+                                                Icon(
+                                                  Icons.report_gmailerrorred_outlined,
+                                                  size: 22,
+                                                ),
+                                                SizedBox(width: 3,),
+                                                Text(
+                                                  '7 Days',
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                      fontFamily: 'Hind'),
+                                                ),
+                                                VerticalDivider(
+                                                  width: 20,
+                                                  indent: 7,
+                                                  endIndent: 7,
+                                                  thickness: 2,
+                                                  color: Colors.black,
+                                                ),
+                                                Text(
+                                                  'BID',
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                      fontFamily: 'Hind'),
+                                                ),
+                                                Stack(
+                                                  children: [
+                                                    Icon(
+                                                      Icons.attach_money_sharp,
+                                                      size: 22,
+                                                    ),
+                                                    Padding(padding: EdgeInsets.only(left: 16,top: 2),
+                                                      child:
+                                                      Text(
+                                                        '967,000',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight:
+                                                            FontWeight.bold,
+                                                            fontFamily: 'Hind'),
+                                                      ),),
+                                                  ],
+                                                )
+
+                                              ],
+                                            ),
+                                          )),
+                                    ),
+                                  ),
+                                ]),
                               ),
                             ),
-                            Container(
-                              margin: EdgeInsets.only(
-                                  left: 10, right: 10, top: 5, bottom: 5),
-                              child: InkWell(
-                                onTap: () {},
-                                child: Image.asset(
-                                  'assets/images/car 1.png',
-                                  height: 187,
-                                  width: 400,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(
-                                  left: 10, right: 10, top: 5, bottom: 5),
-                              child: InkWell(
-                                onTap: () {},
-                                child: Image.asset(
-                                  'assets/images/car 1.png',
-                                  height: 187,
-                                  width: 400,
-                                ),
-                              ),
-                            ),
+
                           ],
                         ),
                       ]),

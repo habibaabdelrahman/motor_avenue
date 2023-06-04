@@ -3,10 +3,16 @@ import 'package:motor_avenue/Home.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
 
-class login extends StatelessWidget {
+class login extends StatefulWidget {
 
-  get nameController => null;
-  get passwordController => null;
+  @override
+  State<login> createState() => _loginState();
+}
+
+class _loginState extends State<login> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
 
   late String email;
   late String password;
@@ -92,7 +98,7 @@ class login extends StatelessWidget {
                                     validator: (value) => value!.isEmpty
                                         ? 'You must enter a valid email'
                                         : null,
-                                    controller: nameController,
+                                    controller: emailController,
                                     decoration: const InputDecoration(
                                       border: OutlineInputBorder(
                                         borderSide:

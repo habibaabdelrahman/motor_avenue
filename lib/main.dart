@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:motor_avenue/CheckOut_2.dart';
 import 'package:motor_avenue/Home.dart';
+import 'package:motor_avenue/LiveAuction.dart';
 import 'package:motor_avenue/Live_Car_Details.dart';
 import 'package:motor_avenue/CheckOut_1.dart';
 import 'package:motor_avenue/CheckOut_3.dart';
+import 'package:motor_avenue/Requests.dart';
 import 'package:motor_avenue/Settings.dart';
 import 'package:motor_avenue/cccc.dart';
 import 'package:motor_avenue/checkout_4.dart';
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: _title,
-      home: order(),
+      home: Home(),
     );
   }
 }

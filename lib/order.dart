@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:motor_avenue/contactus.dart';
 
-import 'CheckOut_1.dart';
-import 'CheckOut_2.dart';
-import 'CheckOut_3.dart';
+
 
 class order extends StatefulWidget {
   const order({Key? key}) : super(key: key);
@@ -58,7 +57,7 @@ class _orderState extends State<order> {
                               padding: const EdgeInsets.only(
                                 right: 250,
                                 top: 6,
-                                left: 45,
+                                left: 65,
                               ),
                               child: Image.asset(
                                 'assets/images/logo white.png',
@@ -67,7 +66,7 @@ class _orderState extends State<order> {
                               ),
                             ),
                             const Padding(
-                              padding: EdgeInsets.only(left: 85, top: 5),
+                              padding: EdgeInsets.only(left: 100, top: 5),
                               child: Text(
                                 'ORDERS',
                                 style: TextStyle(
@@ -79,10 +78,10 @@ class _orderState extends State<order> {
                               ),
                             ),
                             const Padding(
-                              padding: EdgeInsets.only(left: 210, top: 22),
+                              padding: EdgeInsets.only(left: 226, top: 22),
                               child: Icon(
                                 Icons.sticky_note_2_outlined,
-                                size: 16,
+                                size: 15,
                                 color: Colors.white,
                               ),
                             ),
@@ -93,59 +92,146 @@ class _orderState extends State<order> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 10,
-              ),
+
               Container(
-                height: 75,
-                width: 350,
+                margin: EdgeInsets.only(top: 30,left: 10,right: 10),
+                height: 140,
+                width: 500,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(21),
-                    border: Border.all(color: Colors.black)),
-                child: Theme(
-                  data: ThemeData(
-                      canvasColor:
-                          Color.fromRGBO(255, 255, 255, 0.7294117647058823),
-                      highlightColor: Colors.cyan),
-                  child: Stepper(
-                    onStepContinue: goToNextStep,
-                    currentStep: currentStep,
-                    type: StepperType.horizontal,
-                    steps: [
-                      Step(
-                        isActive: currentStep >= 0,
-                        state: currentStep > 0
-                            ? StepState.complete
-                            : StepState.indexed,
-                        title: Text(
-                          'SHIPPING',
-                          style: TextStyle(color: Colors.white),
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  color: Colors.grey,
+                ),
+
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _Step(
+                      icon: Icons.check,
+                      title: 'STEP 1',
+                      subtitle: Container(
+                        child: Stack(
+                          children: [
+                            Padding(padding: EdgeInsets.only(left: 3),
+                              child: Text('ORDER',
+                                style: TextStyle(fontSize:12,
+                                    color: Colors.black,
+                                    fontWeight:FontWeight.w500 ,
+                                    fontFamily: 'Hind'),),),
+                            Padding(padding: EdgeInsets.only(top: 12),
+                              child: Text('PLACED',
+                                style: TextStyle(fontSize:12,
+                                    color: Colors.black,
+                                    fontWeight:FontWeight.w500 ,
+                                    fontFamily: 'Hind'),),),
+                          ],
                         ),
-                        content: CheckOut_1(),
                       ),
-                      Step(
-                        isActive: currentStep >= 1,
-                        state: currentStep > 1
-                            ? StepState.complete
-                            : StepState.indexed,
-                        title: Text(
-                          'PAYMENT',
-                          style: TextStyle(color: Colors.white),
+                    ),
+
+                    Padding(padding:EdgeInsets.only(bottom: 55) ,
+                      child:  Container(
+                        height: 3,
+                        width: 45,
+                        child:Divider(
+                          indent: 5,
+                          endIndent: 0,
+                          thickness: 3,
+                          color: Colors.white,
                         ),
-                        content: CheckOut_2(),
+                      ),),
+
+                    _Step(
+                      icon: Icons.wallet_giftcard_outlined,
+                      title: 'STEP 2',
+                      subtitle: Container(
+                        child: Stack(
+                          children: [
+                            Padding(padding: EdgeInsets.only(left: 11,),
+                              child: Text('ORDER',
+                                style: TextStyle(fontSize:12,
+                                    color: Colors.black,
+                                    fontWeight:FontWeight.w500 ,
+                                    fontFamily: 'Hind'),),),
+                            Padding(padding: EdgeInsets.only(top: 12),
+                              child: Text('CONFIRMED',
+                                style: TextStyle(fontSize:11,
+                                    color: Colors.black,
+                                    fontWeight:FontWeight.w500 ,
+                                    fontFamily: 'Hind'),),)
+                          ],
+                        ),
                       ),
-                      Step(
-                          isActive: currentStep >= 2,
-                          state: currentStep > 2
-                              ? StepState.complete
-                              : StepState.indexed,
-                          title: Text(
-                            'REVIEW',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          content: CheckOut_3()),
-                    ],
-                  ),
+
+                    ),
+                    Padding(padding:EdgeInsets.only(bottom: 55) ,
+                      child:  Container(
+                        height: 3,
+                        width: 45,
+                        child:Divider(
+                          indent: 0,
+                          endIndent: 5,
+                          thickness: 3,
+                          color: Colors.white,
+                        ),
+                      ),),
+                    _Step(
+                      icon: Icons.local_shipping_outlined,
+                      title: 'STEP 3',
+                      subtitle: Container(
+                        child: Stack(
+                          children: [
+                            Padding(padding: EdgeInsets.only(left: 5),
+                              child: Text('ORDER',
+                                style: TextStyle(fontSize:12,
+                                    color: Colors.black,
+                                    fontWeight:FontWeight.w500 ,
+                                    fontFamily: 'Hind'),),),
+                            Padding(padding: EdgeInsets.only(top: 12),
+                              child: Text('SHIPPED',
+                                style: TextStyle(fontSize:12,
+                                    color: Colors.black,
+                                    fontWeight:FontWeight.w500 ,
+                                    fontFamily: 'Hind'),),)
+                          ],
+                        ),
+                      ),
+
+                    ),
+                    Padding(padding:EdgeInsets.only(bottom: 55) ,
+                      child:  Container(
+                        height: 3,
+                        width: 45,
+                        child:Divider(
+                          indent: 5,
+                          endIndent: 0,
+                          thickness: 3,
+                          color: Colors.white,
+                        ),
+                      ),),
+                    _Step(
+                      icon: Icons.location_on_outlined,
+                      title: 'Step 4',
+                      subtitle: Container(
+                        child: Stack(
+                          children: [
+                            Padding(padding: EdgeInsets.only(left: 12),
+                              child: Text('ORDER',
+                                style: TextStyle(fontSize:12,
+                                    color: Colors.black,
+                                    fontWeight:FontWeight.w500 ,
+                                    fontFamily: 'Hind'),),),
+                            Padding(padding: EdgeInsets.only(top: 12),
+                              child: Text('DELIVERED',
+                                style: TextStyle(fontSize:12,
+                                    color: Colors.black,
+                                    fontWeight:FontWeight.w500 ,
+                                    fontFamily: 'Hind'),),)
+                          ],
+                        ),
+                      ),
+
+                    ),
+                  ],
                 ),
               ),
               SizedBox(
@@ -154,7 +240,7 @@ class _orderState extends State<order> {
               Stack(
                 children: [
                   Container(
-                    width: 345,
+                    width: 370,
                     height: 60,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -173,7 +259,7 @@ class _orderState extends State<order> {
                     ),
                   ),
                   Container(
-                    width: 172.5,
+                    width: 185,
                     height: 60,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -236,7 +322,7 @@ class _orderState extends State<order> {
               Stack(
                 children: [
                   Container(
-                    width: 345,
+                    width: 370,
                     height: 200,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -255,7 +341,7 @@ class _orderState extends State<order> {
                     ),
                   ),
                   Container(
-                    width: 172.5,
+                    width: 185,
                     height: 200,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -332,7 +418,7 @@ class _orderState extends State<order> {
               Stack(
                 children: [
                   Container(
-                    width: 345,
+                    width: 370,
                     height: 60,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -352,7 +438,7 @@ class _orderState extends State<order> {
                     ),
                   ),
                   Container(
-                    width: 172.5,
+                    width: 185,
                     height: 60,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -433,17 +519,74 @@ class _orderState extends State<order> {
                               fontFamily: 'Hind'),
                         ),
                         onPressed: () {
-                          //signup screen
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => contactus(),
+                              ));
                         },
                       ))],
               ),
-
-
-
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+
+
+class _Step extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final Container subtitle;
+
+
+  const _Step({required this.icon, required this.title, required this.subtitle, });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(padding: EdgeInsets.only(top: 20),
+          child:CircleAvatar(
+            radius: 23,
+            backgroundColor: Colors.amber,
+            child: CircleAvatar(
+              backgroundColor: Color.fromRGBO(217, 217, 217, 1),
+              foregroundColor: Colors.black,
+              child: Icon(
+                icon,
+                size: 20,
+              ),
+              radius: 19,
+            ),
+          ),),
+
+        SizedBox(height: 10),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w400,
+                fontSize: 11,
+              ),
+            ),
+
+            Container(
+              child:
+              subtitle,
+            ),
+          ],
+        ),
+
+
+
+      ],
     );
   }
 }
