@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class contactus extends StatelessWidget {
   final _controllar = PageController();
@@ -14,8 +15,8 @@ class contactus extends StatelessWidget {
               end: Alignment.topCenter,
               begin: Alignment.bottomCenter,
               colors: [
-                Color.fromRGBO(0, 0, 0, 0.96),
                 Color.fromRGBO(196, 187, 159, 1.0),
+                Color.fromRGBO(0, 0, 0, 0.96),
               ],
             ),
           ),
@@ -29,7 +30,7 @@ class contactus extends StatelessWidget {
                     icon: const Icon(Icons.arrow_back_ios_new),
                     onPressed: () {},
                     iconSize: 32,
-                    color: Colors.black87,
+                    color: Colors.white,
                     padding: const EdgeInsets.only(top: 60, left: 15)),
                 Expanded(
                   child: Center(
@@ -43,7 +44,7 @@ class contactus extends StatelessWidget {
                               top: 6,
                             ),
                             child: Image.asset(
-                              'assets/images/black logoo.png',
+                              'assets/images/logo white.png',
                               height: 37,
                               width: 37,
                             ),
@@ -56,16 +57,16 @@ class contactus extends StatelessWidget {
                                 fontSize: 33,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'Hind',
-                                color: Colors.black87,
+                                color: Colors.white,
                               ),
                             ),
                           ),
                           const Padding(
-                            padding: EdgeInsets.only(left: 240, top: 26),
+                            padding: EdgeInsets.only(left: 242, top: 26),
                             child: Icon(
-                              Icons.headset_mic_sharp,
+                              Icons.headset_mic_outlined,
                               size: 14,
-                              color: Colors.black87,
+                              color: Colors.white,
                             ),
                           ),
                         ],
@@ -105,16 +106,18 @@ class contactus extends StatelessWidget {
                 ),
               ),
             ),
-            Row(children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+                children: [
               Padding(
-                padding: EdgeInsets.only(left: 30, top: 20),
+                padding: EdgeInsets.only( top: 20),
                 child: SizedBox(
                     width: 70,
                     height: 70,
                     child: ElevatedButton(
                       onPressed: () {},
                       child: Icon(
-                        Icons.facebook,
+                        FontAwesomeIcons.twitter,
                         color: Colors.black,
                       ),
                       style: ButtonStyle(
@@ -135,7 +138,7 @@ class contactus extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {},
                       child: Icon(
-                        Icons.facebook,
+                        FontAwesomeIcons.facebookF,
                         color: Colors.black,
                       ),
                       style: ButtonStyle(
@@ -156,7 +159,8 @@ class contactus extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {},
                       child: Icon(
-                        Icons.facebook,
+                        FontAwesomeIcons.instagram,
+                        size: 28,
                         color: Colors.black,
                       ),
                       style: ButtonStyle(
@@ -186,8 +190,8 @@ class contactus extends StatelessWidget {
                       children: [
                         Container(
                           // padding: const EdgeInsets.only(top: 15),
-                          width: 160,
-                          height: 70,
+                          width: 165,
+                          height: 55,
                           margin: const EdgeInsets.only(top: 15),
                           child: TextFormField(
                             validator: (value) => value!.isEmpty
@@ -197,19 +201,20 @@ class contactus extends StatelessWidget {
                               filled: true,
                               fillColor: Colors.white,
                               border: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey),
+                                borderSide: BorderSide(color: Colors.white70),
                               ),
                               enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey),
+                                borderSide: BorderSide(color: Colors.white70),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey),
+                                borderSide: BorderSide(color: Colors.white70),
                               ),
                               labelText: 'Frist Name',
                               labelStyle: TextStyle(
-                                  color: Colors.grey,
+                                  color: Colors.black54,
                                   fontSize: 20,
-                                  fontWeight: FontWeight.bold),
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: 'Montserrat'),
                             ),
                           ),
                         ),
@@ -218,8 +223,8 @@ class contactus extends StatelessWidget {
                         ),
                         Container(
                           //padding: const EdgeInsets.only(top: 15),
-                          width: 160,
-                          height: 70,
+                          width: 165,
+                          height: 55,
                           margin: const EdgeInsets.only(top: 15),
                           child: TextFormField(
                             validator: (value) => value!.isEmpty
@@ -227,19 +232,20 @@ class contactus extends StatelessWidget {
                                 : null,
                             decoration: const InputDecoration(
                               border: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey),
+                                borderSide: BorderSide(color: Colors.white70),
                               ),
                               enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey),
+                                borderSide: BorderSide(color: Colors.white70),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey),
+                                borderSide: BorderSide(color: Colors.white70),
                               ),
                               labelText: 'Last Name',
                               labelStyle: TextStyle(
-                                  color: Colors.grey,
+                                  color: Colors.black54,
                                   fontSize: 20,
-                                  fontWeight: FontWeight.bold),
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: 'Montserrat'),
                               filled: true,
                               fillColor: Colors.white,
                             ),
@@ -249,93 +255,102 @@ class contactus extends StatelessWidget {
                 ),
                 Container(
                   //padding: const EdgeInsets.only(top: 2),
-                  width: 345,
-                  height: 60,
-                  margin: const EdgeInsets.only(top: 0),
+                  width: 340,
+                  height: 55,
+                  margin: const EdgeInsets.only(top: 10),
                   child: TextFormField(
                     validator: (value) =>
                         value!.isEmpty ? 'You must enter a valid E-mail' : null,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
+                        borderSide: BorderSide(color: Colors.white70),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
+                        borderSide: BorderSide(color: Colors.white70),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
+                        borderSide: BorderSide(color: Colors.white70),
                       ),
                       labelText: 'E-mail',
                       labelStyle: TextStyle(
-                          color: Colors.grey,
+                          color: Colors.black54,
                           fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                          fontWeight: FontWeight.w400,
+                          fontFamily: 'Montserrat'),
                       filled: true,
                       fillColor: Colors.white,
                     ),
                   ),
                 ),
                 Container(
-                  //padding: const EdgeInsets.only(top: 2),
-                  width: 345,
-                  height: 60,
-                  margin: const EdgeInsets.only(top: 0),
+                  width: 340,
+                  height: 55,
+                  margin: const EdgeInsets.only(top: 10),
                   child: TextFormField(
                     validator: (value) => value!.isEmpty
                         ? 'You must enter a valid phone number'
                         : null,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
+                        borderSide: BorderSide(color: Colors.white70),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
+                        borderSide: BorderSide(color: Colors.white70),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
+                        borderSide: BorderSide(color: Colors.white70),
                       ),
                       labelText: 'Phone',
                       labelStyle: TextStyle(
-                          color: Colors.grey,
+                          color: Colors.black54,
                           fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                          fontWeight: FontWeight.w400,
+                          fontFamily: 'Montserrat'),
                       filled: true,
                       fillColor: Colors.white,
                     ),
                   ),
                 ),
+
+
                 Container(
-                  width: 345,
-                  height: 80,
-                  margin: const EdgeInsets.only(top: 0),
+                  width: 340,
+                  height: 200,
+                  margin: const EdgeInsets.only(top: 10),
                   child: TextFormField(
-                    validator: (value) =>
-                        value!.isEmpty ? 'You must enter ' : null,
+                    validator: (value) => value!.isEmpty
+                        ? 'You must enter a valid phone number'
+                        : null,
                     decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(vertical: 150),
+                      contentPadding: EdgeInsets.only(
+                         left: 12,bottom: 200,top: 20),
                       border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
+                        borderSide: BorderSide(color: Colors.white70),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
+                        borderSide: BorderSide(color: Colors.white70),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
+                        borderSide: BorderSide(color: Colors.white70),
                       ),
                       labelText: 'Describe Your Issue',
                       labelStyle: TextStyle(
-                          color: Colors.grey,
+                          color: Colors.black54,
                           fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                          fontWeight: FontWeight.w400,
+                          fontFamily: 'Montserrat'),
                       filled: true,
                       fillColor: Colors.white,
                     ),
                   ),
                 ),
+
+
+
                 Container(
                     height: 50,
-                    width: 200,
-                    margin: const EdgeInsets.only(top: 140, bottom: 20),
+                    width: 340,
+                    margin: const EdgeInsets.only(top: 15, bottom: 10),
                     child: ElevatedButton(
                       child: const Text(
                         'Send',
@@ -358,6 +373,7 @@ class contactus extends StatelessWidget {
                     )),
               ]),
             ),
+            SizedBox(height: 28,)
           ]),
         ),
       ),

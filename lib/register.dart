@@ -14,20 +14,35 @@ class register extends StatefulWidget {
 class _registerState extends State<register> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController fullNameController = TextEditingController();
+  TextEditingController phoneNumberController = TextEditingController();
+
   bool _isNotValidate = false;
 
   void rigestration() async{
-    if(emailController.text.isNotEmpty && passwordController.text.isNotEmpty){
+    if(emailController.text.isNotEmpty && passwordController.text.isNotEmpty
+        && fullNameController.text.isNotEmpty && phoneNumberController.text.isNotEmpty){
       var  regBody = {
         "email": emailController.text,
-        "password": passwordController.text
+        "password": passwordController.text,
+        "phoneNumber": phoneNumberController.text,
+        "fullName": fullNameController.text
       };
-
       var response = await http.post(Uri.parse(registeration),
         headers: {"Content-Type":"application/json"},
         body: jsonEncode(regBody)
       );
-      print(response);
+      try {
+        var jsonResponse = jsonDecode(response.body.toString());
+        print(jsonResponse['status']);
+        if(jsonResponse['status']){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
+        }else{
+          print("SomeThing Went Wrong");
+        }
+      } catch (e) {
+      }
+
     }else{
       setState(() {
         _isNotValidate = true;
@@ -42,6 +57,7 @@ class _registerState extends State<register> {
     return Scaffold(
         body:SingleChildScrollView(
        child: Container(
+         height: 800,
       padding: const EdgeInsets.all(5.0),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -120,13 +136,15 @@ class _registerState extends State<register> {
                           ),
                         ),
                       ),
-                      ///////////////////////////////FIRST_NAME TEXT_FIELD/////////////////////////////////////
+                      ///////////////////////////////FULL_NAME TEXT_FIELD/////////////////////////////////////
                       Container(
                         //padding: const EdgeInsets.only(top: 2),
                         width: 340,
-                        height: 60,
-                        margin: const EdgeInsets.only(top: 20),
+                        height: 65,
+                        margin: const EdgeInsets.only(top: 40),
                         child: TextField(
+                          keyboardType: TextInputType.text,
+                          controller: fullNameController,
                           decoration: InputDecoration(
                             errorText: _isNotValidate ? 'You must enter a valid email'
                                 : null,
@@ -139,7 +157,7 @@ class _registerState extends State<register> {
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.white),
                             ),
-                            labelText: 'FRIST NAME',
+                            labelText: 'FULL NAME',
                             labelStyle: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
@@ -151,14 +169,15 @@ class _registerState extends State<register> {
                       ),
                       const SizedBox(height: 20.0),
 
-                      ///////////////////////////////LAST_NAME TEXT_FIELD/////////////////////////////////////
+                      ///////////////////////////////PHONENUMBER TEXT_FIELD/////////////////////////////////////
                       Container(
                         //padding: const EdgeInsets.only(top: 2),
                         width: 340,
-                        height: 60,
+                        height: 65,
                         margin: const EdgeInsets.only(top: 0),
                         child: TextField(
-
+                          keyboardType: TextInputType.text,
+                          controller: phoneNumberController,
                           decoration: const InputDecoration(
                             border: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.grey),
@@ -169,7 +188,7 @@ class _registerState extends State<register> {
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.white),
                             ),
-                            labelText: 'LAST NAME',
+                            labelText: 'PHONE NUMBER',
                             labelStyle: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
@@ -184,9 +203,10 @@ class _registerState extends State<register> {
                       ///////////////////////////////E-MAIL TEXT_FIELD/////////////////////////////////////
                       Container(
                         width: 340,
-                        height: 60,
+                        height: 65,
                         margin: const EdgeInsets.only(top: 0),
                         child: TextField(
+                          keyboardType: TextInputType.text,
                           controller: emailController,
                           decoration:  InputDecoration(
                             errorText: _isNotValidate ? 'You must enter a valid email'
@@ -219,11 +239,12 @@ class _registerState extends State<register> {
                       ///////////////////////////////PASSWORD TEXT_FIELD/////////////////////////////////////
                       Container(
                         width: 340,
-                        height: 60,
+                        height: 65,
                         margin: const EdgeInsets.only(top: 0),
                         child: TextField(
                           obscureText: true,
                           controller: passwordController,
+                          keyboardType: TextInputType.text,
                           decoration:  InputDecoration(
                             errorText: _isNotValidate ? 'You must enter a valid email'
                                 : null,
@@ -250,164 +271,28 @@ class _registerState extends State<register> {
                           ),
                         ),
                       ),
-                      Center(
-                      child:Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                              height: 38,
-                              width: 148,
-                              margin: const EdgeInsets.only(top: 30, ),
-                              child: ElevatedButton(
-                                child: const Text(
-                                  'MALE',
-                                  style: TextStyle(
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'MontserratSubrayada'),
-                                ),
-                                style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Colors.amber),
-                                  foregroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Colors.black),
-                                  shape: MaterialStateProperty.all<
-                                          RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(18))),
-                                ),
-                                onPressed: () {},
-                              )),
-                          Container(
-                              height: 38,
-                              width: 148,
-                              margin: const EdgeInsets.only(top: 30,left: 15 ),
-                              child: ElevatedButton(
-                                child: const Text(
-                                  'FEMALE',
-                                  style: TextStyle(
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'MontserratSubrayada'),
-                                ),
-                                style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Colors.amber),
-                                  foregroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Colors.black),
-                                  shape: MaterialStateProperty.all<
-                                          RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(21.5))),
-                                ),
-                                onPressed: () {
-                                  print(emailController.text);
-                                  print(passwordController.text);
-                                },
-                              )),
-                        ],
-                      ),
-                ),
-                      SizedBox(height: 15,),
-                      Center(
-                      child:Stack(
-                        children:[
-                      Padding(padding: EdgeInsets.only(left: 8),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Row(
-                            children: [
-                              Checkbox(
-                                value: false,
-                                fillColor:
-                                MaterialStateProperty.all<Color>(Colors.white),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                  side: BorderSide(
-                                    color: Colors.white,
-                                    width: 25,
-                                  ),
-                                ),
-                                onChanged: (bool? value) {},
-                                activeColor: Colors.blue,
-                                checkColor: Colors.white,
 
-                              ),
-                              Text(
-                                'I HAVE READ AND ACCEPT THE ',
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Text(
-                                'PRIVACY POLICY',
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.amber,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(padding: EdgeInsets.only(left: 8,top: 30),
-                          child:Row(
-                            children: [
-                              Checkbox(
-                                value: false,
-                                fillColor:
-                                MaterialStateProperty.all<Color>(Colors.white),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                  side: BorderSide(
-                                    color: Colors.white,
-                                    width: 25,
-                                  ),
-                                ),
-                                onChanged: (bool? value) {},
-                                activeColor: Colors.blue,
-                                checkColor: Colors.white,
-                              ),
-                              Text(
-                                'BY CLICKING YOUR EMAIL WILL BE UPDATED',
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ],
-                          ),),
-                          ]
-                      ),
-                          ]),
-                ),
+                      SizedBox(height: 15,),
+
                           ///////////////////////////////REGISTER BOTTON/////////////////////////////////////
                       Container(
-                          height: 38,
-                          width: 248,
-                          margin: const EdgeInsets.only(top: 30,left: 15 ),
+                          height: 50,
+                          width:200,
+                          margin: const EdgeInsets.only(top: 56),
                           child: ElevatedButton(
-                            child: const Text(
-                              'FEMALE',
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'MontserratSubrayada'),
-                            ),
+                            child:Center(
+                              child:Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children:[
+                                    const Text(
+                                      'REGISTER',
+                                      style: TextStyle(
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'MontserratSubrayada'),
+                                    ),
+                                  ]
+                              ),),
                             style: ButtonStyle(
                               backgroundColor:
                               MaterialStateProperty.all<Color>(
@@ -419,50 +304,13 @@ class _registerState extends State<register> {
                                   RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
                                       borderRadius:
-                                      BorderRadius.circular(21.5))),
+                                      BorderRadius.circular(
+                                          21.5))),
                             ),
-                            onPressed: () {
+                            onPressed: ()  {
                               rigestration();
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Home(),
-                                  ));
-                              print(emailController.text);
-                              print(passwordController.text);
                             },
                           )),
-                      /*Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 5),
-                              child: SwipeableButtonView(
-                                  buttonText: "SLIDE TO REGISTER",
-                                  buttonWidget: Container(
-                                    child: Icon(
-                                      Icons.arrow_forward_ios_rounded,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                  buttonColor: Colors.white70,
-                                  activeColor: Color.fromRGBO(185, 185, 185, 0.52),
-                                  isFinished: isFinished,
-                                  onWaitingProcess: () {
-                                    rigestration();
-                                    Future.delayed(Duration(milliseconds: 1000), () {
-                                      setState(() {
-                                        isFinished = true;
-                                      });
-                                    });
-                                  },
-                                  onFinish: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => Home(),
-                                        ));
-                                    setState(() {
-                                      isFinished = true;
-                                    });
-                                  })),*/
 
                     ],
                   ),

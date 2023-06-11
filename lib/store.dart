@@ -20,10 +20,10 @@ class _storeState extends State<store> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:
-      Stack(
+      body: Stack(
         children:[
       Container(
+        height: 800,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -41,7 +41,7 @@ class _storeState extends State<store> {
             children: [
               IconButton(
                 icon: Icon(isPopupVisible ? Icons.clear : Icons.notes_sharp),
-                padding: EdgeInsets.only(top: 35, left: 15),
+                padding: EdgeInsets.only(top: 30, left: 15),
                 onPressed: () {
                   setState(() {
                     isPopupVisible = !isPopupVisible;
@@ -53,7 +53,7 @@ class _storeState extends State<store> {
               Expanded(
                 child: Center(
                   child: Container(
-                    margin: const EdgeInsets.only(top: 55),
+                    margin: const EdgeInsets.only(top: 35),
                     child: Image.asset(
                       'assets/images/black logoo.png',
                       width: 66,
@@ -66,924 +66,773 @@ class _storeState extends State<store> {
                   onPressed: () {},
                   iconSize: 40,
                   color: Colors.black,
-                  padding: const EdgeInsets.only(top: 40, right: 15)),
+                  padding: const EdgeInsets.only(top: 35, right: 15)),
             ],
           ),
-          SizedBox(
-            height: 640,
-            child: PageView(
-              controller: _controllar,
-              children: [
-                Stack(
-                  children: [
-                    WidgetAnimator(
-                      incomingEffect:
-                          WidgetTransitionEffects.incomingSlideInFromBottom(
-                        duration: Duration(seconds: 3),
+          Stack(
+            children: [
+              WidgetAnimator(
+                incomingEffect:
+                    WidgetTransitionEffects.incomingSlideInFromBottom(
+                  duration: Duration(seconds: 3),
+                ),
+                child:
+                Container(
+                  margin: EdgeInsets.only(left: 15, right: 15, top: 20),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(21),
+                        topRight: Radius.circular(21),
                       ),
-                      child:
-                      Container(
-                        margin: EdgeInsets.only(left: 10, right: 10, top: 20),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(21),
-                              topRight: Radius.circular(21),
-                            ),
-                            color: Color.fromRGBO(217, 217, 217, 1)),
-                        child: Container(
-                          child: Row(
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Stack(
-                                    children: [
-                                      const Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 5, left: 32),
-                                        child: const Align(
-                                          alignment: Alignment.topLeft,
-                                          child: Text(
-                                            ' AVENUE',
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                              fontSize: 22,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: 'Hind',
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
+                      color: Color.fromRGBO(217, 217, 217, 1)),
+                  child: Container(
+                    child: Row(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Stack(
+                              children: [
+                                const Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 5, left: 32),
+                                  child: const Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Text(
+                                      ' AVENUE',
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Hind',
+                                        color: Colors.black,
                                       ),
-                                      Container(
-                                        margin: EdgeInsets.only(
-                                          left: 15,
-                                          top: 8,
-                                        ),
-                                        child: Image.asset(
-                                          'assets/images/black logoo.png',
-                                          width: 21,
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: const EdgeInsets.only(
-                                            top: 23, left: 14, bottom: 4),
-                                        child: const Text(
-                                          'STORE',
-                                          style: const TextStyle(
-                                            fontSize: 22,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'Hind',
-                                            color: Colors.black,
-                                          ),
-                                        ),
-                                      ),
-                                      IconButton(
-                                          icon: const Icon(
-                                              Icons.filter_alt_sharp),
-                                          onPressed: () {},
-                                          iconSize: 35,
-                                          color: Colors.black,
-                                          padding: const EdgeInsets.only(
-                                              left: 325, top: 6)),
-                                    ],
+                                    ),
                                   ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    WidgetAnimator(
-                      incomingEffect:
-                          WidgetTransitionEffects.incomingSlideInFromBottom(
-                        duration: Duration(seconds: 3),
-                      ),
-                      child: Column(children: [
-                        Container(
-                          margin: const EdgeInsets.only(
-                            top: 74,
-                            left: 10,
-                            right: 10,
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                bottomRight: Radius.circular(21),
-                                bottomLeft: Radius.circular(21)),
-                            gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                const Color.fromRGBO(0, 0, 0, 0.13)
-                                    .withOpacity(0.2),
-                                const Color.fromRGBO(95, 81, 45, 0.42)
-                                    .withOpacity(0.2),
-                              ],
-                            ),
-                          ),
-                          child: ListView(children: [
-                            Column(children: [
-                              Stack(children: [
+                                ),
                                 Container(
                                   margin: EdgeInsets.only(
-                                      left: 20, right: 20, top: 20),
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(21),
-                                        topRight: Radius.circular(21),
-                                      ),
-                                      color: Color.fromRGBO(217, 217, 217, 1)),
-                                  child: Container(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: <Widget>[
-                                        Stack(
-                                          children: [
-                                            Center(
-                                              child: Container(
-                                                margin: const EdgeInsets.only(
-                                                  top: 10,
-                                                  bottom: 10,
-                                                ),
-                                                child: const Text(
-                                                  'SELECT BY BRAND',
-                                                  style: const TextStyle(
-                                                    fontSize: 22,
-                                                    fontWeight: FontWeight.bold,
-                                                    fontFamily: 'Hind',
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
+                                    left: 15,
+                                    top: 8,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/black logoo.png',
+                                    width: 21,
                                   ),
                                 ),
                                 Container(
                                   margin: const EdgeInsets.only(
-                                    top: 66,
-                                    left: 20,
-                                    right: 20,
+                                      top: 23, left: 14, bottom: 4),
+                                  child: const Text(
+                                    'STORE',
+                                    style: const TextStyle(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Hind',
+                                      color: Colors.black,
+                                    ),
                                   ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                        bottomRight: Radius.circular(21),
-                                        bottomLeft: Radius.circular(21)),
-                                    gradient: LinearGradient(
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter,
-                                      colors: [
-                                        const Color.fromRGBO(0, 0, 0, 0.13)
-                                            .withOpacity(0.2),
-                                        const Color.fromRGBO(95, 81, 45, 0.42)
-                                            .withOpacity(0.2),
+                                ),
+                                IconButton(
+                                    icon: const Icon(
+                                        Icons.filter_alt_sharp),
+                                    onPressed: () {},
+                                    iconSize: 35,
+                                    color: Colors.black,
+                                    padding: const EdgeInsets.only(
+                                        left: 325, top: 6)),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+
+              WidgetAnimator(
+                incomingEffect:
+                    WidgetTransitionEffects.incomingSlideInFromBottom(
+                  duration: Duration(seconds: 3),
+                ),
+                child: Column(children: [
+                  Container(
+                    height:580,
+                    margin: const EdgeInsets.only(
+                      top: 74,
+                      left: 15,
+                      right: 15,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(21),
+                          bottomLeft: Radius.circular(21)),
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          const Color.fromRGBO(0, 0, 0, 0.51)
+                              .withOpacity(0.2),
+                          const Color.fromRGBO(255, 255, 255, 0.3)
+                              .withOpacity(0.2),
+                          const Color.fromRGBO(255, 255, 255, 0.51)
+                              .withOpacity(0.2),
+                        ],
+                      ),
+                    ),
+                    child: Expanded(
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Column(children: [
+                          Stack(children: [
+                            Container(
+                              margin: EdgeInsets.only(
+                                  left: 15, right: 15, top: 20),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(21),
+                                    topRight: Radius.circular(21),
+                                  ),
+                                  color: Color.fromRGBO(217, 217, 217, 1)),
+                              child: Stack(
+                                children: [
+                                  Center(
+                                    child: Container(
+                                      margin: const EdgeInsets.only(
+                                        top: 10,
+                                        bottom: 10,
+                                      ),
+                                      child: const Text(
+                                        'SELECT BY BRAND',
+                                        style: const TextStyle(
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Hind',
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              width:400,
+                              margin: const EdgeInsets.only(
+                                top: 66,
+                                left: 15,
+                                right: 15,
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(21),
+                                    bottomLeft: Radius.circular(21)),
+                                color:Color.fromRGBO(37, 37, 37, 0.47)
+                              ),
+                              child: SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Column(children: [
+                                  Row(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 10, top: 10),
+                                        child: SizedBox(
+                                            width: 50,
+                                            height: 50,
+                                            child: ElevatedButton(
+                                              onPressed: () {},
+                                              child: Image.asset(
+                                                'assets/images/tesla.png',
+                                                width: 45,
+                                                height: 50,
+                                              ),
+                                              style: ButtonStyle(
+                                                backgroundColor:
+                                                    MaterialStateProperty
+                                                        .all<Color>(
+                                                        Color
+                                                            .fromRGBO(
+                                                            234,
+                                                            234,
+                                                            234,
+                                                            1.0)),
+                                                shape: MaterialStateProperty.all<
+                                                        RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                    7.5))),
+                                              ),
+                                            )),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 10, top: 10),
+                                        child: SizedBox(
+                                            width: 50,
+                                            height: 50,
+                                            child: ElevatedButton(
+                                              onPressed: () {},
+                                              child: Image.asset(
+                                                'assets/images/lanser.png',
+                                                width: 55,
+                                              ),
+                                              style: ButtonStyle(
+                                                backgroundColor:
+                                                    MaterialStateProperty
+                                                        .all<Color>(
+                                                        Color
+                                                            .fromRGBO(
+                                                            234,
+                                                            234,
+                                                            234,
+                                                            1.0)),
+                                                shape: MaterialStateProperty.all<
+                                                        RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                    7.5))),
+                                              ),
+                                            )),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 10, top: 10),
+                                        child: SizedBox(
+                                            width: 50,
+                                            height: 50,
+                                            child: ElevatedButton(
+                                              onPressed: () {},
+                                              child: Image.asset(
+                                                'assets/images/EB logo black.png',
+                                                width:30,
+                                              ),
+                                              style: ButtonStyle(
+                                                backgroundColor:
+                                                    MaterialStateProperty
+                                                        .all<Color>(
+                                                        Color
+                                                            .fromRGBO(
+                                                            234,
+                                                            234,
+                                                            234,
+                                                            1.0)),
+                                                shape: MaterialStateProperty.all<
+                                                        RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                    7.5))),
+                                              ),
+                                            )),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 10, top: 10),
+                                        child: Container(
+                                            width: 50,
+                                            height: 50,
+                                            child: ElevatedButton(
+                                              onPressed: () {},
+                                              child: Image.asset(
+                                                'assets/images/tyota.png',
+                                                width: 30,
+                                                fit:BoxFit.cover,
+                                              ),
+                                              style: ButtonStyle(
+                                                backgroundColor:
+                                                    MaterialStateProperty
+                                                        .all<Color>(
+                                                        Color
+                                                            .fromRGBO(
+                                                            234,
+                                                            234,
+                                                            234,
+                                                            1.0)),
+                                                shape: MaterialStateProperty.all<
+                                                        RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                    7.5))),
+                                              ),
+                                            )),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 10, top: 10),
+                                        child: SizedBox(
+                                            width: 50,
+                                            height: 50,
+                                            child: ElevatedButton(
+                                              onPressed: () {},
+                                              child: Image.asset(
+                                                'assets/images/MAR.png',
+                                                width: 35,
+                                              ),
+                                              style: ButtonStyle(
+                                                backgroundColor:
+                                                    MaterialStateProperty
+                                                        .all<Color>(
+                                                        Color
+                                                            .fromRGBO(
+                                                            234,
+                                                            234,
+                                                            234,
+                                                            1.0)),
+                                                shape: MaterialStateProperty.all<
+                                                        RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                    7.5))),
+                                              ),
+                                            )),
+                                      ),
+                                      
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 10, top: 10),
+                                        child: SizedBox(
+                                            width: 50,
+                                            height: 50,
+                                            child: ElevatedButton(
+                                              onPressed: () {},
+                                              child: Image.asset(
+                                                'assets/images/fire_black.png',
+                                                width: 50,
+                                                height: 50,
+                                              ),
+                                              style: ButtonStyle(
+                                                backgroundColor:
+                                                MaterialStateProperty
+                                                    .all<Color>(
+                                                    Color
+                                                        .fromRGBO(
+                                                        234,
+                                                        234,
+                                                        234,
+                                                        1.0)),
+                                                shape: MaterialStateProperty.all<
+                                                    RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder(
+                                                        borderRadius:
+                                                        BorderRadius
+                                                            .circular(
+                                                            7.5))),
+                                              ),
+                                            )),
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.only(top: 7, bottom: 15),
+                                    child: Row(
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                            left: 10,
+                                          ),
+                                          child: SizedBox(
+                                              width: 50,
+                                              height: 50,
+                                              child: ElevatedButton(
+                                                onPressed: () {},
+                                                child: Image.asset(
+                                                  'assets/images/logo R.png',
+                                                  width: 35,
+                                                ),
+                                                style: ButtonStyle(
+                                                  backgroundColor:
+                                                      MaterialStateProperty
+                                                          .all<Color>(Color
+                                                          .fromRGBO(
+                                                          234,
+                                                          234,
+                                                          234,
+                                                          1.0)),
+                                                  shape: MaterialStateProperty.all<
+                                                          RoundedRectangleBorder>(
+                                                      RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      7.5))),
+                                                ),
+                                              )),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                            left: 10,
+                                          ),
+                                          child: SizedBox(
+                                              width: 50,
+                                              height: 50,
+                                              child: ElevatedButton(
+                                                onPressed: () {},
+                                                child: Image.asset(
+                                                  'assets/images/BO.png',
+                                                  width: 50,
+                                                ),
+                                                style: ButtonStyle(
+                                                  backgroundColor:
+                                                      MaterialStateProperty
+                                                          .all<Color>(Color
+                                                              .fromRGBO(
+                                                                  234,
+                                                          234,
+                                                          234,
+                                                          1.0)),
+                                                  shape: MaterialStateProperty.all<
+                                                          RoundedRectangleBorder>(
+                                                      RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      7.5))),
+                                                ),
+                                              )),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                            left: 10,
+                                          ),
+                                          child: SizedBox(
+                                              width: 50,
+                                              height: 50,
+                                              child: ElevatedButton(
+                                                onPressed: () {},
+                                                child: Image.asset(
+                                                  'assets/images/por.png',
+                                                  width: 30,
+                                                ),
+                                                style: ButtonStyle(
+                                                  backgroundColor:
+                                                  MaterialStateProperty
+                                                      .all<Color>(Color
+                                                      .fromRGBO(
+                                                      255,
+                                                      255,
+                                                      255,
+                                                      1)),
+                                                  shape: MaterialStateProperty.all<
+                                                      RoundedRectangleBorder>(
+                                                      RoundedRectangleBorder(
+                                                          borderRadius:
+                                                          BorderRadius
+                                                              .circular(
+                                                              7.5))),
+                                                ),
+                                              )),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                            left: 10,
+                                          ),
+                                          child: SizedBox(
+                                              width: 50,
+                                              height: 50,
+                                              child: ElevatedButton(
+                                                onPressed: () {},
+                                                child: Image.asset(
+                                                  'assets/images/VOLVO.png',
+                                                  width: 30,
+                                                ),
+                                                style: ButtonStyle(
+                                                  backgroundColor:
+                                                  MaterialStateProperty
+                                                      .all<Color>(Color
+                                                      .fromRGBO(
+                                                      255,
+                                                      255,
+                                                      255,
+                                                      1)),
+                                                  shape: MaterialStateProperty.all<
+                                                      RoundedRectangleBorder>(
+                                                      RoundedRectangleBorder(
+                                                          borderRadius:
+                                                          BorderRadius
+                                                              .circular(
+                                                              7.5))),
+                                                ),
+                                              )),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                            left: 10,
+                                          ),
+                                          child: SizedBox(
+                                              width: 50,
+                                              height: 50,
+                                              child: ElevatedButton(
+                                                onPressed: () {},
+                                                child: Image.asset(
+                                                  'assets/images/trophy_black.png',
+                                                  width: 30,
+                                                ),
+                                                style: ButtonStyle(
+                                                  backgroundColor:
+                                                  MaterialStateProperty
+                                                      .all<Color>(Color
+                                                      .fromRGBO(
+                                                      255,
+                                                      255,
+                                                      255,
+                                                      1)),
+                                                  shape: MaterialStateProperty.all<
+                                                      RoundedRectangleBorder>(
+                                                      RoundedRectangleBorder(
+                                                          borderRadius:
+                                                          BorderRadius
+                                                              .circular(
+                                                              7.5))),
+                                                ),
+                                              )),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                            left: 10,
+                                          ),
+                                          child: SizedBox(
+                                              width: 50,
+                                              height: 50,
+                                              child: ElevatedButton(
+                                                onPressed: () {},
+                                                child: Image.asset(
+                                                  'assets/images/B.png',
+                                                  width: 30,
+                                                ),
+                                                style: ButtonStyle(
+                                                  backgroundColor:
+                                                  MaterialStateProperty
+                                                      .all<Color>(Color
+                                                      .fromRGBO(
+                                                      255,
+                                                      255,
+                                                      255,
+                                                      1)),
+                                                  shape: MaterialStateProperty.all<
+                                                      RoundedRectangleBorder>(
+                                                      RoundedRectangleBorder(
+                                                          borderRadius:
+                                                          BorderRadius
+                                                              .circular(
+                                                              7.5))),
+                                                ),
+                                              )),
+                                        ),
+
                                       ],
                                     ),
                                   ),
-                                  child: SingleChildScrollView(
-                                    scrollDirection: Axis.horizontal,
-                                    child: Column(children: [
-                                      Row(
-                                        children: [
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 15, top: 10),
-                                            child: SizedBox(
-                                                width: 50,
-                                                height: 50,
-                                                child: ElevatedButton(
-                                                  onPressed: () {
-                                                    Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              car_details(),
-                                                        ));
-                                                  },
-                                                  child: Image.asset(
-                                                    'assets/images/black logoo.png',
-                                                    width: 21,
-                                                  ),
-                                                  style: ButtonStyle(
-                                                    backgroundColor:
-                                                        MaterialStateProperty
-                                                            .all<Color>(
-                                                                Color.fromRGBO(
-                                                                    255,
-                                                                    255,
-                                                                    255,
-                                                                    1)),
-                                                    shape: MaterialStateProperty.all<
-                                                            RoundedRectangleBorder>(
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        7.5))),
-                                                  ),
-                                                )),
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 10, top: 10),
-                                            child: SizedBox(
-                                                width: 50,
-                                                height: 50,
-                                                child: ElevatedButton(
-                                                  onPressed: () {},
-                                                  child: Image.asset(
-                                                    'assets/images/black logoo.png',
-                                                    width: 21,
-                                                  ),
-                                                  style: ButtonStyle(
-                                                    backgroundColor:
-                                                        MaterialStateProperty
-                                                            .all<Color>(
-                                                                Color.fromRGBO(
-                                                                    255,
-                                                                    255,
-                                                                    255,
-                                                                    1)),
-                                                    shape: MaterialStateProperty.all<
-                                                            RoundedRectangleBorder>(
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        7.5))),
-                                                  ),
-                                                )),
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 10, top: 10),
-                                            child: SizedBox(
-                                                width: 50,
-                                                height: 50,
-                                                child: ElevatedButton(
-                                                  onPressed: () {},
-                                                  child: Image.asset(
-                                                    'assets/images/black logoo.png',
-                                                    width: 21,
-                                                  ),
-                                                  style: ButtonStyle(
-                                                    backgroundColor:
-                                                        MaterialStateProperty
-                                                            .all<Color>(
-                                                                Color.fromRGBO(
-                                                                    255,
-                                                                    255,
-                                                                    255,
-                                                                    1)),
-                                                    shape: MaterialStateProperty.all<
-                                                            RoundedRectangleBorder>(
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        7.5))),
-                                                  ),
-                                                )),
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 10, top: 10),
-                                            child: SizedBox(
-                                                width: 50,
-                                                height: 50,
-                                                child: ElevatedButton(
-                                                  onPressed: () {},
-                                                  child: Image.asset(
-                                                    'assets/images/black logoo.png',
-                                                    width: 21,
-                                                  ),
-                                                  style: ButtonStyle(
-                                                    backgroundColor:
-                                                        MaterialStateProperty
-                                                            .all<Color>(
-                                                                Color.fromRGBO(
-                                                                    255,
-                                                                    255,
-                                                                    255,
-                                                                    1)),
-                                                    shape: MaterialStateProperty.all<
-                                                            RoundedRectangleBorder>(
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        7.5))),
-                                                  ),
-                                                )),
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 10, top: 10),
-                                            child: SizedBox(
-                                                width: 50,
-                                                height: 50,
-                                                child: ElevatedButton(
-                                                  onPressed: () {},
-                                                  child: Image.asset(
-                                                    'assets/images/black logoo.png',
-                                                    width: 21,
-                                                  ),
-                                                  style: ButtonStyle(
-                                                    backgroundColor:
-                                                        MaterialStateProperty
-                                                            .all<Color>(
-                                                                Color.fromRGBO(
-                                                                    255,
-                                                                    255,
-                                                                    255,
-                                                                    1)),
-                                                    shape: MaterialStateProperty.all<
-                                                            RoundedRectangleBorder>(
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        7.5))),
-                                                  ),
-                                                )),
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 10, top: 10),
-                                            child: SizedBox(
-                                                width: 50,
-                                                height: 50,
-                                                child: ElevatedButton(
-                                                  onPressed: () {},
-                                                  child: Image.asset(
-                                                    'assets/images/black logoo.png',
-                                                    width: 21,
-                                                  ),
-                                                  style: ButtonStyle(
-                                                    backgroundColor:
-                                                        MaterialStateProperty
-                                                            .all<Color>(
-                                                                Color.fromRGBO(
-                                                                    255,
-                                                                    255,
-                                                                    255,
-                                                                    1)),
-                                                    shape: MaterialStateProperty.all<
-                                                            RoundedRectangleBorder>(
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        7.5))),
-                                                  ),
-                                                )),
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 10, top: 10),
-                                            child: SizedBox(
-                                                width: 50,
-                                                height: 50,
-                                                child: ElevatedButton(
-                                                  onPressed: () {},
-                                                  child: Image.asset(
-                                                    'assets/images/black logoo.png',
-                                                    width: 21,
-                                                  ),
-                                                  style: ButtonStyle(
-                                                    backgroundColor:
-                                                        MaterialStateProperty
-                                                            .all<Color>(
-                                                                Color.fromRGBO(
-                                                                    255,
-                                                                    255,
-                                                                    255,
-                                                                    1)),
-                                                    shape: MaterialStateProperty.all<
-                                                            RoundedRectangleBorder>(
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        7.5))),
-                                                  ),
-                                                )),
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 10, top: 10),
-                                            child: SizedBox(
-                                                width: 50,
-                                                height: 50,
-                                                child: ElevatedButton(
-                                                  onPressed: () {},
-                                                  child: Image.asset(
-                                                    'assets/images/black logoo.png',
-                                                    width: 21,
-                                                  ),
-                                                  style: ButtonStyle(
-                                                    backgroundColor:
-                                                        MaterialStateProperty
-                                                            .all<Color>(
-                                                                Color.fromRGBO(
-                                                                    255,
-                                                                    255,
-                                                                    255,
-                                                                    1)),
-                                                    shape: MaterialStateProperty.all<
-                                                            RoundedRectangleBorder>(
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        7.5))),
-                                                  ),
-                                                )),
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 10, top: 10),
-                                            child: SizedBox(
-                                                width: 50,
-                                                height: 50,
-                                                child: ElevatedButton(
-                                                  onPressed: () {},
-                                                  child: Image.asset(
-                                                    'assets/images/black logoo.png',
-                                                    width: 21,
-                                                  ),
-                                                  style: ButtonStyle(
-                                                    backgroundColor:
-                                                        MaterialStateProperty
-                                                            .all<Color>(
-                                                                Color.fromRGBO(
-                                                                    255,
-                                                                    255,
-                                                                    255,
-                                                                    1)),
-                                                    shape: MaterialStateProperty.all<
-                                                            RoundedRectangleBorder>(
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        7.5))),
-                                                  ),
-                                                )),
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 10, top: 10),
-                                            child: SizedBox(
-                                                width: 50,
-                                                height: 50,
-                                                child: ElevatedButton(
-                                                  onPressed: () {},
-                                                  child: Image.asset(
-                                                    'assets/images/black logoo.png',
-                                                    width: 21,
-                                                  ),
-                                                  style: ButtonStyle(
-                                                    backgroundColor:
-                                                        MaterialStateProperty
-                                                            .all<Color>(
-                                                                Color.fromRGBO(
-                                                                    255,
-                                                                    255,
-                                                                    255,
-                                                                    1)),
-                                                    shape: MaterialStateProperty.all<
-                                                            RoundedRectangleBorder>(
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        7.5))),
-                                                  ),
-                                                )),
-                                          ),
-                                        ],
-                                      ),
-                                      Padding(
-                                        padding:
-                                            EdgeInsets.only(top: 7, bottom: 15),
-                                        child: Row(
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                left: 15,
-                                              ),
-                                              child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
-                                                  child: ElevatedButton(
-                                                    onPressed: () {},
-                                                    child: Image.asset(
-                                                      'assets/images/black logoo.png',
-                                                      width: 21,
-                                                    ),
-                                                    style: ButtonStyle(
-                                                      backgroundColor:
-                                                          MaterialStateProperty
-                                                              .all<Color>(Color
-                                                                  .fromRGBO(
-                                                                      255,
-                                                                      255,
-                                                                      255,
-                                                                      1)),
-                                                      shape: MaterialStateProperty.all<
-                                                              RoundedRectangleBorder>(
-                                                          RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          7.5))),
-                                                    ),
-                                                  )),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                left: 10,
-                                              ),
-                                              child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
-                                                  child: ElevatedButton(
-                                                    onPressed: () {},
-                                                    child: Image.asset(
-                                                      'assets/images/black logoo.png',
-                                                      width: 21,
-                                                    ),
-                                                    style: ButtonStyle(
-                                                      backgroundColor:
-                                                          MaterialStateProperty
-                                                              .all<Color>(Color
-                                                                  .fromRGBO(
-                                                                      255,
-                                                                      255,
-                                                                      255,
-                                                                      1)),
-                                                      shape: MaterialStateProperty.all<
-                                                              RoundedRectangleBorder>(
-                                                          RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          7.5))),
-                                                    ),
-                                                  )),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                left: 10,
-                                              ),
-                                              child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
-                                                  child: ElevatedButton(
-                                                    onPressed: () {},
-                                                    child: Image.asset(
-                                                      'assets/images/black logoo.png',
-                                                      width: 21,
-                                                    ),
-                                                    style: ButtonStyle(
-                                                      backgroundColor:
-                                                          MaterialStateProperty
-                                                              .all<Color>(Color
-                                                                  .fromRGBO(
-                                                                      255,
-                                                                      255,
-                                                                      255,
-                                                                      1)),
-                                                      shape: MaterialStateProperty.all<
-                                                              RoundedRectangleBorder>(
-                                                          RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          7.5))),
-                                                    ),
-                                                  )),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                left: 10,
-                                              ),
-                                              child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
-                                                  child: ElevatedButton(
-                                                    onPressed: () {},
-                                                    child: Image.asset(
-                                                      'assets/images/black logoo.png',
-                                                      width: 21,
-                                                    ),
-                                                    style: ButtonStyle(
-                                                      backgroundColor:
-                                                          MaterialStateProperty
-                                                              .all<Color>(Color
-                                                                  .fromRGBO(
-                                                                      255,
-                                                                      255,
-                                                                      255,
-                                                                      1)),
-                                                      shape: MaterialStateProperty.all<
-                                                              RoundedRectangleBorder>(
-                                                          RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          7.5))),
-                                                    ),
-                                                  )),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                left: 10,
-                                              ),
-                                              child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
-                                                  child: ElevatedButton(
-                                                    onPressed: () {},
-                                                    child: Image.asset(
-                                                      'assets/images/black logoo.png',
-                                                      width: 21,
-                                                    ),
-                                                    style: ButtonStyle(
-                                                      backgroundColor:
-                                                          MaterialStateProperty
-                                                              .all<Color>(Color
-                                                                  .fromRGBO(
-                                                                      255,
-                                                                      255,
-                                                                      255,
-                                                                      1)),
-                                                      shape: MaterialStateProperty.all<
-                                                              RoundedRectangleBorder>(
-                                                          RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          7.5))),
-                                                    ),
-                                                  )),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                left: 10,
-                                              ),
-                                              child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
-                                                  child: ElevatedButton(
-                                                    onPressed: () {},
-                                                    child: Image.asset(
-                                                      'assets/images/black logoo.png',
-                                                      width: 21,
-                                                    ),
-                                                    style: ButtonStyle(
-                                                      backgroundColor:
-                                                          MaterialStateProperty
-                                                              .all<Color>(Color
-                                                                  .fromRGBO(
-                                                                      255,
-                                                                      255,
-                                                                      255,
-                                                                      1)),
-                                                      shape: MaterialStateProperty.all<
-                                                              RoundedRectangleBorder>(
-                                                          RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          7.5))),
-                                                    ),
-                                                  )),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                left: 10,
-                                              ),
-                                              child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
-                                                  child: ElevatedButton(
-                                                    onPressed: () {},
-                                                    child: Image.asset(
-                                                      'assets/images/black logoo.png',
-                                                      width: 21,
-                                                    ),
-                                                    style: ButtonStyle(
-                                                      backgroundColor:
-                                                          MaterialStateProperty
-                                                              .all<Color>(Color
-                                                                  .fromRGBO(
-                                                                      255,
-                                                                      255,
-                                                                      255,
-                                                                      1)),
-                                                      shape: MaterialStateProperty.all<
-                                                              RoundedRectangleBorder>(
-                                                          RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          7.5))),
-                                                    ),
-                                                  )),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                left: 10,
-                                              ),
-                                              child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
-                                                  child: ElevatedButton(
-                                                    onPressed: () {},
-                                                    child: Image.asset(
-                                                      'assets/images/black logoo.png',
-                                                      width: 21,
-                                                    ),
-                                                    style: ButtonStyle(
-                                                      backgroundColor:
-                                                          MaterialStateProperty
-                                                              .all<Color>(Color
-                                                                  .fromRGBO(
-                                                                      255,
-                                                                      255,
-                                                                      255,
-                                                                      1)),
-                                                      shape: MaterialStateProperty.all<
-                                                              RoundedRectangleBorder>(
-                                                          RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          7.5))),
-                                                    ),
-                                                  )),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                left: 10,
-                                              ),
-                                              child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
-                                                  child: ElevatedButton(
-                                                    onPressed: () {},
-                                                    child: Image.asset(
-                                                      'assets/images/black logoo.png',
-                                                      width: 21,
-                                                    ),
-                                                    style: ButtonStyle(
-                                                      backgroundColor:
-                                                          MaterialStateProperty
-                                                              .all<Color>(Color
-                                                                  .fromRGBO(
-                                                                      255,
-                                                                      255,
-                                                                      255,
-                                                                      1)),
-                                                      shape: MaterialStateProperty.all<
-                                                              RoundedRectangleBorder>(
-                                                          RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          7.5))),
-                                                    ),
-                                                  )),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                left: 10,
-                                              ),
-                                              child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
-                                                  child: ElevatedButton(
-                                                    onPressed: () {},
-                                                    child: Image.asset(
-                                                      'assets/images/black logoo.png',
-                                                      width: 21,
-                                                    ),
-                                                    style: ButtonStyle(
-                                                      backgroundColor:
-                                                          MaterialStateProperty
-                                                              .all<Color>(Color
-                                                                  .fromRGBO(
-                                                                      255,
-                                                                      255,
-                                                                      255,
-                                                                      1)),
-                                                      shape: MaterialStateProperty.all<
-                                                              RoundedRectangleBorder>(
-                                                          RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          7.5))),
-                                                    ),
-                                                  )),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ]),
-                                  ),
-                                ),
-                              ]),
-                              Stack(children: [
-                                Container(
-                                  margin: EdgeInsets.only(
-                                      left: 20, right: 20, top: 5, bottom: 5),
-                                  child: InkWell(
-                                    onTap: () {},
-                                    child: Image.asset(
-                                      'assets/images/car 1.png',
-                                      height: 187,
-                                      width: 400,
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 40, top: 10),
-                                  child: Image.asset(
-                                    'assets/images/car 1.png',
-                                    height: 80,
-                                    width: 50,
-                                  ),
-                                ),
-                              ]),
-                              Stack(children: [
-                                Container(
-                                  margin: EdgeInsets.only(
-                                      left: 20, right: 20, top: 5, bottom: 5),
-                                  child: InkWell(
-                                    onTap: () {},
-                                    child: Image.asset(
-                                      'assets/images/car 1.png',
-                                      height: 187,
-                                      width: 400,
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 40, top: 10),
-                                  child: Image.asset(
-                                    'assets/images/car 1.png',
-                                    height: 80,
-                                    width: 50,
-                                  ),
-                                ),
-                              ]),
-                              Row(
-                                children: [
-                                  Stack(children: [
-                                    Container(
-                                      margin: EdgeInsets.only(
-                                          left: 20,
-                                          right: 20,
-                                          top: 5,
-                                          bottom: 5),
-                                      child: InkWell(
-                                        onTap: () {},
-                                        child: Image.asset(
-                                          'assets/images/car 1.png',
-                                          height: 144,
-                                          width: 186,
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(left: 40, top: 10),
-                                      child: Image.asset(
-                                        'assets/images/car 1.png',
-                                        height: 80,
-                                        width: 50,
-                                      ),
-                                    ),
-                                  ]),
-                                ],
+                                ]),
                               ),
-                            ]),
+                            ),
                           ]),
-                        ),
-                      ]),
-                    )
-                  ],
-                ),
-              ],
-            ),
+                          Stack(children: [
+                            Container(
+                              margin: EdgeInsets.only(
+                                  left: 20, right: 20, top: 5, bottom: 5),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.all(Radius.circular(21)),
+                                child: InkWell(
+                                  onTap: () {},
+                                  child: Image.asset(
+                                    'assets/images/car 1.png',
+                                    height: 180,
+                                    width: 400,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 40, ),
+                              child: Image.asset(
+                                'assets/images/bentley.png',
+                                height: 80,
+                                width: 65,
+                              ),
+                            ),
+                            Container(
+                                height: 37,
+                                width: 63,
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.3),
+                                      spreadRadius: 3,
+                                      blurRadius: 20,
+                                      offset: Offset(0, 3), // changes position of shadow
+                                    ),
+                                  ],
+                                ),
+                                margin: const EdgeInsets.only(
+                                  top: 145,
+                                  left: 298,
+                                ),
+                                child: TextButton(
+                                  child: Icon(
+                                    Icons.add_shopping_cart_outlined,
+                                    size: 27,
+                                    color: Colors.black,
+                                  ),
+                                  style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all<Color>(
+                                        Color.fromRGBO(255, 255, 255, 0.4)),
+                                    foregroundColor:
+                                    MaterialStateProperty.all<Color>(Colors.white),
+                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.only(
+                                              bottomRight: Radius.circular(15),
+                                              topLeft: Radius.circular(15)),
+                                        )),
+                                  ),
+                                  onPressed: () {},
+                                )),
+                          ]),
+                          Stack(children: [
+                            Container(
+                              margin: EdgeInsets.only(
+                                  left: 20, right: 20, top: 5, bottom: 5),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.all(Radius.circular(21)),
+                                child: InkWell(
+                                  onTap: () {},
+                                  child: Image.asset(
+                                    'assets/images/RR.png',
+                                    height: 180,
+                                    width: 400,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 20, top: 5),
+                              child: Image.asset(
+                                'assets/images/logo R white.png',
+                                height: 80,
+                                width: 50,
+                              ),
+                            ),
+                            Container(
+                                height: 37,
+                                width: 63,
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.3),
+                                      spreadRadius: 3,
+                                      blurRadius: 20,
+                                      offset: Offset(0, 3), // changes position of shadow
+                                    ),
+                                  ],
+                                ),
+                                margin: const EdgeInsets.only(
+                                  top: 145,
+                                  left: 298,
+                                ),
+                                child: TextButton(
+                                  child: Icon(
+                                    Icons.add_shopping_cart_outlined,
+                                    size: 27,
+                                    color: Colors.black,
+                                  ),
+                                  style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all<Color>(
+                                        Color.fromRGBO(255, 255, 255, 0.4)),
+                                    foregroundColor:
+                                    MaterialStateProperty.all<Color>(Colors.white),
+                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.only(
+                                              bottomRight: Radius.circular(15),
+                                              topLeft: Radius.circular(15)),
+                                        )),
+                                  ),
+                                  onPressed: () {},
+                                )),
+                          ]),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Stack(children: [
+                                Container(
+                                  margin: EdgeInsets.only(
+                                      left: 20,
+                                      right: 10,
+                                      top: 5,
+                                      bottom: 5),
+                                  child:ClipRRect(
+                                    borderRadius: BorderRadius.all(Radius.circular(21)),
+                                    child: InkWell(
+                                      onTap: () {},
+                                      child: Image.asset(
+                                        'assets/images/m1.png',
+                                        height: 230,
+                                        width: 165,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      EdgeInsets.only(left: 35, top:30),
+                                  child: Image.asset(
+                                    'assets/images/mercedes_logo.png',
+                                    height: 25,
+                                    width: 25,
+                                  ),
+                                ),
+                              ]),
+                              Stack(children: [
+                                Container(
+                                  margin: EdgeInsets.only(
+                                      // left: 20,
+                                      right: 20,
+                                      top: 5,
+                                      bottom: 5),
+                                  child:ClipRRect(
+                                    borderRadius: BorderRadius.all(Radius.circular(21)),
+                                    child: InkWell(
+                                      onTap: () {},
+                                      child: Image.asset(
+                                        'assets/images/EB1.png',
+                                         height:230,
+                                         width: 165,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                  EdgeInsets.only(left: 20, top: 30),
+                                  child: Image.asset(
+                                    'assets/images/EB LOGO WHITE.png',
+                                    height: 25,
+                                    width: 25,
+                                  ),
+                                ),
+                              ]),
+                            ],
+                          ),
+                          SizedBox(height: 10,)
+                        ]),
+                      ),
+                    ),
+                  ),
+                ]),
+              )
+            ],
           ),
           Center(
             child: IconButton(

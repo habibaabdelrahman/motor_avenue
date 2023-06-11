@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:motor_avenue/CheckOut_2.dart';
+import 'package:motor_avenue/Bookmarks.dart';
 import 'package:motor_avenue/Home.dart';
 import 'package:motor_avenue/LiveAuction.dart';
 import 'package:motor_avenue/Live_Car_Details.dart';
@@ -7,9 +7,9 @@ import 'package:motor_avenue/CheckOut_1.dart';
 import 'package:motor_avenue/CheckOut_3.dart';
 import 'package:motor_avenue/Requests.dart';
 import 'package:motor_avenue/Settings.dart';
+import 'package:motor_avenue/car_details.dart';
+import 'package:motor_avenue/cart.dart';
 import 'package:motor_avenue/cccc.dart';
-import 'package:motor_avenue/checkout_4.dart';
-
 import 'package:motor_avenue/login.dart';
 import 'package:motor_avenue/order.dart';
 import 'package:motor_avenue/register.dart';

@@ -32,7 +32,7 @@ class liveAcution2 extends StatelessWidget {
                     onPressed: () {},
                     iconSize: 30,
                     color: Colors.black,
-                    padding: const EdgeInsets.only(top: 30, left: 20)),
+                    padding: const EdgeInsets.only(top: 10, left: 20)),
                 Expanded(
                   child: Center(
                     child: Container(

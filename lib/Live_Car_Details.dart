@@ -105,10 +105,11 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
               height: 10,
             ),
             Center(
-              child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-                if (!showText)
-                  Expanded(
-                    child: Column(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                  if (!showText)
+                    Column(
                       children: [
                         Stack(
                           children: [
@@ -265,128 +266,128 @@ class _Live_Car_DetailsState extends State<Live_Car_Details> {
                         ),
                       ],
                     ),
-                  ),
-                Padding(
-                  padding: EdgeInsets.only(right: 15, top: 3),
-                  child: Column(
-                    children: [
-                      Stack(children: [
-                        GestureDetector(
-                          onTap: _toggleWidth,
-                          child: AnimatedContainer(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16.0),
-                            ),
-                            duration: Duration(milliseconds: 500),
-                            width: containerWidth,
-                            height: 250.0,
-                            child: Center(
-                              child: CarouselSlider(
-                                options: CarouselOptions(
-                                  height: 250,
-                                  autoPlay: false,
-                                  viewportFraction: 1.0,
+                  Padding(
+                    padding: EdgeInsets.only(right: 15, top: 3),
+                    child: Column(
+                      children: [
+                        Stack(children: [
+                          GestureDetector(
+                            onTap: _toggleWidth,
+                            child: AnimatedContainer(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16.0),
+                              ),
+                              duration: Duration(milliseconds: 500),
+                              width: containerWidth,
+                              height: 250.0,
+                              child: Center(
+                                child: CarouselSlider(
+                                  options: CarouselOptions(
+                                    height: 250,
+                                    autoPlay: false,
+                                    viewportFraction: 1.0,
+                                  ),
+                                  items: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(16.0),
+                                      child: Image.asset(
+                                          'assets/images/car 1.png',
+                                          fit: BoxFit.cover),
+                                    ),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(16.0),
+                                      child: Image.asset(
+                                          'assets/images/car1_1.png',
+                                          fit: BoxFit.cover),
+                                    ),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(16.0),
+                                      child: Image.asset(
+                                          'assets/images/car1_2.png',
+                                          fit: BoxFit.cover),
+                                    ),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(16.0),
+                                      child: Image.asset(
+                                          'assets/images/car1_3.png',
+                                          fit: BoxFit.cover),
+                                    ),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(16.0),
+                                      child: Image.asset(
+                                          'assets/images/car1_4.png',
+                                          fit: BoxFit.cover),
+                                    ),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(16.0),
+                                      child: Image.asset(
+                                          'assets/images/car1_5.png',
+                                          fit: BoxFit.cover),
+                                    ),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(16.0),
+                                      child: Image.asset(
+                                          'assets/images/car1_6.png',
+                                          fit: BoxFit.cover),
+                                    ),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(16.0),
+                                      child: Image.asset(
+                                          'assets/images/car1_7.png',
+                                          fit: BoxFit.cover),
+                                    ),
+                                  ],
                                 ),
-                                items: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(16.0),
-                                    child: Image.asset(
-                                        'assets/images/car 1.png',
-                                        fit: BoxFit.cover),
-                                  ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(16.0),
-                                    child: Image.asset(
-                                        'assets/images/car1_1.png',
-                                        fit: BoxFit.cover),
-                                  ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(16.0),
-                                    child: Image.asset(
-                                        'assets/images/car1_2.png',
-                                        fit: BoxFit.cover),
-                                  ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(16.0),
-                                    child: Image.asset(
-                                        'assets/images/car1_3.png',
-                                        fit: BoxFit.cover),
-                                  ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(16.0),
-                                    child: Image.asset(
-                                        'assets/images/car1_4.png',
-                                        fit: BoxFit.cover),
-                                  ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(16.0),
-                                    child: Image.asset(
-                                        'assets/images/car1_5.png',
-                                        fit: BoxFit.cover),
-                                  ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(16.0),
-                                    child: Image.asset(
-                                        'assets/images/car1_6.png',
-                                        fit: BoxFit.cover),
-                                  ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(16.0),
-                                    child: Image.asset(
-                                        'assets/images/car1_7.png',
-                                        fit: BoxFit.cover),
-                                  ),
-                                ],
                               ),
                             ),
                           ),
-                        ),
-                        Container(
-                            height: 30,
-                            width: 40,
-                            decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.3),
-                                  spreadRadius: 3,
-                                  blurRadius: 20,
-                                  offset: Offset(
-                                      0, 3), // changes position of shadow
+                          Container(
+                              height: 30,
+                              width: 40,
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.3),
+                                    spreadRadius: 3,
+                                    blurRadius: 20,
+                                    offset: Offset(
+                                        0, 3), // changes position of shadow
+                                  ),
+                                ],
+                              ),
+                              margin: const EdgeInsets.only(
+                                top: 220,
+                              ),
+                              child: ElevatedButton(
+                                child: Icon(
+                                  _buttonIcon,
+                                  size: 15,
+                                  color: Colors.black,
                                 ),
-                              ],
-                            ),
-                            margin: const EdgeInsets.only(
-                              top: 220,
-                            ),
-                            child: ElevatedButton(
-                              child: Icon(
-                                _buttonIcon,
-                                size: 15,
-                                color: Colors.black,
-                              ),
-                              style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Color.fromRGBO(
-                                            255, 255, 255, 0.6588235294117647)),
-                                foregroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Colors.white),
-                                shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(16),
-                                      topRight: Radius.circular(16)),
-                                )),
-                              ),
-                              onPressed: _toggleWidth,
-                            )),
-                      ]),
-                    ],
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Color.fromRGBO(
+                                              255, 255, 255, 0.6588235294117647)),
+                                  foregroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.white),
+                                  shape: MaterialStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(16),
+                                        topRight: Radius.circular(16)),
+                                  )),
+                                ),
+                                onPressed: _toggleWidth,
+                              )),
+                        ]),
+                      ],
+                    ),
                   ),
-                ),
-              ]),
+                ]),
+              ),
             ),
             SizedBox(
               height: 10,

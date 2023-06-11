@@ -1,208 +1,175 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 
-class CustomHorizontalStepper extends StatelessWidget {
+
+class ImagePickerScreen extends StatefulWidget {
+  @override
+  _ImagePickerScreenState createState() => _ImagePickerScreenState();
+}
+
+class _ImagePickerScreenState extends State<ImagePickerScreen> {
+
+  String? _selectedCategory;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body:
-          Container(
-            margin: EdgeInsets.only(top: 50,left: 10,right: 10),
-            height: 140,
-            width: 500,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
-              color: Colors.grey,
-            ),
-            
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _Step(
-                  icon: Icons.check,
-                  title: 'STEP 1',
-                  subtitle: Container(
-                    child: Stack(
-                      children: [
-                        Padding(padding: EdgeInsets.only(left: 3),
-                          child: Text('ORDER',
-                            style: TextStyle(fontSize:12,
-                                color: Colors.black,
-                                fontWeight:FontWeight.w500 ,
-                                fontFamily: 'Hind'),),),
-                        Padding(padding: EdgeInsets.only(top: 12),
-                        child: Text('PLACED',
-                          style: TextStyle(fontSize:12,
-                              color: Colors.black,
-                              fontWeight:FontWeight.w500 ,
-                              fontFamily: 'Hind'),),),
-                      ],
-                    ),
-                  ),
-                ),
-
-                Padding(padding:EdgeInsets.only(bottom: 55) ,
-                  child:  Container(
-                    height: 3,
-                    width: 45,
-                    child:Divider(
-                      indent: 5,
-                      endIndent: 0,
-                      thickness: 3,
-                      color: Colors.white,
-                    ),
-                  ),),
-
-                _Step(
-                  icon: Icons.wallet_giftcard_outlined,
-                  title: 'STEP 2',
-                  subtitle: Container(
-                    child: Stack(
-                      children: [
-                        Padding(padding: EdgeInsets.only(left: 11,),
-                          child: Text('ORDER',
-                            style: TextStyle(fontSize:12,
-                                color: Colors.black,
-                                fontWeight:FontWeight.w500 ,
-                                fontFamily: 'Hind'),),),
-                        Padding(padding: EdgeInsets.only(top: 12),
-                          child: Text('CONFIRMED',
-                            style: TextStyle(fontSize:11,
-                                color: Colors.black,
-                                fontWeight:FontWeight.w500 ,
-                                fontFamily: 'Hind'),),)
-                      ],
-                    ),
-                  ),
-
-                ),
-                Padding(padding:EdgeInsets.only(bottom: 55) ,
-                  child:  Container(
-                    height: 3,
-                    width: 45,
-                    child:Divider(
-                      indent: 0,
-                      endIndent: 5,
-                      thickness: 3,
-                      color: Colors.white,
-                    ),
-                  ),),
-                _Step(
-                  icon: Icons.local_shipping_outlined,
-                  title: 'STEP 3',
-                  subtitle: Container(
-                    child: Stack(
-                      children: [
-                        Padding(padding: EdgeInsets.only(left: 5),
-                          child: Text('ORDER',
-                            style: TextStyle(fontSize:12,
-                                color: Colors.black,
-                                fontWeight:FontWeight.w500 ,
-                                fontFamily: 'Hind'),),),
-                        Padding(padding: EdgeInsets.only(top: 12),
-                          child: Text('SHIPPED',
-                            style: TextStyle(fontSize:12,
-                                color: Colors.black,
-                                fontWeight:FontWeight.w500 ,
-                                fontFamily: 'Hind'),),)
-                      ],
-                    ),
-                  ),
-
-                ),
-                Padding(padding:EdgeInsets.only(bottom: 55) ,
-                  child:  Container(
-                    height: 3,
-                    width: 45,
-                    child:Divider(
-                      indent: 5,
-                      endIndent: 0,
-                      thickness: 3,
-                      color: Colors.white,
-                    ),
-                  ),),
-                _Step(
-                  icon: Icons.location_on_outlined,
-                  title: 'Step 4',
-                  subtitle: Container(
-                    child: Stack(
-                      children: [
-                        Padding(padding: EdgeInsets.only(left: 12),
-                          child: Text('ORDER',
-                            style: TextStyle(fontSize:12,
-                                color: Colors.black,
-                                fontWeight:FontWeight.w500 ,
-                                fontFamily: 'Hind'),),),
-                        Padding(padding: EdgeInsets.only(top: 12),
-                          child: Text('DELIVERED',
-                            style: TextStyle(fontSize:12,
-                                color: Colors.black,
-                                fontWeight:FontWeight.w500 ,
-                                fontFamily: 'Hind'),),)
-                      ],
-                    ),
-                  ),
-
-                ),
-              ],
-            ),
-          ),
-
-    );
-  }
-}
-
-
-class _Step extends StatelessWidget {
-  final IconData icon;
-  final String title;
-  final Container subtitle;
-
-
-  const _Step({required this.icon, required this.title, required this.subtitle, });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(padding: EdgeInsets.only(top: 20),
-        child:CircleAvatar(
-          radius: 23,
-          backgroundColor: Colors.amber,
-          child: CircleAvatar(
-            backgroundColor: Color.fromRGBO(217, 217, 217, 1),
-            foregroundColor: Colors.black,
-            child: Icon(
-              icon,
-              size: 20,
-            ),
-            radius: 20,
-          ),
-        ),),
-
-        SizedBox(height: 10),
-        Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+      appBar: AppBar(
+        title: Text('Image Picker Example'),
+      ),
+      body: Column(
+        children: [
+          Column(
             children: [
-              Text(
-                title,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 11,
+              Padding(
+                padding: EdgeInsets.only(left: 20, top: 10),
+                child: Row(
+                  children: [
+                    ChoiceChip(
+                      label: const Text(
+                        'BENZEN',
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Colors.black87,
+                          fontWeight: FontWeight.normal,
+                          fontFamily: 'MontserratSubrayada',
+                        ),
+                      ),
+                      selected: _selectedCategory == 'BENZEN',
+                      onSelected: (selected) {
+                        setState(() {
+                          _selectedCategory = (selected ? 'BENZEN' : null)!;
+                        });
+                      },
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(21.5),
+                      ),
+                      selectedColor: Colors.amber, // Customize the selected color
+                    ),
+                    SizedBox(width: 15),
+                    ChoiceChip(
+                      label: const Text(
+                        'ELECTRONIC',
+                        style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 13,
+                          fontWeight: FontWeight.normal,
+                          fontFamily: 'MontserratSubrayada',
+                        ),
+                      ),
+                      selected: _selectedCategory == 'ELECTRONIC',
+                      onSelected: (selected) {
+                        setState(() {
+                          _selectedCategory = (selected ? 'ELECTRONIC' : null)!;
+                        });
+                      },
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(21.5),
+                      ),
+                      selectedColor: Colors.amber, // Customize the selected color
+                    ),
+                  ],
                 ),
               ),
-
-              Container(
-                child:
-                subtitle,
+              Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 20, top: 3),
+                    child: Row(
+                      children: [
+                        ChoiceChip(
+                          label: const Text(
+                            'HYBRID',
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.black87,
+                              fontWeight: FontWeight.normal,
+                              fontFamily: 'MontserratSubrayada',
+                            ),
+                          ),
+                          selected: _selectedCategory == 'HYBRID',
+                          onSelected: (selected) {
+                            setState(() {
+                              _selectedCategory = (selected ? 'HYBRID' : null)!;
+                            });
+                          },
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(21.5),
+                          ),
+                          selectedColor: Colors.amber, // Customize the selected color
+                        ),
+                        SizedBox(width: 15),
+                        ChoiceChip(
+                          label: const Text(
+                            'DIESEL',
+                            style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 13,
+                              fontWeight: FontWeight.normal,
+                              fontFamily: 'MontserratSubrayada',
+                            ),
+                          ),
+                          selected: _selectedCategory == 'DIESEL',
+                          onSelected: (selected) {
+                            setState(() {
+                              _selectedCategory = (selected ? 'DIESEL' : null)!;
+                            });
+                          },
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(21.5),
+                          ),
+                          selectedColor: Colors.amber, // Customize the selected color
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 20, top: 3),
+                        child: ChoiceChip(
+                          label: const Text(
+                            'NATURAL GAS',
+                            style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 13,
+                              fontWeight: FontWeight.normal,
+                              fontFamily: 'MontserratSubrayada',
+                            ),
+                          ),
+                          selected: _selectedCategory == 'NATURAL GAS',
+                          onSelected: (selected) {
+                            setState(() {
+                              _selectedCategory = (selected ? 'NATURAL GAS' : null)!;
+                            });
+                          },
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(21.5),
+                          ),
+                          selectedColor: Colors.amber, // Customize the selected color
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
 
 
-
-      ],
+        ],
+      ),
     );
   }
+
 }

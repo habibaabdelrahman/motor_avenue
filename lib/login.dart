@@ -1,5 +1,10 @@
+import 'dart:convert';
+import 'package:motor_avenue/register.dart';
+import 'config.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:motor_avenue/Home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
 
@@ -12,10 +17,37 @@ class login extends StatefulWidget {
 class _loginState extends State<login> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  late SharedPreferences prefs;
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    initSharedPref();
+  }
+  void initSharedPref() async{
+    prefs = await SharedPreferences.getInstance();
+  }
 
-  late String email;
-  late String password;
+  void loginUser() async{
+    if(emailController.text.isNotEmpty && passwordController.text.isNotEmpty){
+      var reqBody = {
+        "email":emailController.text,
+        "password":passwordController.text
+      };
+      var response = await http.post(Uri.parse(loginuser),
+          headers: {"Content-Type":"application/json"},
+          body: jsonEncode(reqBody)
+      );
+      var jsonResponse = jsonDecode(response.body.toString());
+      if(jsonResponse['status']){
+        var myToken = jsonResponse['token'];
+        prefs.setString('token', myToken);
+      }else{
+        print('Something went wrong');
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +58,7 @@ class _loginState extends State<login> {
         body: SingleChildScrollView(
       child: Column(children: [
         Container(
+          height: 800,
           padding: const EdgeInsets.all(20.0),
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -99,6 +132,7 @@ class _loginState extends State<login> {
                                         ? 'You must enter a valid email'
                                         : null,
                                     controller: emailController,
+                                    keyboardType: TextInputType.text,
                                     decoration: const InputDecoration(
                                       border: OutlineInputBorder(
                                         borderSide:
@@ -139,6 +173,7 @@ class _loginState extends State<login> {
                                         : null,
                                     obscureText: true,
                                     controller: passwordController,
+                                    keyboardType: TextInputType.text,
                                     decoration: const InputDecoration(
                                       border: OutlineInputBorder(
                                         borderSide:
@@ -177,30 +212,6 @@ class _loginState extends State<login> {
                                         padding: EdgeInsets.only(
                                       left: 30,
                                     )),
-                                    Checkbox(
-                                      value: _rememberMe,
-                                      fillColor:
-                                          MaterialStateProperty.all<Color>(
-                                              Colors.white),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        side: BorderSide(
-                                          color: Colors.white,
-                                          width: 25,
-                                        ),
-                                      ),
-                                      onChanged: (value) {
-                                        // update the state of _rememberMe
-                                        _rememberMe = value!;
-                                      },
-                                    ),
-                                    Text(
-                                      'Remember Me',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 17,
-                                          fontFamily: 'MontserratSubrayada'),
-                                    ),
                                     // your other child widgets in the row
                                   ],
                                 ),
@@ -211,7 +222,7 @@ class _loginState extends State<login> {
                                 Container(
                                     height: 43,
                                     width: 148,
-                                    margin: const EdgeInsets.only(top: 56),
+                                    margin: const EdgeInsets.only(top: 46),
                                     child: ElevatedButton(
                                       child:Center(
                                       child:Row(
@@ -243,8 +254,10 @@ class _loginState extends State<login> {
                                                         21.5))),
                                       ),
                                       onPressed: ()  {
+                                        loginUser();
                                       },
                                     )),
+                                SizedBox(height: 10,),
                                 Row(
                                   children: <Widget>[
                                     const Text(
@@ -263,7 +276,11 @@ class _loginState extends State<login> {
                                             fontFamily: 'MontserratSubrayada'),
                                       ),
                                       onPressed: () {
-                                        //signup screen
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => register(),
+                                            ));
                                       },
                                     )
                                   ],

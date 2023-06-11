@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:motor_avenue/Bookmarks.dart';
 import 'package:motor_avenue/LiveAuction.dart';
 import 'package:motor_avenue/Requests.dart';
@@ -20,7 +21,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   TextEditingController textController = TextEditingController();
   bool isPopupVisible = false;
-
 
 
   @override
@@ -62,7 +62,7 @@ class _HomeState extends State<Home> {
                     children: [
                       IconButton(
                         icon: Icon(isPopupVisible ? Icons.clear : Icons.notes_sharp),
-                        padding: EdgeInsets.only(top: 35, left: 15),
+                        padding: EdgeInsets.only(top: 25, left: 15),
                         onPressed: () {
                           setState(() {
                             isPopupVisible = !isPopupVisible;
@@ -75,7 +75,7 @@ class _HomeState extends State<Home> {
                       Expanded(
                         child: Center(
                           child: Container(
-                            margin: const EdgeInsets.only(top: 55),
+                            margin: const EdgeInsets.only(top: 45),
                             child: Image.asset(
                               'assets/images/logo white.png',
                               width: 66,
@@ -88,7 +88,7 @@ class _HomeState extends State<Home> {
                           onPressed: () {},
                           iconSize: 32,
                           color: Colors.white,
-                          padding: const EdgeInsets.only(top: 43, right: 15)),
+                          padding: const EdgeInsets.only(top: 35, right: 15)),
                     ]),
                 const SizedBox(width: 30),
 
@@ -180,246 +180,238 @@ class _HomeState extends State<Home> {
                   ),
                 ),
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Padding(
-                        padding: const EdgeInsets.only(
-                      left: 15,
-                      top: 95,
-                    )),
+                Padding(
+                  padding: const EdgeInsets.only(right: 20,left: 20,top: 20,bottom: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      //************************ The Shop Button *************************
 
-                    //************************ The Shop Button *************************
-
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => store(),
-                            ));
-                      },
-                      child: Container(
-                        height: 30,
-                        width: 90,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            const Icon(
-                              Icons.store_mall_directory_outlined,
-                              size: 33,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Stack(
-                                  children: [
-                                    const Padding(
-                                      padding: const EdgeInsets.only(top: 2),
-                                      child: Align(
-                                        alignment: Alignment.topLeft,
-                                        child: const Text(
-                                          'THE',
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                              fontSize: 11,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: 'Hind'),
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(top: 11),
-                                      child: const Text(
-                                        'SHOP',
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'Hind'),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            const Color.fromRGBO(41, 41, 41, 0.37)),
-                        foregroundColor:
-                            MaterialStateProperty.all<Color>(Colors.white),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    //************************ Live Auction Button *************************
-
-                    Expanded(
-                      child: Center(
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.push(
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => LiveAuction()),
-                            );
-                          },
-                          child: Container(
-                            height: 30,
-                            width: 91,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                const Icon(
-                                  Icons.av_timer,
-                                  size: 31,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Stack(
-                                      children: [
-                                        const Padding(
-                                          padding:
-                                              const EdgeInsets.only(top: 0),
-                                          child: const Align(
-                                            alignment: Alignment.topLeft,
-                                            child: Text(
-                                              'LIVE',
-                                              textAlign: TextAlign.left,
-                                              style: TextStyle(
-                                                  fontSize: 11.50,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontFamily: 'Hind'),
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          margin:
-                                              const EdgeInsets.only(top: 10),
+                                builder: (context) => store(),
+                              ));
+                        },
+                        child: Container(
+                          height: 30,
+                          width: 90,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              const Icon(
+                                Icons.store_mall_directory_outlined,
+                                size: 33,
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Stack(
+                                    children: [
+                                      const Padding(
+                                        padding: const EdgeInsets.only(top: 2),
+                                        child: Align(
+                                          alignment: Alignment.topLeft,
                                           child: const Text(
-                                            'AUCTION',
-                                            style: const TextStyle(
-                                                fontSize: 14,
+                                            'THE',
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                                fontSize: 11,
                                                 fontWeight: FontWeight.bold,
                                                 fontFamily: 'Hind'),
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                const Color.fromRGBO(41, 41, 41, 0.37)),
-                            foregroundColor:
-                                MaterialStateProperty.all<Color>(Colors.white),
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(16)),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    //************************ Create ADS Button *************************
-
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => createads(),
-                            ));
-                      },
-                      child: Container(
-                        height: 30,
-                        width: 91,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              width: 5,
-                            ),
-                            const Icon(
-                              Icons.attach_file_outlined,
-                              size: 31,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Stack(
-                                  children: [
-                                    const Padding(
-                                      padding: const EdgeInsets.only(top: 0),
-                                      child: const Align(
-                                        alignment: Alignment.topLeft,
-                                        child: Text(
-                                          'CREATE',
+                                      ),
+                                      Container(
+                                        margin: const EdgeInsets.only(top: 11),
+                                        child: const Text(
+                                          'SHOP',
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
-                                              fontSize: 10,
+                                              fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                               fontFamily: 'Hind'),
                                         ),
                                       ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(top: 10),
-                                      child: const Text(
-                                        'ADS',
-                                        style: TextStyle(
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'Hind'),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              const Color.fromRGBO(41, 41, 41, 0.37)),
+                          foregroundColor:
+                              MaterialStateProperty.all<Color>(Colors.white),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16),
                             ),
-                          ],
+                          ),
                         ),
                       ),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            const Color.fromRGBO(41, 41, 41, 0.37)),
-                        foregroundColor:
-                            MaterialStateProperty.all<Color>(Colors.white),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(14)),
+
+                      //************************ Live Auction Button *************************
+
+                      Expanded(
+                        child: Center(
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LiveAuction()),
+                              );
+                            },
+                            child: Container(
+                              height: 30,
+                              width: 91,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  const Icon(
+                                    Icons.av_timer,
+                                    size: 31,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Stack(
+                                        children: [
+                                          const Padding(
+                                            padding:
+                                                const EdgeInsets.only(top: 0),
+                                            child: const Align(
+                                              alignment: Alignment.topLeft,
+                                              child: Text(
+                                                'LIVE',
+                                                textAlign: TextAlign.left,
+                                                style: TextStyle(
+                                                    fontSize: 11.50,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontFamily: 'Hind'),
+                                              ),
+                                            ),
+                                          ),
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(top: 10),
+                                            child: const Text(
+                                              'AUCTION',
+                                              style: const TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontFamily: 'Hind'),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  const Color.fromRGBO(41, 41, 41, 0.37)),
+                              foregroundColor:
+                                  MaterialStateProperty.all<Color>(Colors.white),
+                              shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(16)),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                    const Padding(
-                        padding: EdgeInsets.only(
-                      left: 15,
-                      top: 20,
-                    )),
-                  ],
+
+                      //************************ Create ADS Button *************************
+
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => createads(),
+                              ));
+                        },
+                        child: Container(
+                          height: 30,
+                          width: 91,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: 5,
+                              ),
+                              const Icon(
+                                Icons.attach_file_outlined,
+                                size: 31,
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Stack(
+                                    children: [
+                                      const Padding(
+                                        padding: const EdgeInsets.only(top: 0),
+                                        child: const Align(
+                                          alignment: Alignment.topLeft,
+                                          child: Text(
+                                            'CREATE',
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'Hind'),
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: const EdgeInsets.only(top: 10),
+                                        child: const Text(
+                                          'ADS',
+                                          style: TextStyle(
+                                              fontSize: 17,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: 'Hind'),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              const Color.fromRGBO(41, 41, 41, 0.37)),
+                          foregroundColor:
+                              MaterialStateProperty.all<Color>(Colors.white),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(14)),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
 
                 //******************* Card 1 ******************************
 
                 Container(
-                  width: 340,
+                  width: 360,
                   height: 165,
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -441,7 +433,7 @@ class _HomeState extends State<Home> {
                   child: Stack(
                     children: [
                       Positioned(
-                        left: 73,
+                        left: 67,
                         top: 48,
                         child: Image.asset(
                           'assets/images/card car 1.png',
@@ -473,7 +465,7 @@ class _HomeState extends State<Home> {
                             ),
                             style: ButtonStyle(
                               backgroundColor: MaterialStateProperty.all<Color>(
-                                  Color.fromRGBO(255, 255, 255, 0.4)),
+                                  Color.fromRGBO(23, 23, 23, 0.17)),
                               foregroundColor: MaterialStateProperty.all<Color>(
                                   Colors.white),
                               shape: MaterialStateProperty.all<
@@ -486,6 +478,11 @@ class _HomeState extends State<Home> {
                             ),
                             onPressed: () {},
                           )),
+                      Padding(padding: EdgeInsets.only(left: 312,top: 10),
+                      child: Image.asset(
+                        'assets/images/mercedes_logo.png',
+                        width: 30,
+                      ),),
                       Stack(
                         children: [
                           Padding(padding: EdgeInsets.only(top: 10,left: 13),
@@ -523,7 +520,7 @@ class _HomeState extends State<Home> {
 
                 //------------------Card 2-----------------------------
                 Container(
-                  width: 340,
+                  width: 360,
                   height: 165,
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -577,7 +574,7 @@ class _HomeState extends State<Home> {
                             ),
                             style: ButtonStyle(
                               backgroundColor: MaterialStateProperty.all<Color>(
-                                  Color.fromRGBO(255, 255, 255, 0.4)),
+                                  Color.fromRGBO(255, 255, 255, 0.17)),
                               foregroundColor: MaterialStateProperty.all<Color>(
                                   Colors.white),
                               shape: MaterialStateProperty.all<
@@ -590,6 +587,11 @@ class _HomeState extends State<Home> {
                             ),
                             onPressed: () {},
                           )),
+                      Padding(padding: EdgeInsets.only(left: 310,),
+                        child: Image.asset(
+                          'assets/images/img_fire.png',
+                          width: 80,
+                        ),),
                       Stack(
                         children: [
                           Padding(padding: EdgeInsets.only(top: 10,left: 15),
@@ -641,7 +643,7 @@ class _HomeState extends State<Home> {
                           ],
                         ),
                         margin: const EdgeInsets.only(
-                          top: 40,
+                          top: 25,
                           bottom: 13,
                           left: 25,
                         ),
@@ -652,7 +654,7 @@ class _HomeState extends State<Home> {
                           ),
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all<Color>(
-                                Color.fromRGBO(255, 255, 255, 0.4)),
+                                Color.fromRGBO(255, 255, 255, 0.34)),
                             foregroundColor:
                                 MaterialStateProperty.all<Color>(Colors.white),
                             shape: MaterialStateProperty.all<
@@ -686,7 +688,7 @@ class _HomeState extends State<Home> {
                             size: 35,
                             color: Colors.black87,
                           ),
-                          padding: EdgeInsets.only(top: 30, bottom: 15),
+                          padding: EdgeInsets.only(top: 20, bottom: 15),
                         ),
                       ),
                     ),
@@ -707,7 +709,7 @@ class _HomeState extends State<Home> {
                           ],
                         ),
                         margin: const EdgeInsets.only(
-                            top: 40, right: 25, bottom: 13),
+                            top: 25, right: 25, bottom: 13),
                         child: TextButton(
                           child: Icon(
                             Icons.shopping_cart_outlined,
@@ -715,7 +717,7 @@ class _HomeState extends State<Home> {
                           ),
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all<Color>(
-                                Color.fromRGBO(255, 255, 255, 0.4)),
+                                Color.fromRGBO(255, 255, 255, 0.34)),
                             foregroundColor:
                                 MaterialStateProperty.all<Color>(Colors.white),
                             shape: MaterialStateProperty.all<
@@ -733,6 +735,7 @@ class _HomeState extends State<Home> {
                         )),
                   ],
                 ),
+                    SizedBox(height: 4,)
               ]),
             ),
 
@@ -869,8 +872,8 @@ class _HomeState extends State<Home> {
                                       ),
                                       child: TextButton(
                                         child: Icon(
-                                          Icons.drive_file_rename_outline,
-                                          size: 30,
+                                          FontAwesomeIcons.edit,
+                                          size: 25,
                                         ),
                                         style: ButtonStyle(
                                           backgroundColor: MaterialStateProperty.all<Color>(
@@ -942,7 +945,14 @@ class _HomeState extends State<Home> {
                                     borderRadius:
                                     BorderRadius.only(bottomRight: Radius.circular(20)),
                                     color: Color.fromRGBO(217, 217, 217, 0.75)),
-                                child: Stack(
+                                child: TextButton(onPressed: (){
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => LiveAuction(),
+                                      ));
+                                }, child:
+                                Stack(
                                   children: [
                                     const Padding(
                                       padding: const EdgeInsets.only(top: 5, left: 43),
@@ -983,6 +993,7 @@ class _HomeState extends State<Home> {
                                     ),
                                   ],
                                 ),
+                              ),
                               ),
                               SizedBox(
                                 height: 7,

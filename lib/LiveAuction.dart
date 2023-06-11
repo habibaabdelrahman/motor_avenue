@@ -36,11 +36,11 @@ class LiveAuction extends StatelessWidget {
                       ));},
                   iconSize: 32,
                   color: Colors.white,
-                  padding: const EdgeInsets.only(top: 50, left: 20)),
+                  padding: const EdgeInsets.only(top: 30, left: 20)),
               Expanded(
                 child: Center(
                   child: Container(
-                    margin: const EdgeInsets.only(top: 60),
+                    margin: const EdgeInsets.only(top: 40),
                     child: Image.asset(
                       'assets/images/logo white.png',
                       width: 72,
@@ -58,11 +58,11 @@ class LiveAuction extends StatelessWidget {
                   },
                   iconSize: 35,
                   color: Colors.white,
-                  padding: const EdgeInsets.only(top: 50, right: 20)),
+                  padding: const EdgeInsets.only(top: 35, right: 20)),
             ],
           ),
           SizedBox(
-            height: 680,
+            height: 675,
             child: PageView(controller: _controllar, children: [
               Stack(children: [
                 WidgetAnimator(
@@ -190,8 +190,113 @@ class LiveAuction extends StatelessWidget {
                                 onTap: () {},
                                 child: Stack(children: [
                                   Image.asset(
-                                    'assets/images/car 1.png',
-                                    height: 187,
+                                    'assets/images/car2.png',
+                                    height: 190,
+                                    width: 400,
+                                  ),
+                                  Flexible(
+                                    fit: FlexFit.tight,
+                                    child: Align(
+                                      alignment: Alignment.centerRight,
+                                      child: Container(
+                                          height: 33,
+                                          constraints: BoxConstraints(
+                                            maxWidth: 215,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.only(
+                                                bottomRight:
+                                                Radius.circular(20),
+                                                topLeft: Radius.circular(21)),
+                                            color: Color.fromRGBO(
+                                                255, 255, 255, 0.4),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.3),
+                                                spreadRadius: 3,
+                                                blurRadius: 20,
+                                                offset: Offset(0,
+                                                    3), // changes position of shadow
+                                              ),
+                                            ],
+                                          ),
+                                          margin: const EdgeInsets.only(
+                                            top: 153,
+                                          ),
+                                          child: Container(
+                                            child: Row(
+                                              children: [
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 9)),
+                                                Icon(
+                                                  Icons.report_gmailerrorred_outlined,
+                                                  size: 22,
+                                                ),
+                                                SizedBox(width: 3,),
+                                                Text(
+                                                  '7 Days',
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                      fontFamily: 'Hind'),
+                                                ),
+                                                VerticalDivider(
+                                                  width: 20,
+                                                  indent: 7,
+                                                  endIndent: 7,
+                                                  thickness: 2,
+                                                  color: Colors.black,
+                                                ),
+                                                Text(
+                                                  'BID',
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                      fontFamily: 'Hind'),
+                                                ),
+                                                Stack(
+                                                  children: [
+                                                    Icon(
+                                                      Icons.attach_money_sharp,
+                                                      size: 22,
+                                                    ),
+                                                    Padding(padding: EdgeInsets.only(left: 16,top: 2),
+                                                      child:
+                                                      Text(
+                                                        '967,000',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight:
+                                                            FontWeight.bold,
+                                                            fontFamily: 'Hind'),
+                                                      ),),
+                                                  ],
+                                                )
+
+                                              ],
+                                            ),
+                                          )),
+                                    ),
+                                  ),
+                                ]),
+                              ),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(21),
+                              ),
+                              margin: EdgeInsets.only(
+                                  left: 10, right: 10, top: 5, bottom: 5),
+                              child: InkWell(
+                                onTap: () {},
+                                child: Stack(children: [
+                                  Image.asset(
+                                    'assets/images/car3.png',
+                                    height: 190,
                                     width: 400,
                                   ),
                                   Flexible(
@@ -295,112 +400,7 @@ class LiveAuction extends StatelessWidget {
                                 onTap: () {},
                                 child: Stack(children: [
                                   Image.asset(
-                                    'assets/images/car 1.png',
-                                    height: 187,
-                                    width: 400,
-                                  ),
-                                  Flexible(
-                                    fit: FlexFit.tight,
-                                    child: Align(
-                                      alignment: Alignment.centerRight,
-                                      child: Container(
-                                          height: 33,
-                                          constraints: BoxConstraints(
-                                            maxWidth: 215,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                                bottomRight:
-                                                Radius.circular(20),
-                                                topLeft: Radius.circular(21)),
-                                            color: Color.fromRGBO(
-                                                255, 255, 255, 0.4),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.grey
-                                                    .withOpacity(0.3),
-                                                spreadRadius: 3,
-                                                blurRadius: 20,
-                                                offset: Offset(0,
-                                                    3), // changes position of shadow
-                                              ),
-                                            ],
-                                          ),
-                                          margin: const EdgeInsets.only(
-                                            top: 149,
-                                          ),
-                                          child: Container(
-                                            child: Row(
-                                              children: [
-                                                Padding(
-                                                    padding: EdgeInsets.only(
-                                                        left: 9)),
-                                                Icon(
-                                                  Icons.report_gmailerrorred_outlined,
-                                                  size: 22,
-                                                ),
-                                                SizedBox(width: 3,),
-                                                Text(
-                                                  '7 Days',
-                                                  style: TextStyle(
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                      FontWeight.bold,
-                                                      fontFamily: 'Hind'),
-                                                ),
-                                                VerticalDivider(
-                                                  width: 20,
-                                                  indent: 7,
-                                                  endIndent: 7,
-                                                  thickness: 2,
-                                                  color: Colors.black,
-                                                ),
-                                                Text(
-                                                  'BID',
-                                                  style: TextStyle(
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                      FontWeight.bold,
-                                                      fontFamily: 'Hind'),
-                                                ),
-                                                Stack(
-                                                  children: [
-                                                    Icon(
-                                                      Icons.attach_money_sharp,
-                                                      size: 22,
-                                                    ),
-                                                    Padding(padding: EdgeInsets.only(left: 16,top: 2),
-                                                      child:
-                                                      Text(
-                                                        '967,000',
-                                                        style: TextStyle(
-                                                            fontSize: 16,
-                                                            fontWeight:
-                                                            FontWeight.bold,
-                                                            fontFamily: 'Hind'),
-                                                      ),),
-                                                  ],
-                                                )
-
-                                              ],
-                                            ),
-                                          )),
-                                    ),
-                                  ),
-                                ]),
-                              ),
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(21),
-                              ),
-                              margin: EdgeInsets.only(
-                                  left: 10, right: 10, top: 5, bottom: 5),
-                              child: InkWell(
-                                onTap: () {},
-                                child: Stack(children: [
-                                  Image.asset(
-                                    'assets/images/car 1.png',
+                                    'assets/images/car4.png',
                                     height: 187,
                                     width: 400,
                                   ),
