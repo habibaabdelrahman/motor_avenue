@@ -2,21 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:motor_avenue/Home.dart';
 import 'package:motor_avenue/Requests.dart';
 import 'package:motor_avenue/Settings.dart';
-import 'package:motor_avenue/car_details.dart';
 import 'package:motor_avenue/contactus.dart';
 import 'package:motor_avenue/order.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class store extends StatefulWidget {
   @override
   State<store> createState() => _storeState();
 }
-
 class _storeState extends State<store> {
-  final _controllar = PageController();
   bool isPopupVisible = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1286,10 +1281,7 @@ class _storeState extends State<store> {
                                             21.5))),
                               ),)
                         ),
-                        SizedBox(
-                          height: 15  ,
-                        ),
-
+                        SizedBox(height: 15  ,),
                       ])),
             ]),
           ),

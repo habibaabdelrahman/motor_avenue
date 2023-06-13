@@ -1,175 +1,95 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 
-class ImagePickerScreen extends StatefulWidget {
+class UploadPhotoPage extends StatefulWidget {
   @override
-  _ImagePickerScreenState createState() => _ImagePickerScreenState();
+  _UploadPhotoPageState createState() => _UploadPhotoPageState();
 }
 
-class _ImagePickerScreenState extends State<ImagePickerScreen> {
+class _UploadPhotoPageState extends State<UploadPhotoPage> {
+  File? _selectedImage;
 
-  String? _selectedCategory;
+  Future<void> _pickImage(ImageSource source) async {
+    final pickedImage = await ImagePicker().getImage(source: source);
+
+    if (pickedImage != null) {
+      setState(() {
+        _selectedImage = File(pickedImage.path);
+      });
+    }
+  }
+
+  Future<void> _uploadPhoto() async {
+    // Implement your upload logic here
+    // For example, you can upload the selected image to a server
+    if (_selectedImage != null) {
+      // Perform the upload operation
+      // ...
+      print('Image uploaded successfully!');
+    } else {
+      print('No image selected!');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Image Picker Example'),
+        title: Text('Upload Photo'),
       ),
-      body: Column(
-        children: [
-          Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 20, top: 10),
-                child: Row(
-                  children: [
-                    ChoiceChip(
-                      label: const Text(
-                        'BENZEN',
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Colors.black87,
-                          fontWeight: FontWeight.normal,
-                          fontFamily: 'MontserratSubrayada',
-                        ),
-                      ),
-                      selected: _selectedCategory == 'BENZEN',
-                      onSelected: (selected) {
-                        setState(() {
-                          _selectedCategory = (selected ? 'BENZEN' : null)!;
-                        });
-                      },
-                      backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(21.5),
-                      ),
-                      selectedColor: Colors.amber, // Customize the selected color
-                    ),
-                    SizedBox(width: 15),
-                    ChoiceChip(
-                      label: const Text(
-                        'ELECTRONIC',
-                        style: TextStyle(
-                          color: Colors.black87,
-                          fontSize: 13,
-                          fontWeight: FontWeight.normal,
-                          fontFamily: 'MontserratSubrayada',
-                        ),
-                      ),
-                      selected: _selectedCategory == 'ELECTRONIC',
-                      onSelected: (selected) {
-                        setState(() {
-                          _selectedCategory = (selected ? 'ELECTRONIC' : null)!;
-                        });
-                      },
-                      backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(21.5),
-                      ),
-                      selectedColor: Colors.amber, // Customize the selected color
-                    ),
-                  ],
-                ),
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 20, top: 3),
-                    child: Row(
-                      children: [
-                        ChoiceChip(
-                          label: const Text(
-                            'HYBRID',
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.black87,
-                              fontWeight: FontWeight.normal,
-                              fontFamily: 'MontserratSubrayada',
-                            ),
-                          ),
-                          selected: _selectedCategory == 'HYBRID',
-                          onSelected: (selected) {
-                            setState(() {
-                              _selectedCategory = (selected ? 'HYBRID' : null)!;
-                            });
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _selectedImage != null
+                ? Image.file(
+              _selectedImage!,
+              height: 200,
+            )
+                : Icon(
+              Icons.image,
+              size: 200,
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text("Select Image"),
+                      actions: <Widget>[
+                        TextButton(
+                          child: Text("Camera"),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            _pickImage(ImageSource.camera);
                           },
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(21.5),
-                          ),
-                          selectedColor: Colors.amber, // Customize the selected color
                         ),
-                        SizedBox(width: 15),
-                        ChoiceChip(
-                          label: const Text(
-                            'DIESEL',
-                            style: TextStyle(
-                              color: Colors.black87,
-                              fontSize: 13,
-                              fontWeight: FontWeight.normal,
-                              fontFamily: 'MontserratSubrayada',
-                            ),
-                          ),
-                          selected: _selectedCategory == 'DIESEL',
-                          onSelected: (selected) {
-                            setState(() {
-                              _selectedCategory = (selected ? 'DIESEL' : null)!;
-                            });
+                        TextButton(
+                          child: Text("Gallery"),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            _pickImage(ImageSource.gallery);
                           },
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(21.5),
-                          ),
-                          selectedColor: Colors.amber, // Customize the selected color
                         ),
                       ],
-                    ),
-                  ),
-                ],
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 20, top: 3),
-                        child: ChoiceChip(
-                          label: const Text(
-                            'NATURAL GAS',
-                            style: TextStyle(
-                              color: Colors.black87,
-                              fontSize: 13,
-                              fontWeight: FontWeight.normal,
-                              fontFamily: 'MontserratSubrayada',
-                            ),
-                          ),
-                          selected: _selectedCategory == 'NATURAL GAS',
-                          onSelected: (selected) {
-                            setState(() {
-                              _selectedCategory = (selected ? 'NATURAL GAS' : null)!;
-                            });
-                          },
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(21.5),
-                          ),
-                          selectedColor: Colors.amber, // Customize the selected color
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-
-
-        ],
+                    );
+                  },
+                );
+              },
+              child: Text("Select Image"),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _uploadPhoto,
+              child: Text("Upload"),
+            ),
+          ],
+        ),
       ),
     );
   }
-
 }
